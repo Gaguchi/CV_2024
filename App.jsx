@@ -1,6 +1,7 @@
 // App.jsx
 import React from 'react';
-import 'windi.css'
+import 'windi.css';
+import ThreeScene from './main.jsx';
 
 function App() {
     return (
@@ -20,12 +21,13 @@ function App() {
             <button className="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-600">Button</button>
           </div>
         </header>
-        <main className="flex mt-10 mx-6">
+        <main className="flex mt-10 mx-6 h-full" style={{ height: 'calc(90vh - 64px)' }}>
           <div className="w-1/2">
             <h2 className="text-3xl font-bold mb-2">Hello, world!</h2>
             <p className="text-gray-700">Welcome to our website. We're glad to have you here.</p>
           </div>
-          <div className="w-1/2 bg-gray-200"></div>
+          <div className="w-1/2 bg-gray-200 h-full">
+          <ThreeScene /></div>
         </main>
       </div>
     );
