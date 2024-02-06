@@ -16,7 +16,7 @@ function ThreeScene({ rotation }) {
 
 		loader.load('/robo.glb', (gltf) => {
 			model = gltf.scene;
-			model.position.set(0, -2, -2);
+			model.position.set(0, -2, -1);
 			model.traverse((object) => {
 				if (object.isMesh) {
 					object.geometry.rotateZ(rotation); 
