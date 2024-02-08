@@ -1,7 +1,8 @@
 // index.jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import { createRoot } from 'react-dom/client';
 import 'windi.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root');
+createRoot(root).render(<App />);
