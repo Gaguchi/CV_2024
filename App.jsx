@@ -1,14 +1,62 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'windi.css';
+import { motion, useAnimation } from 'framer-motion';
 import ThreeScene from './main.jsx';
 
 function App() {
   const [rotation, setRotation] = useState(0);
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const image1Ref = useRef(null);
+  const image2Ref = useRef(null);
+  const image3Ref = useRef(null);
+  // Add a new state variable
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log("Intersecting element:", entry.target);
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);  // Set the state variable to true
+          if (entry.target.isSameNode(image1Ref.current)) {
+            console.log("Animating image 1");
+            controls1.start({
+              x: 0,
+              transition: { duration: 1 },
+            });
+            console.log("Animating image 2");
+            controls2.start({
+              x: 0,
+              transition: { duration: 1},
+            });
+            console.log("Animating image 3");
+            controls3.start({
+              y: 0,
+              transition: { duration: 1},
+            });
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (image1Ref.current) observer.observe(image1Ref.current);
+    if (image2Ref.current) observer.observe(image2Ref.current);
+    if (image3Ref.current) observer.observe(image3Ref.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [controls1, controls2, controls3, image1Ref.current, image2Ref.current, image3Ref.current, hasAnimated]);  // Add the state variable to the dependency array
 
   const handleSliderChange = (event) => {
     setRotation(event.target.value);
   };
+
+
 
   return (
     <div className="font-sans text-gray-900 antialiased">
@@ -80,7 +128,7 @@ function App() {
           <section className="flex flex-col justify-center max-w-6xl min-h-screen px-10 py-10 mx-auto sm:px-16">
             <div className="flex flex-wrap -mx-4">
               <div className="relative w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/4 flex flex-col">
-                <div className="absolute top-0 left-0 transform -translate-x-4 -translate-y-1/2 z-10 w-20 h-20 bg-orange-500 rounded-full"></div>
+                <div className="absolute top-0 left-0 transhtmlForm -translate-x-4 -translate-y-1/2 z-10 w-20 h-20 bg-orange-500 rounded-full"></div>
                   <img src="https://source.unsplash.com/Lki74Jj7H-U/400x300" alt="Card img" className="object-cover object-center w-full h-48" />
                   <div className="flex flex-grow">
                       <div className="triangle"></div>
@@ -202,74 +250,96 @@ function App() {
                     <div className="relative">
                         <div style={{ paddingTop: '30.25%' }}>
                             <div style={{position:'absolute', top: '-70%', left: 0, width: '100%', height: '100%'}}>
-                                <img style={{ position: 'absolute', zIndex: 1 }} src="/images/laptop.png" alt="Description of Image 1" />
-                                <img style={{ position: 'absolute', zIndex: 2 }} src="/images/tablet.png" alt="Description of Image 2" />
-                                <img style={{ position: 'absolute', zIndex: 3 }} src="/images/phone.png" alt="Description of Image 3" />
+                            <motion.img
+                              ref={image1Ref}
+                              className="absolute z-10"
+                              src="/images/laptop.png"
+                              alt="Description of Image 1"
+                              initial={{ x: 100, y: -50 }}  // Start from 100px to the right and 50px up
+                              animate={controls1}
+                            />
+                            <motion.img
+                              ref={image2Ref}
+                              className="absolute z-20"
+                              src="/images/tablet.png"
+                              alt="Description of Image 2"
+                              initial={{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
+                              animate={controls2}
+                              transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
+                            />
+                            <motion.img
+                              ref={image3Ref}
+                              className="absolute z-30"
+                              src="/images/phone.png"
+                              alt="Description of Image 3"
+                              initial={{ y: 250 }}  // Start from 200px below
+                              animate={controls3}
+                            />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="body-font relative bg-gray-900 text-gray-400">
+            <section className="body-font relative bg-gray-900 text-gray-400">
 
-<div class="container mx-auto px-5 py-24">
+<div className="container mx-auto px-5 py-24">
   
-  <div class="mb-12 flex w-full flex-col text-center">
-    <h1 class="title-font mb-4 text-2xl font-medium text-white sm:text-3xl">Contact Us</h1>
-    <p class="mx-auto text-base leading-relaxed lg:w-2/3">Feel free to reach out to us! Whether you have a question,
+  <div className="mb-12 flex w-full flex-col text-center">
+    <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl">Contact Us</h1>
+    <p className="mx-auto text-base leading-relaxed lg:w-2/3">Feel free to reach out to us! Whether you have a question,
       feedback, or a collaboration proposal, we'd love to hear from you.
     </p>
   </div>
 
-  <div class="mx-auto md:w-2/3 lg:w-1/2">
-    <div class="-m-2 flex flex-wrap">
+  <div className="mx-auto md:w-2/3 lg:w-1/2">
+    <div className="-m-2 flex flex-wrap">
 
-      <div class="w-1/2 p-2">
-        <div class="relative">
-          <input type="text" id="name" name="name" class="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
-          <label for="name" class="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Name</label>
+      <div className="w-1/2 p-2">
+        <div className="relative">
+          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
+          <label htmlFor="name" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Name</label>
         </div>
       </div>
-      <div class="w-1/2 p-2">
-        <div class="relative">
-          <input type="email" id="email" name="email" class="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
-          <label for="email" class="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Email</label>
+      <div className="w-1/2 p-2">
+        <div className="relative">
+          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
+          <label htmlFor="email" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Email</label>
         </div>
       </div>
-      <div class="mt-4 w-full p-2">
-        <div class="relative">
-          <textarea id="message" name="message" class="peer h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
-          <label for="message" class="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Message</label>
+      <div className="mt-4 w-full p-2">
+        <div className="relative">
+          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
+          <label htmlFor="message" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Message</label>
         </div>
       </div>
-      <div class="w-full p-2">
-        <button class="mx-auto flex rounded border-0 bg-indigo-500 py-2 px-8 text-lg text-white hover:bg-indigo-600 focus:outline-none">Button</button>
+      <div className="w-full p-2">
+        <button className="mx-auto flex rounded border-0 bg-indigo-500 py-2 px-8 text-lg text-white hover:bg-indigo-600 focus:outline-none">Button</button>
       </div>
 
 
 
-      <div class="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
-        <a class="text-indigo-400">example@email.com</a>
-        <p class="my-5 leading-normal">49 Smith St. <br />Saint Cloud, MN 56301</p>
-        <span class="inline-flex">
-          <a class="text-gray-500">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="h-5 w-5" viewBox="0 0 24 24">
+      <div className="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
+        <a className="text-indigo-400">example@email.com</a>
+        <p className="my-5 leading-normal">49 Smith St. <br />Saint Cloud, MN 56301</p>
+        <span className="inline-flex">
+          <a className="text-gray-500">
+            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
             </svg>
           </a>
-          <a class="ml-4 text-gray-500">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="h-5 w-5" viewBox="0 0 24 24">
+          <a className="ml-4 text-gray-500">
+            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
             </svg>
           </a>
-          <a class="ml-4 text-gray-500">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="h-5 w-5" viewBox="0 0 24 24">
+          <a className="ml-4 text-gray-500">
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
             </svg>
           </a>
-          <a class="ml-4 text-gray-500">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="h-5 w-5" viewBox="0 0 24 24">
+          <a className="ml-4 text-gray-500">
+            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
             </svg>
           </a>
