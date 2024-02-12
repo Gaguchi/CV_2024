@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="font-sans text-gray-900 antialiased">
-      <main className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
+      <main className="dark:bg-gray-800 bg-white relative overflow-hidden">
         <header className="h-24 sm:h-32 flex items-center z-30 w-full">
           <div className="container mx-auto px-6 flex items-center justify-between">
             <div className="uppercase text-gray-800 dark:text-white font-black text-3xl">
@@ -48,8 +48,8 @@ function App() {
           </div>
         </header>
     <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
-        <div className="container mx-auto px-6 flex relative py-16">
-            <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+        <div className="container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
+            <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
                 <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
                 </span>
                 <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
@@ -71,7 +71,7 @@ function App() {
                     </a>
                 </div>
             </div>
-            <div className="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+            <div className="xs:w-1/3 sm:w-1/3 lg:w-3/5 relative">
                 <ThreeScene className="h-full" rotation={rotation * Math.PI} />
             </div>
         </div>
@@ -94,8 +94,7 @@ function App() {
                                   What Zombies Can Teach You About Food
                               </a>
                               <p className="mb-4">
-                                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla delectus corporis commodi
-                                  aperiam, amet cupiditate?
+                                  Lorem ipsum dolor,?
                               </p>
                           </div>
                           <div>
@@ -125,7 +124,7 @@ function App() {
                                   Old School Art
                               </a>
                               <p className="mb-4">
-                                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla delectus.
+                                  Lorem ipsum dolor, .
                               </p>
                           </div>
                           <div>
@@ -155,7 +154,7 @@ function App() {
                                   5 Things To Do About Rain
                               </a>
                               <p className="mb-4">
-                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, neque. Eius, ea possimus.
+                                  Lorem ipsum dolor sit amet.
                               </p>
                           </div>
                           <div>
@@ -185,7 +184,7 @@ function App() {
                                   5 Things To Do About Rain
                               </a>
                               <p className="mb-4">
-                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, neque. Eius, ea possimus.
+                                  Lorem ipsum dolor sit amet.
                               </p>
                           </div>
                           <div>
@@ -198,6 +197,24 @@ function App() {
               </div>
             </div>
           </section>
+            <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center mt-2 mb-2 p-5">
+                <div className='max-w-5xl w-full md:min-w-2xl flex flex-col sm:flex-row'>
+                    <div className="text-left flex-1 relative order-2 sm:order-1 place-self-center">
+                        <h1 className="text-2xl font-bold mb-2">Centered Content</h1>
+                        <p>This is some centered content in a section with a grey background.</p>
+                    </div>
+                    <div className="relative flex-1 order-1 sm:order-2">
+                        <div style={{ paddingTop: '40.25%' }}>
+                            <div style={{position:'absolute', top: '-50%', left: 0, width: '100%', height: '100%'}}>
+                                <img style={{ position: 'absolute', zIndex: 1 }} src="/images/laptop.png" alt="Description of Image 1" />
+                                <img style={{ position: 'absolute', zIndex: 2 }} src="/images/tablet.png" alt="Description of Image 2" />
+                                <img style={{ position: 'absolute', zIndex: 3 }} src="/images/phone.png" alt="Description of Image 3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
       </div>
     );
   }
