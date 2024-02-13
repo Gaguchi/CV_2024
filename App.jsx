@@ -255,9 +255,21 @@ function App() {
                               className="absolute z-10"
                               src="/images/laptop.png"
                               alt="Description of Image 1"
-                              initial={{ x: 100, y: -50 }}  // Start from 100px to the right and 50px up
+                              initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
                               animate={controls1}
                             />
+                            
+                            <motion.video 
+                              className="absolute z-9" 
+                              src="/videos/cv_example_1v2.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ x: 100, y: 55  }}  // Start from 200px below
+                              animate={controls1}
+                              style={{ height: '99.8%', top: '37%', left: '37.8%' }}
+                            />
+
                             <motion.img
                               ref={image2Ref}
                               className="absolute z-20"
@@ -267,6 +279,19 @@ function App() {
                               animate={controls2}
                               transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
                             />
+                            
+                            <motion.video 
+                              className="absolute z-19" 
+                              src="/videos/cv_example_2.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ x: -250, y:50 }}  // Start from 200px below
+                              animate={controls2}
+                              transition={{ delay: 0.5 }}
+                              style={{ height: '101.8%', top: '59.3%', left: '11.8%' }}
+                            />
+
                             <motion.img
                               ref={image3Ref}
                               className="absolute z-30"
@@ -274,6 +299,17 @@ function App() {
                               alt="Description of Image 3"
                               initial={{ y: 250 }}  // Start from 200px below
                               animate={controls3}
+                            />
+
+                            <motion.video 
+                              className="absolute z-29" 
+                              src="/videos/cv_example_3.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ y: 250 }}  // Start from 200px below
+                              animate={controls3}
+                              style={{ height: '91.8%', top: '95.1%', left: '29.8%' }}
                             />
                             </div>
                         </div>
