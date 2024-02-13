@@ -261,7 +261,7 @@ function App() {
                             
                             <motion.video 
                               className="absolute z-9" 
-                              src="/videos/cv_example_1v2.mp4" 
+                              src="/videos/cv_example_1v2_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
@@ -282,7 +282,7 @@ function App() {
                             
                             <motion.video 
                               className="absolute z-19" 
-                              src="/videos/cv_example_2.mp4" 
+                              src="/videos/cv_example_2_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
@@ -303,7 +303,7 @@ function App() {
 
                             <motion.video 
                               className="absolute z-29" 
-                              src="/videos/cv_example_3.mp4" 
+                              src="/videos/cv_example_3_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
