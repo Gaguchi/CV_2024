@@ -95,8 +95,8 @@ function App() {
             </div>
           </div>
         </header>
-    <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
-        <div className="container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
+    <div className=" bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+        <div className="max-w-15c;c;,d, xl container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
             <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
                 <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
                 </span>
@@ -125,127 +125,136 @@ function App() {
         </div>
     </div>
 </main>
-          <section className="flex flex-col justify-center max-w-6xl min-h-screen px-10 py-10 mx-auto sm:px-16">
-            <div className="flex flex-wrap -mx-4">
-              <div className="relative w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/4 flex flex-col">
-                <div className="absolute top-0 left-0 transhtmlForm -translate-x-4 -translate-y-1/2 z-10 w-20 h-20 bg-orange-500 rounded-full"></div>
-                  <img src="https://source.unsplash.com/Lki74Jj7H-U/400x300" alt="Card img" className="object-cover object-center w-full h-48" />
-                  <div className="flex flex-grow">
-                      <div className="triangle"></div>
-                      <div className="flex flex-col justify-between px-4 py-6 bg-white border border-gray-400 text">
-                          <div>
-                              <a href="#"
-                                  className="inline-block mb-4 text-xs font-bold capitalize border-b-2 border-blue-600 hover:text-blue-600">Reliable
-                                  Schemas</a>
-                              <a href="#"
-                                  className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600">
-                                  What Zombies Can Teach You About Food
-                              </a>
-                              <p className="mb-4">
-                                  Lorem ipsum dolor,?
-                              </p>
-                          </div>
-                          <div>
-                              <a href="#"
-                                  className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600">Read
-                                  More </a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          
+          <section>
+          <div className="p-1 flex flex-wrap items-center justify-center max-w-6xl min-h-screen px-10 py-10 mx-auto sm:px-16">
 
-              <div className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/4 flex flex-col">
-                  <img
-                  src="https://source.unsplash.com/L9_6GOv40_E/400x300"
-                  alt="Card img"
-                  className="object-cover object-center w-full h-48"
-                />
-                  <div className="flex flex-grow">
-                      <div className="triangle"></div>
-                      <div className="flex flex-col justify-between px-4 py-6 bg-white border border-gray-400">
-                          <div>
-                              <a href="#"
-                                  className="inline-block mb-4 text-xs font-bold capitalize border-b-2 border-blue-600 hover:text-blue-600">Client-based
-                                  Adoption</a>
-                              <a href="#"
-                                  className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600">
-                                  Old School Art
-                              </a>
-                              <p className="mb-4">
-                                  Lorem ipsum dolor, .
-                              </p>
-                          </div>
-                          <div>
-                              <a href="#"
-                                  className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600">Read
-                                  More </a>
-                          </div>
-                      </div>
+          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
+              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
+                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div className="relative pt-10 px-10 flex items-center justify-center">
+                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                      style={{ 
+  background: "radial-gradient(black, transparent 60%)", 
+  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+  opacity: 0.2 
+}}>
+                  </div>
+                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
+              </div>
+              <div className="relative text-white px-6 pb-6 mt-6">
+                  <span className="block opacity-75 -mb-1">Indoor</span>
+                  <div className="flex justify-between">
+                      <span className="block font-semibold text-xl">Peace Lily</span>
+                      <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$36.00</span>
                   </div>
               </div>
+          </div>
+          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
+              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
+                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div className="relative pt-10 px-10 flex items-center justify-center">
+                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                      style={{ 
+  background: "radial-gradient(black, transparent 60%)", 
+  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+  opacity: 0.2 
+}}>
+                  </div>
+                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png" alt=""/>
+              </div>
+              <div className="relative text-white px-6 pb-6 mt-6">
+                  <span className="block opacity-75 -mb-1">Outdoor</span>
+                  <div className="flex justify-between">
+                      <span className="block font-semibold text-xl">Monstera</span>
+                      <span className="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$45.00</span>
+                  </div>
+              </div>
+          </div>
+          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
+              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
+                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div className="relative pt-10 px-10 flex items-center justify-center">
+                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                      style={{ 
+  background: "radial-gradient(black, transparent 60%)", 
+  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+  opacity: 0.2 
+}}>
+                  </div>
+                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
+              </div>
+              <div className="relative text-white px-6 pb-6 mt-6">
+                  <span className="block opacity-75 -mb-1">Outdoor</span>
+                  <div className="flex justify-between">
+                      <span className="block font-semibold text-xl">Oak Tree</span>
+                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
+                  </div>
+              </div>
+          </div>
 
-              <div className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/4 flex flex-col">
-                  <img
-                  src="https://source.unsplash.com/7JX0-bfiuxQ/400x300"
-                  alt="Card img"
-                  className="object-cover object-center w-full h-48"
-                />
-                  <div className="flex flex-grow">
-                      <div className="triangle"></div>
-                      <div className="flex flex-col justify-between px-4 py-6 bg-white border border-gray-400">
-                          <div>
-                              <a href="#"
-                                  className="inline-block mb-4 text-xs font-bold capitalize border-b-2 border-blue-600 hover:text-blue-600">Intellectual
-                                  Capital</a>
-                              <a href="#"
-                                  className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600">
-                                  5 Things To Do About Rain
-                              </a>
-                              <p className="mb-4">
-                                  Lorem ipsum dolor sit amet.
-                              </p>
-                          </div>
-                          <div>
-                              <a href="#"
-                                  className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600">Read
-                                  More </a>
-                          </div>
-                      </div>
+          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
+              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
+                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div className="relative pt-10 px-10 flex items-center justify-center">
+                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                      style={{ 
+  background: "radial-gradient(black, transparent 60%)", 
+  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+  opacity: 0.2 
+}}>
+                  </div>
+                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
+              </div>
+              <div className="relative text-white px-6 pb-6 mt-6">
+                  <span className="block opacity-75 -mb-1">Outdoor</span>
+                  <div className="flex justify-between">
+                      <span className="block font-semibold text-xl">Oak Tree</span>
+                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
                   </div>
               </div>
-              
-              <div className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/4 flex flex-col">
-                  <img
-                  src="https://source.unsplash.com/7JX0-bfiuxQ/400x300"
-                  alt="Card img"
-                  className="object-cover object-center w-full h-48"
-                />
-                  <div className="flex flex-grow">
-                      <div className="triangle"></div>
-                      <div className="flex flex-col justify-between px-4 py-6 bg-white border border-gray-400">
-                          <div>
-                              <a href="#"
-                                  className="inline-block mb-4 text-xs font-bold capitalize border-b-2 border-blue-600 hover:text-blue-600">Intellectual
-                                  Capital</a>
-                              <a href="#"
-                                  className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600">
-                                  5 Things To Do About Rain
-                              </a>
-                              <p className="mb-4">
-                                  Lorem ipsum dolor sit amet.
-                              </p>
-                          </div>
-                          <div>
-                              <a href="#"
-                                  className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600">Read
-                                  More </a>
-                          </div>
-                      </div>
+          </div>
+
+          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
+              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
+                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div className="relative pt-10 px-10 flex items-center justify-center">
+                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                      style={{ 
+  background: "radial-gradient(black, transparent 60%)", 
+  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+  opacity: 0.2 
+}}>
+                  </div>
+                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
+              </div>
+              <div className="relative text-white px-6 pb-6 mt-6">
+                  <span className="block opacity-75 -mb-1">Outdoor</span>
+                  <div className="flex justify-between">
+                      <span className="block font-semibold text-xl">Oak Tree</span>
+                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
                   </div>
               </div>
-            </div>
+          </div>
+          </div>
           </section>
-            <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center p-5">
+
+            {/* <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center p-5">
                 <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
                         <div style={{ paddingTop: '30.25%' }}>
@@ -258,9 +267,9 @@ function App() {
                               initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
                               animate={controls1}
                             />
-                            
+
                             <motion.video 
-                              className="absolute z-9" 
+                              className="absolute z-8" 
                               src="/videos/cv_example_1v2_sm.mp4" 
                               autoPlay 
                               loop 
@@ -315,9 +324,99 @@ function App() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section className="body-font relative bg-gray-900 text-gray-400">
+            <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+        <div className="container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
+            <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+                <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                    Be on
+                    <span className="text-5xl sm:text-7xl">
+                        Time
+                    </span>
+                </h1>
+            <input type="range" min="0" max="2" step="0.01" value={rotation} onChange={handleSliderChange} />
+                <div className="flex mt-8">
+                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                        Get started
+                    </a>
+                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+                        Read more
+                    </a>
+                </div>
+            </div>
+            
+            <div className='lg:max-w-7xl w-full'>
+                    <div className="relative">
+                        <div style={{ paddingTop: '30.25%' }}>
+                            <div style={{position:'absolute', top: '-70%', left: 0, width: '100%', height: '100%'}}>
+                            <motion.img
+                              ref={image1Ref}
+                              className="absolute z-10 md:visible xs:hidden"
+                              src="/images/laptop.png"
+                              alt="Description of Image 1"
+                              initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
+                              animate={controls1}
+                            />
 
+                            <motion.video 
+                              className="absolute z-8 md:visible xs:hidden" 
+                              src="/videos/cv_example_1v2_sm.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ x: 100, y: 55  }}  // Start from 200px below
+                              animate={controls1}
+                              style={{ height: '99.8%', top: '37%', left: '37.8%' }}
+                            />
+
+                            <motion.img
+                              ref={image2Ref}
+                              className="absolute z-20"
+                              src="/images/tablet.png"
+                              alt="Description of Image 2"
+                              initial={{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
+                              animate={controls2}
+                              transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
+                            />
+                            
+                            <motion.video 
+                              className="absolute z-19" 
+                              src="/videos/cv_example_2_sm.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ x: -250, y:50 }}  // Start from 200px below
+                              animate={controls2}
+                              transition={{ delay: 0.5 }}
+                              style={{ height: '101.8%', top: '59.3%', left: '11.8%' }}
+                            />
+
+                            <motion.img
+                              ref={image3Ref}
+                              className="absolute z-30"
+                              src="/images/phone.png"
+                              alt="Description of Image 3"
+                              initial={{ y: 250 }}  // Start from 200px below
+                              animate={controls3}
+                            />
+
+                            <motion.video 
+                              className="absolute z-29" 
+                              src="/videos/cv_example_3_sm.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              initial={{ y: 250 }}  // Start from 200px below
+                              animate={controls3}
+                              style={{ height: '91.8%', top: '95.1%', left: '29.8%' }}
+                            />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 <div className="container mx-auto px-5 py-24">
   
   <div className="mb-12 flex w-full flex-col text-center">
