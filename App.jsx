@@ -364,24 +364,8 @@ function App() {
                 </div>
             </section> */}
             <section className="body-font relative bg-gray-900 text-gray-400">
-            <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center ">
-        <div className="container mx-auto  flex  flex-wrap-reverse relative py-16 justify-evenly">
-            <div className="relative z-20" style={{position:'absolute', top: '20%', left: '42.5%'}}>
-                <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
-                    Be on
-                    <span className="text-5xl sm:text-7xl">
-                        Time
-                    </span>
-                </h1>
-                <div className="flex mt-8">
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
-                        Get started
-                    </a>
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
-                        Read more
-                    </a>
-                </div>
-            </div>
+            <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
+        <div className="container mx-auto  flex  relative py-16 justify-evenly">
             
             <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
@@ -389,7 +373,7 @@ function App() {
                             <div style={{position:'absolute', top: '-60%', left:0, width: '100%', height: '100%'}}>
                             <motion.img
                               ref={image1Ref}
-                              className="absolute z-10 sm:block hidden" // Change here
+                              className="absolute z-10 sm:block hidden pointer-events-none" // Change here
                               src="/images/laptop.png"
                               alt="Description of Image 1"
                               initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
@@ -397,57 +381,74 @@ function App() {
                             />
 
                             <motion.video 
-                              className="absolute z-8 sm:block hidden" // Change here
+                              className="absolute z-8 sm:block hidden pointer-events-none" // Change here
                               src="/videos/cv_example_1v2_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
                               initial={{ x: 100, y: 55  }}  // Start from 200px below
                               animate={controls1}
-                              style={{ height: '85.5%', top: '32%', left: '38%' }}
+                              style={{ height: '85.5%', top: '32%', left: '38%', filter: 'blur(2px)' }}
                             />
 
                             <motion.img
                               ref={image2Ref}
-                              className="absolute z-20"
+                              className="absolute z-20 pointer-events-none overflow-x-hidden"
                               src="/images/tablet.png"
                               alt="Description of Image 2"
-                              initial={{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
+                              initial={window.innerWidth <= 639 ? {  x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
                               animate={controls2}
                               transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
+                              style={window.innerWidth <= 639 ? {height: '87.7%', top: '0%', left: '100%',scale:4.5 } : { height: '178.7%', top: '-1%', left: '-0.1%'}}
                             />
                             
                             <motion.video 
-                              className="absolute z-19" 
+                              className="absolute z-19 pointer-events-none" 
                               src="/videos/cv_example_2_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
-                              initial={{ x: -250, y:50 }}  // Start from 200px below
+                              initial={window.innerWidth <= 639 ? { x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 200px below
                               animate={controls2}
                               transition={{ delay: 0.5 }}
-                              style={{ height: '87.7%', top: '50.1%', left: '11.7%' }}
+                              style={window.innerWidth <= 639 ? {height: '195.2%', top: '-40.6%', left: '39.8%', filter: 'blur(2px)'} : { height: '87.7%', top: '50.1%', left: '11.7%', filter: 'blur(2px)' }}
                             />
 
                             <motion.img
                               ref={image3Ref}
-                              className="absolute z-30"
+                              className="absolute z-30 pointer-events-none"
                               src="/images/phone.png"
                               alt="Description of Image 3"
                               initial={{ y: 250 }}  // Start from 200px below
                               animate={controls3}
+                              style={window.innerWidth <= 639 ? { height: '80%', top: '16.2%%', left: '36%', scale:5.1 } : { height: '178.1%', top: '-0.2%', left: '-0.2%' }}
                             />
 
                             <motion.video 
-                              className="absolute z-29" 
+                              className="absolute z-29 pointer-events-none" 
                               src="/videos/cv_example_3_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
                               initial={{ y: 250 }}  // Start from 200px below
                               animate={controls3}
-                              style={{ height: '79.2%', top: '81.2%', left: '29.8%' }}
+                              style={window.innerWidth <= 639 ? { height: '183.2%', top: '24.2%', left: '12.5%' } : { height: '79.2%', top: '81.2%', left: '29.8%' }}
                             />
+
+                            
+                            <div className="relative z-20" style={{position:'absolute', top: '84%', left: '43.2%'}}>
+                                <h1 className="font-bebas-neue uppercase md:text-6xl sm:text-5xl text-2xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                                    My 
+                                    <span className="sm:text-4xl md:text-7xl text-1xl">
+                                    Projects
+                                    </span>
+                                </h1>
+                                <div className="flex mt-2">
+                                    <a href="#" className="sm:text-1xl md:text-2xl text-xs uppercase py-1 px-2 sm:py-2 sm:px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                                        Get started
+                                    </a>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
