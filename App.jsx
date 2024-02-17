@@ -16,41 +16,79 @@ function App() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        console.log("Intersecting element:", entry.target);
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);  // Set the state variable to true
-          if (entry.target.isSameNode(image1Ref.current)) {
-            console.log("Animating image 1");
-            controls1.start({
-              x: 0,
-              transition: { duration: 1 },
-            });
-            console.log("Animating image 2");
-            controls2.start({
-              x: 0,
-              transition: { duration: 1},
-            });
-            console.log("Animating image 3");
-            controls3.start({
-              y: 0,
-              transition: { duration: 1},
-            });
+    if (window.innerWidth >= 639) {
+      console.log(window.innerWidth)
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          console.log("Intersecting element:", entry.target);
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);  // Set the state variable to true
+            if (entry.target.isSameNode(image1Ref.current)) {
+              console.log("Animating image 1");
+              controls1.start({
+                x: 0,
+                transition: { duration: 1 },
+              });
+              console.log("Animating image 2");
+              controls2.start({
+                x: 0,
+                transition: { duration: 1},
+              });
+              console.log("Animating image 3");
+              controls3.start({
+                y: 0,
+                transition: { duration: 1},
+              });
+            }
           }
-        }
-      },
-      { threshold: 0.1 }
-    );
+        },
+        { threshold: 0.1 }
+      );
 
-    if (image1Ref.current) observer.observe(image1Ref.current);
-    if (image2Ref.current) observer.observe(image2Ref.current);
-    if (image3Ref.current) observer.observe(image3Ref.current);
+      if (image1Ref.current) observer.observe(image1Ref.current);
+      if (image2Ref.current) observer.observe(image2Ref.current);
+      if (image3Ref.current) observer.observe(image3Ref.current);
 
-    return () => {
-      observer.disconnect();
-    };
+      return () => {
+        observer.disconnect();
+      };
+    }
   }, [controls1, controls2, controls3, image1Ref.current, image2Ref.current, image3Ref.current, hasAnimated]);  // Add the state variable to the dependency array
+
+  useEffect(() => {
+    // Check if the viewport width is less than or equal to 768px (typical breakpoint for mobile devices)
+    if (window.innerWidth <= 639) {
+      console.log(window.innerWidth)
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          console.log("Intersecting element:", entry.target);
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);  // Set the state variable to true
+            if (image2Ref.current && entry.target.isSameNode(image2Ref.current)) {
+              console.log("Animating image 2");
+              controls2.start({
+                x: 0,
+                transition: { duration: 1},
+              });
+              console.log("Animating image 3");
+              controls3.start({
+                y: 0,
+                transition: { duration: 1},
+              });
+            }
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      if (image2Ref.current) observer.observe(image2Ref.current);
+      if (image3Ref.current) observer.observe(image3Ref.current);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [controls2, controls3, image2Ref.current, image3Ref.current, hasAnimated]);  // Remove controls1 and image1Ref.current from the dependency array
 
   const handleSliderChange = (event) => {
     setRotation(event.target.value);
@@ -236,10 +274,10 @@ function App() {
               <div className="relative pt-10 px-10 flex items-center justify-center">
                   <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                       style={{ 
-  background: "radial-gradient(black, transparent 60%)", 
-  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-  opacity: 0.2 
-}}>
+                        background: "radial-gradient(black, transparent 60%)", 
+                        transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
+                        opacity: 0.2 
+                      }}>
                   </div>
                   <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
               </div>
@@ -326,16 +364,15 @@ function App() {
                 </div>
             </section> */}
             <section className="body-font relative bg-gray-900 text-gray-400">
-            <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
-        <div className="container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
-            <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+            <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center ">
+        <div className="container mx-auto  flex  flex-wrap-reverse relative py-16 justify-evenly">
+            <div className="relative z-20" style={{position:'absolute', top: '20%', left: '42.5%'}}>
                 <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
                     Be on
                     <span className="text-5xl sm:text-7xl">
                         Time
                     </span>
                 </h1>
-            <input type="range" min="0" max="2" step="0.01" value={rotation} onChange={handleSliderChange} />
                 <div className="flex mt-8">
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                         Get started
@@ -348,11 +385,11 @@ function App() {
             
             <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
-                        <div style={{ paddingTop: '30.25%' }}>
-                            <div style={{position:'absolute', top: '-70%', left: 0, width: '100%', height: '100%'}}>
+                        <div style={{ paddingTop: '35.250%' }}>
+                            <div style={{position:'absolute', top: '-60%', left:0, width: '100%', height: '100%'}}>
                             <motion.img
                               ref={image1Ref}
-                              className="absolute z-10 md:visible xs:hidden"
+                              className="absolute z-10 sm:block hidden" // Change here
                               src="/images/laptop.png"
                               alt="Description of Image 1"
                               initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
@@ -360,14 +397,14 @@ function App() {
                             />
 
                             <motion.video 
-                              className="absolute z-8 md:visible xs:hidden" 
+                              className="absolute z-8 sm:block hidden" // Change here
                               src="/videos/cv_example_1v2_sm.mp4" 
                               autoPlay 
                               loop 
                               muted 
                               initial={{ x: 100, y: 55  }}  // Start from 200px below
                               animate={controls1}
-                              style={{ height: '99.8%', top: '37%', left: '37.8%' }}
+                              style={{ height: '85.5%', top: '32%', left: '38%' }}
                             />
 
                             <motion.img
@@ -389,7 +426,7 @@ function App() {
                               initial={{ x: -250, y:50 }}  // Start from 200px below
                               animate={controls2}
                               transition={{ delay: 0.5 }}
-                              style={{ height: '101.8%', top: '59.3%', left: '11.8%' }}
+                              style={{ height: '87.7%', top: '50.1%', left: '11.7%' }}
                             />
 
                             <motion.img
@@ -409,7 +446,7 @@ function App() {
                               muted 
                               initial={{ y: 250 }}  // Start from 200px below
                               animate={controls3}
-                              style={{ height: '91.8%', top: '95.1%', left: '29.8%' }}
+                              style={{ height: '79.2%', top: '81.2%', left: '29.8%' }}
                             />
                             </div>
                         </div>
