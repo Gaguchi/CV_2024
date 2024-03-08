@@ -12,8 +12,60 @@ function App() {
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const image3Ref = useRef(null);
+  const [scale, setScale] = useState(1);
   // Add a new state variable
   const [hasAnimated, setHasAnimated] = useState(false);
+  
+const buttons = [
+  { name: 'Docker', color: 'blue' },
+  { name: 'MySQL', color: 'blue' },
+  { name: 'Node.js', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Kubernetes', color: 'green' },
+  { name: 'MongoDB', color: 'green' },
+  { name: 'Python', color: 'green' },
+  { name: 'Vue', color: 'green' },
+  { name: 'Jenkins', color: 'red' },
+  { name: 'PostgreSQL', color: 'red' },
+  { name: 'Java', color: 'red' },
+  { name: 'Angular', color: 'red' },
+  { name: 'Docker', color: 'blue' },
+  { name: 'MySQL', color: 'blue' },
+  { name: 'Node.js', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Kubernetes', color: 'green' },
+  { name: 'MongoDB', color: 'green' },
+  { name: 'Python', color: 'green' },
+  { name: 'Vue', color: 'green' },
+  { name: 'Jenkins', color: 'red' },
+  { name: 'PostgreSQL', color: 'red' },
+  { name: 'Java', color: 'red' },
+  { name: 'Angular', color: 'red' },
+  { name: 'Docker', color: 'blue' },
+  { name: 'MySQL', color: 'blue' },
+  { name: 'Node.js', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Kubernetes', color: 'green' },
+  { name: 'MongoDB', color: 'green' },
+  { name: 'Python', color: 'green' },
+  { name: 'Vue', color: 'green' },
+  { name: 'Jenkins', color: 'red' },
+  { name: 'PostgreSQL', color: 'red' },
+  { name: 'Java', color: 'red' },
+  { name: 'Angular', color: 'red' },
+];
+
+
+useEffect(() => {
+  const handleResize = () => {
+    setScale(Math.min(window.innerWidth / 1000, 1));
+  };
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
   useEffect(() => {
     if (window.innerWidth >= 639) {
@@ -292,6 +344,24 @@ function App() {
           </div>
           </section>
 
+
+<section className="p-1 flex flex-wrap items-center justify-center max-w-6xl min-h-screen px-0 py-0 mx-auto ">
+  <div className="bg-gray-300 p-5 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <h2 className="text-2xl font-bold mb-2">Header</h2>
+      <h3 className="text-xl mb-2">Sub-header</h3>
+      <p>Some paragraph text goes here.</p>
+    </div>
+    <div className="grid grid-cols-6 grid-rows-6 gap-4"  style={{maxWidth:'600px', maxHeight:'600px', transform: `scale(${scale})`,aspectRatio:'1' }}>
+      {buttons.map((button, index) => (
+        <button key={index} className={`group w-20 h-20 bg-${button.color}-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+          <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
             {/* <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center p-5">
                 <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
@@ -370,7 +440,7 @@ function App() {
             <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
                         <div style={{ paddingTop: '35.250%' }}>
-                            <div style={{position:'absolute', top: '-60%', left:0, width: '100%', height: '100%'}}>
+                            <div style={{position:'absolute', top: '-60%', left:0, width: '100%', height: '100%', pointerEvents: 'none'}}>
                             <motion.img
                               ref={image1Ref}
                               className="absolute z-10 sm:block hidden pointer-events-none" // Change here
@@ -436,7 +506,9 @@ function App() {
                             />
 
                             
-                            <div className="relative z-20" style={{position:'absolute', top: '84%', left: '43.2%'}}>
+                            
+                            </div>
+                            <div className="relative z-20" style={{position:'absolute', top: '28%', left: '43.2%'}}>
                                 <h1 className="font-bebas-neue uppercase md:text-6xl sm:text-5xl text-2xl font-black flex flex-col leading-none dark:text-white text-gray-800">
                                     My 
                                     <span className="sm:text-4xl md:text-7xl text-1xl">
@@ -448,7 +520,6 @@ function App() {
                                         Get started
                                     </a>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
