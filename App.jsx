@@ -17,7 +17,7 @@ function App() {
   const [hasAnimated, setHasAnimated] = useState(false);
   
 const buttons = [
-  { name: 'Docker', color: 'blue' },
+  { name: '', color: 'blue' },
   { name: 'MySQL', color: 'blue' },
   { name: 'Node.js', color: 'blue' },
   { name: 'React', color: 'blue' },
@@ -58,7 +58,11 @@ const buttons = [
 
 useEffect(() => {
   const handleResize = () => {
-    setScale(Math.min(window.innerWidth / 1000, 1));
+    if (window.innerWidth < 850) {
+      setScale(1);
+    } else {
+      setScale(Math.min(window.innerWidth / 1000, 1));
+    }
   };
 
   window.addEventListener('resize', handleResize);
@@ -354,7 +358,7 @@ useEffect(() => {
     </div>
     <div className="grid grid-cols-6 grid-rows-6 gap-4"  style={{maxWidth:'600px', maxHeight:'600px', transform: `scale(${scale})`,aspectRatio:'1' }}>
       {buttons.map((button, index) => (
-        <button key={index} className={`group w-20 h-20 bg-${button.color}-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+        <button key={index} className={`group w-20 h-20 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
           <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
         </button>
       ))}
