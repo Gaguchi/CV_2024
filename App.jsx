@@ -13,8 +13,8 @@ function App() {
   const image2Ref = useRef(null);
   const image3Ref = useRef(null);
   const [scale, setScale] = useState(1);
-  // Add a new state variable
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
 const buttons = [
   { name: '', color: 'blue' },
@@ -55,9 +55,32 @@ const buttons = [
   { name: 'Angular', color: 'red' },
 ];
 
+const smallScreenButtons = [
+  { name: '', color: 'blue' },
+  { name: 'MySQL', color: 'blue' },
+  { name: 'Node.js', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Kubernetes', color: 'green' },
+  { name: 'MongoDB', color: 'green' },
+  { name: 'Python', color: 'green' },
+  { name: 'Vue', color: 'green' },
+  { name: 'Jenkins', color: 'red' },
+  { name: 'PostgreSQL', color: 'red' },
+  { name: '', color: 'blue' },
+  { name: 'MySQL', color: 'blue' },
+  { name: 'Node.js', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Kubernetes', color: 'green' },
+  { name: 'MongoDB', color: 'green' },
+  { name: 'Python', color: 'green' },
+  { name: 'Vue', color: 'green' },
+  { name: 'Jenkins', color: 'red' },
+  { name: 'PostgreSQL', color: 'red' },
+];
 
 useEffect(() => {
   const handleResize = () => {
+    setWindowWidth(window.innerWidth);
     if (window.innerWidth < 850) {
       setScale(1);
     } else {
@@ -356,13 +379,23 @@ useEffect(() => {
       <h3 className="text-xl mb-2">Sub-header</h3>
       <p>Some paragraph text goes here.</p>
     </div>
-    <div className="grid grid-cols-6 grid-rows-6 gap-4"  style={{maxWidth:'600px', maxHeight:'600px', transform: `scale(${scale})`,aspectRatio:'1' }}>
-      {buttons.map((button, index) => (
-        <button key={index} className={`group w-20 h-20 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
-          <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
-        </button>
-      ))}
-    </div>
+      {windowWidth < 850 ? (
+        <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
+          {smallScreenButtons.map((button, index) => (
+            <button key={index} className={`group w-13 h-13 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-6 grid-rows-6 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
+          {buttons.map((button, index) => (
+            <button key={index} className={`group w-20 h-20 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
   </div>
 </section>
 
