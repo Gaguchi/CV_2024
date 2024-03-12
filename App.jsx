@@ -372,14 +372,14 @@ useEffect(() => {
           </section>
 
 
-<section className="p-1 flex flex-wrap items-center justify-center max-w-6xl min-h-screen px-0 py-0 mx-auto ">
-  <div className="bg-gray-300 p-5 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4">
+<section className="">
+  <div className="bg-gray-300 pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
       <h2 className="text-2xl font-bold mb-2">Header</h2>
       <h3 className="text-xl mb-2">Sub-header</h3>
       <p>Some paragraph text goes here.</p>
     </div>
-      {windowWidth < 850 ? (
+      {windowWidth < 450 ? (
         <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
           {smallScreenButtons.map((button, index) => (
             <button key={index} className={`group w-13 h-13 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
