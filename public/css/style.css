@@ -24,3 +24,17 @@
         @apply translate-y-0;
     }
 }
+
+.animactive{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 12.6px 25.2px -11.5733px rgba(50,50,93,.25), 0 7.56px 15.12px -7.56px;
+}
+
+.anim{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+}

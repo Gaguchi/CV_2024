@@ -17,71 +17,71 @@ function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
 const buttons = [
-  { name: '', color: 'blue' },
-  { name: 'MySQL', color: 'blue' },
-  { name: 'Node.js', color: 'blue' },
-  { name: 'React', color: 'blue' },
-  { name: 'Kubernetes', color: 'green' },
-  { name: 'MongoDB', color: 'green' },
-  { name: 'Python', color: 'green' },
-  { name: 'Vue', color: 'green' },
-  { name: 'Jenkins', color: 'red' },
-  { name: 'PostgreSQL', color: 'red' },
-  { name: 'Java', color: 'red' },
-  { name: 'Angular', color: 'red' },
-  { name: 'Docker', color: 'blue' },
-  { name: 'MySQL', color: 'blue' },
-  { name: 'Node.js', color: 'blue' },
-  { name: 'React', color: 'blue' },
-  { name: 'Kubernetes', color: 'green' },
-  { name: 'MongoDB', color: 'green' },
-  { name: 'Python', color: 'green' },
-  { name: 'Vue', color: 'green' },
-  { name: 'Jenkins', color: 'red' },
-  { name: 'PostgreSQL', color: 'red' },
-  { name: 'Java', color: 'red' },
-  { name: 'Angular', color: 'red' },
-  { name: 'Docker', color: 'blue' },
-  { name: 'MySQL', color: 'blue' },
-  { name: 'Node.js', color: 'blue' },
-  { name: 'React', color: 'blue' },
-  { name: 'Kubernetes', color: 'green' },
-  { name: 'MongoDB', color: 'green' },
-  { name: 'Python', color: 'green' },
-  { name: 'Vue', color: 'green' },
-  { name: 'Jenkins', color: 'red' },
-  { name: 'PostgreSQL', color: 'red' },
-  { name: 'Java', color: 'red' },
-  { name: 'Angular', color: 'red' },
+  { name: 'Server', class: 'active' },
+  { name: '2', class: '' },
+  { name: '3', class: 'active' },
+  { name: '4', class: '' },
+  { name: '5', class: 'active' },
+  { name: '6', class: '' },
+  { name: '7', class: '' },
+  { name: '8', class: 'active' },
+  { name: '9', class: '' },
+  { name: '10', class: 'active' },
+  { name: '11', class: '' },
+  { name: '12', class: 'active' },
+  { name: '13', class: 'active' },
+  { name: '14', class: '' },
+  { name: '15', class: 'active' },
+  { name: '16', class: '' },
+  { name: '17', class: 'active' },
+  { name: '18', class: '' },
+  { name: '19', class: '' },
+  { name: '20', class: 'active' },
+  { name: '21', class: '' },
+  { name: '22', class: 'active' },
+  { name: '23', class: '' },
+  { name: '24', class: 'active' },
+  { name: '25', class: 'active' },
+  { name: '26', class: '' },
+  { name: '27', class: 'active' },
+  { name: '28', class: '' },
+  { name: '29', class: 'active' },
+  { name: '30', class: '' },
+  { name: '31', class: '' },
+  { name: '32', class: 'active' },
+  { name: '33', class: '' },
+  { name: '34', class: 'active' },
+  { name: '35', class: '' },
+  { name: '36', class: 'active' },
 ];
 
 const smallScreenButtons = [
-  { name: '', color: 'blue' },
-  { name: 'MySQL', color: 'blue' },
-  { name: 'Node.js', color: 'blue' },
-  { name: 'React', color: 'blue' },
-  { name: 'Kubernetes', color: 'green' },
-  { name: 'MongoDB', color: 'green' },
-  { name: 'Python', color: 'green' },
-  { name: 'Vue', color: 'green' },
-  { name: 'Jenkins', color: 'red' },
-  { name: 'PostgreSQL', color: 'red' },
-  { name: '', color: 'blue' },
-  { name: 'MySQL', color: 'blue' },
-  { name: 'Node.js', color: 'blue' },
-  { name: 'React', color: 'blue' },
-  { name: 'Kubernetes', color: 'green' },
-  { name: 'MongoDB', color: 'green' },
-  { name: 'Python', color: 'green' },
-  { name: 'Vue', color: 'green' },
-  { name: 'Jenkins', color: 'red' },
-  { name: 'PostgreSQL', color: 'red' },
+  { name: '1', class: 'active' },
+  { name: '2', class: '' },
+  { name: '3', class: 'active' },
+  { name: '4', class: '' },
+  { name: '5', class: '' },
+  { name: '6', class: 'active' },
+  { name: '7', class: '' },
+  { name: '8', class: 'active' },
+  { name: '9', class: 'active' },
+  { name: '10', class: '' },
+  { name: '11', class: 'active' },
+  { name: '12', class: '' },
+  { name: '13', class: '' },
+  { name: '14', class: 'active' },
+  { name: '15', class: '' },
+  { name: '16', class: 'active' },
+  { name: '17', class: 'active' },
+  { name: '18', class: '' },
+  { name: '19', class: 'active' },
+  { name: '20', class: '' },
 ];
 
 useEffect(() => {
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
-    if (window.innerWidth < 850) {
+    if (window.innerWidth < 767) {
       setScale(1);
     } else {
       setScale(Math.min(window.innerWidth / 1000, 1));
@@ -379,10 +379,10 @@ useEffect(() => {
       <h3 className="text-xl mb-2">Sub-header</h3>
       <p>Some paragraph text goes here.</p>
     </div>
-      {windowWidth < 450 ? (
+      {windowWidth < 767 ? (
         <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
           {smallScreenButtons.map((button, index) => (
-            <button key={index} className={`group w-13 h-13 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+            <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
               <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
             </button>
           ))}
@@ -390,7 +390,7 @@ useEffect(() => {
       ) : (
         <div className="grid grid-cols-6 grid-rows-6 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
           {buttons.map((button, index) => (
-            <button key={index} className={`group w-20 h-20 bg-blue-500 relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+            <button key={index} className={`group w-20 h-20 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
               <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
             </button>
           ))}
@@ -577,19 +577,19 @@ useEffect(() => {
 
       <div className="w-1/2 p-2">
         <div className="relative">
-          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
+          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
           <label htmlFor="name" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Name</label>
         </div>
       </div>
       <div className="w-1/2 p-2">
         <div className="relative">
-          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
+          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
           <label htmlFor="email" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Email</label>
         </div>
       </div>
       <div className="mt-4 w-full p-2">
         <div className="relative">
-          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
+          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
           <label htmlFor="message" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Message</label>
         </div>
       </div>
@@ -604,23 +604,23 @@ useEffect(() => {
         <p className="my-5 leading-normal">49 Smith St. <br />Saint Cloud, MN 56301</p>
         <span className="inline-flex">
           <a className="text-gray-500">
-            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
+            <svg fill="currentclass" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
             </svg>
           </a>
           <a className="ml-4 text-gray-500">
-            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
+            <svg fill="currentclass" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
             </svg>
           </a>
           <a className="ml-4 text-gray-500">
-            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
+            <svg fill="none" stroke="currentclass" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
             </svg>
           </a>
           <a className="ml-4 text-gray-500">
-            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
+            <svg fill="currentclass" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
               <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
             </svg>
           </a>
