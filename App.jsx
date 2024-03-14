@@ -17,64 +17,64 @@ function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
 const buttons = [
-  { name: 'Server', class: 'active' },
-  { name: '2', class: '' },
-  { name: '3', class: 'active' },
-  { name: '4', class: '' },
-  { name: '5', class: 'active' },
-  { name: '6', class: '' },
-  { name: '7', class: '' },
-  { name: '8', class: 'active' },
-  { name: '9', class: '' },
-  { name: '10', class: 'active' },
-  { name: '11', class: '' },
-  { name: '12', class: 'active' },
-  { name: '13', class: 'active' },
-  { name: '14', class: '' },
-  { name: '15', class: 'active' },
-  { name: '16', class: '' },
-  { name: '17', class: 'active' },
-  { name: '18', class: '' },
-  { name: '19', class: '' },
-  { name: '20', class: 'active' },
-  { name: '21', class: '' },
-  { name: '22', class: 'active' },
-  { name: '23', class: '' },
-  { name: '24', class: 'active' },
-  { name: '25', class: 'active' },
-  { name: '26', class: '' },
-  { name: '27', class: 'active' },
-  { name: '28', class: '' },
-  { name: '29', class: 'active' },
-  { name: '30', class: '' },
-  { name: '31', class: '' },
-  { name: '32', class: 'active' },
-  { name: '33', class: '' },
-  { name: '34', class: 'active' },
-  { name: '35', class: '' },
-  { name: '36', class: 'active' },
+  { name: 'angular', class: 'active' , delay: 0.5},
+  { name: 'aws', class: '' , delay: 0.5},
+  { name: 'azure', class: 'active' , delay: 0.5},
+  { name: 'blender', class: '' , delay: 0.5},
+  { name: 'bootstrap', class: 'active' , delay: 0.5},
+  { name: 'css', class: '' , delay: 0.5},
+  { name: 'django', class: '' , delay: 0.5},
+  { name: 'docker', class: 'active' , delay: 0.5},
+  { name: 'firebase', class: '' , delay: 0.5},
+  { name: 'git-bash', class: 'active' , delay: 0.5},
+  { name: 'github', class: '' , delay: 0.5},
+  { name: 'graphql', class: 'active' , delay: 0.5},
+  { name: 'html', class: 'active' , delay: 0.5},
+  { name: 'javascript', class: '' , delay: 0.5},
+  { name: 'laravel', class: 'active' , delay: 0.5},
+  { name: 'mongodb', class: '' , delay: 0.5},
+  { name: 'nextjs', class: 'active' , delay: 0.5},
+  { name: 'nodejs', class: '' , delay: 0.5},
+  { name: 'php', class: '' , delay: 0.5},
+  { name: 'postgresql', class: 'active' , delay: 0.5},
+  { name: 'python', class: '' , delay: 0.5},
+  { name: 'rails', class: 'active' , delay: 0.5},
+  { name: 'react', class: '' , delay: 0.5},
+  { name: 'sass', class: 'active' , delay: 0.5},
+  { name: 'svelte', class: 'active' , delay: 0.5},
+  { name: 'tailwindcss', class: '' , delay: 0.5},
+  { name: 'threejs', class: 'active' , delay: 0.5},
+  { name: 'vue', class: '' , delay: 0.5},
+  { name: 'wordpress', class: 'active' , delay: 0.5},
+  { name: 'java', class: '' , delay: 0.5},
+  { name: 'mysql', class: '' , delay: 0.5},
+  { name: 'flutter', class: 'active' , delay: 0.5},
+  { name: 'json', class: '' , delay: 0.5},
+  { name: 'xampp', class: 'active' , delay: 0.5},
+  { name: 'vitejs', class: '' , delay: 0.5},
+  { name: 'kotlin', class: 'active' , delay: 0.5},
 ];
 
 const smallScreenButtons = [
-  { name: '1', class: 'active' },
+  { name: '1', class: 'active' , delay: 0.5},
   { name: '2', class: '' },
-  { name: '3', class: 'active' },
+  { name: '3', class: 'active' , delay: 0.5},
   { name: '4', class: '' },
   { name: '5', class: '' },
-  { name: '6', class: 'active' },
+  { name: '6', class: 'active' , delay: 0.5},
   { name: '7', class: '' },
-  { name: '8', class: 'active' },
-  { name: '9', class: 'active' },
+  { name: '8', class: 'active' , delay: 0.5},
+  { name: '9', class: 'active' , delay: 0.5},
   { name: '10', class: '' },
-  { name: '11', class: 'active' },
+  { name: '11', class: 'active' , delay: 0.5},
   { name: '12', class: '' },
   { name: '13', class: '' },
-  { name: '14', class: 'active' },
+  { name: '14', class: 'active' , delay: 0.5},
   { name: '15', class: '' },
-  { name: '16', class: 'active' },
-  { name: '17', class: 'active' },
+  { name: '16', class: 'active' , delay: 0.5},
+  { name: '17', class: 'active' , delay: 0.5},
   { name: '18', class: '' },
-  { name: '19', class: 'active' },
+  { name: '19', class: 'active' , delay: 0.5},
   { name: '20', class: '' },
 ];
 
@@ -372,28 +372,63 @@ useEffect(() => {
           </section>
 
 
-<section className="">
-  <div className="bg-gray-300 pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4">
+<section className="bg-gray-300 flex justify-center">
+  <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     <div>
       <h2 className="text-2xl font-bold mb-2">Header</h2>
       <h3 className="text-xl mb-2">Sub-header</h3>
       <p>Some paragraph text goes here.</p>
     </div>
-      {windowWidth < 767 ? (
+      {windowWidth < 640 ? (
         <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
           {smallScreenButtons.map((button, index) => (
-            <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
-              <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
-            </button>
+            button.class === 'active' ? (
+              <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+                <img src={`images/${button.name}-1.svg`} alt={`${button.name}`} style={{ transform: `scale(${scale-0.1})` }} />
+                <span className="absolute inset-0 flex items-center justify-center transition-opacity">{button.name}</span>
+              </button>
+            ) : (
+              <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
+                <img src={`images/${button.name}-w.svg`} alt={`${button.name}`} style={{ transform: `scale(${scale-0.1})` }} />
+                <span className="absolute inset-0 flex items-center justify-center transition-opacity">{button.name}</span>
+              </button>
+            )
           ))}
         </div>
       ) : (
         <div className="grid grid-cols-6 grid-rows-6 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
-          {buttons.map((button, index) => (
-            <button key={index} className={`group w-20 h-20 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
-              <span className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">{button.name}</span>
+        {buttons.map((button, index) => {
+          const [isHovered, setIsHovered] = useState(false);
+
+          return (
+            <button 
+              key={index} 
+              className={`group w-20 h-20 anim${button.class} flex text-center items-center justify-center relative overflow-hidden ${isHovered ? 'animactive' : 'anim'}`} 
+              style={{ transform: `scale(${button.class === 'active' || isHovered ? scale-0.1 : scale-0.3})`, transition: 'transform 0.3s ease'  }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <img 
+                src={`images/${button.name}${button.class === 'active' || isHovered ? '-1' : '-w'}.svg`} 
+                alt={`${button.name}`} 
+                style={{ 
+                  transform: `scale(${button.class === 'active' || isHovered ? scale-0.3 : scale-0.5})`, 
+                  paddingBottom: button.class === 'active' || isHovered ? '15px' : '0px',
+                  transition: 'transform 0.3s ease, padding-bottom 0.3s ease',
+                  maxHeight: '80px',
+                }} 
+              />
+              <span 
+                className={`absolute bottom-0 flex items-center justify-center transition-opacity ${button.class === 'active' || isHovered ? 'hovered-span' : ''}`}
+                style={{ opacity: button.class === 'active' || isHovered ? 1 : 0,
+                         transition: 'opacity 0.3s ease',
+                       }}
+              >
+                {button.name}
+              </span>
             </button>
-          ))}
+          );
+        })}
         </div>
       )}
   </div>
