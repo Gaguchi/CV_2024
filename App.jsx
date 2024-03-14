@@ -84,19 +84,21 @@ useEffect(() => {
   const maxSet = Math.max(...buttons.map(button => button.set));
 
   const intervalId = setInterval(() => {
-    setButtons(prevButtons => prevButtons.map(button => {
-      if (button.set === currentSet) {
-        return { ...button, class: 'active' };
-      } else if (button.class === 'active') {
-        return { ...button, class: '' };
-      }
-      return button;
-    }));
+    if (currentSet <= maxSet) {
+      setButtons(prevButtons => prevButtons.map(button => {
+        if (button.set === currentSet) {
+          return { ...button, class: 'active' };
+        }
+        return button;
+      }));
 
-    if (currentSet === maxSet) {
-      setCurrentSet(1);
-    } else {
       setCurrentSet(currentSet + 1);
+    } else {
+      setButtons(prevButtons => prevButtons.map(button => {
+        return { ...button, class: '' };
+      }));
+
+      setCurrentSet(1);
     }
   }, 1000); // Adjust this value to change the delay between each set's animation
 
