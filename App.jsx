@@ -16,67 +16,94 @@ function App() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
-const buttons = [
-  { name: 'angular', class: 'active' , delay: 0.5},
-  { name: 'aws', class: '' , delay: 0.5},
-  { name: 'azure', class: 'active' , delay: 0.5},
-  { name: 'blender', class: '' , delay: 0.5},
-  { name: 'bootstrap', class: 'active' , delay: 0.5},
-  { name: 'css', class: '' , delay: 0.5},
-  { name: 'django', class: '' , delay: 0.5},
-  { name: 'docker', class: 'active' , delay: 0.5},
-  { name: 'firebase', class: '' , delay: 0.5},
-  { name: 'git-bash', class: 'active' , delay: 0.5},
-  { name: 'github', class: '' , delay: 0.5},
-  { name: 'graphql', class: 'active' , delay: 0.5},
-  { name: 'html', class: 'active' , delay: 0.5},
-  { name: 'javascript', class: '' , delay: 0.5},
-  { name: 'laravel', class: 'active' , delay: 0.5},
-  { name: 'mongodb', class: '' , delay: 0.5},
-  { name: 'nextjs', class: 'active' , delay: 0.5},
-  { name: 'nodejs', class: '' , delay: 0.5},
-  { name: 'php', class: '' , delay: 0.5},
-  { name: 'postgresql', class: 'active' , delay: 0.5},
-  { name: 'python', class: '' , delay: 0.5},
-  { name: 'rails', class: 'active' , delay: 0.5},
-  { name: 'react', class: '' , delay: 0.5},
-  { name: 'sass', class: 'active' , delay: 0.5},
-  { name: 'svelte', class: 'active' , delay: 0.5},
-  { name: 'tailwindcss', class: '' , delay: 0.5},
-  { name: 'threejs', class: 'active' , delay: 0.5},
-  { name: 'vue', class: '' , delay: 0.5},
-  { name: 'wordpress', class: 'active' , delay: 0.5},
-  { name: 'java', class: '' , delay: 0.5},
-  { name: 'mysql', class: '' , delay: 0.5},
-  { name: 'flutter', class: 'active' , delay: 0.5},
-  { name: 'json', class: '' , delay: 0.5},
-  { name: 'xampp', class: 'active' , delay: 0.5},
-  { name: 'vitejs', class: '' , delay: 0.5},
-  { name: 'kotlin', class: 'active' , delay: 0.5},
-];
+  const [buttons, setButtons] = useState([
+  { name: 'angular', class: '' , set: 1},
+  { name: 'aws', class: '' , set: 10},
+  { name: 'azure', class: '' , set: 2},
+  { name: 'blender', class: '' , set: 11},
+  { name: 'bootstrap', class: '' , set: 3},
+  { name: 'css', class: '' , set: 12},
+  { name: 'django', class: '' , set: 9},
+  { name: 'docker', class: '' , set: 2},
+  { name: 'firebase', class: '' , set: 10},
+  { name: 'git-bash', class: '' , set: 3},
+  { name: 'github', class: '' , set: 11},
+  { name: 'graphql', class: '' , set: 4},
+  { name: 'html', class: '' , set: 2},
+  { name: 'javascript', class: '' , set: 9},
+  { name: 'laravel', class: '' , set: 3},
+  { name: 'mongodb', class: '' , set: 10},
+  { name: 'nextjs', class: '' , set: 4},
+  { name: 'nodejs', class: '' , set: 11},
+  { name: 'php', class: '' , set: 8},
+  { name: 'postgresql', class: '' , set: 3},
+  { name: 'python', class: '' , set: 9},
+  { name: 'rails', class: '' , set: 4},
+  { name: 'react', class: '' , set: 10},
+  { name: 'sass', class: '' , set: 5},
+  { name: 'svelte', class: '' , set: 3},
+  { name: 'tailwindcss', class: '' , set: 8},
+  { name: 'threejs', class: '' , set: 4},
+  { name: 'vue', class: '' , set: 9},
+  { name: 'wordpress', class: '' , set: 5},
+  { name: 'java', class: '' , set: 10},
+  { name: 'mysql', class: '' , set: 7},
+  { name: 'flutter', class: '' , set: 4},
+  { name: 'json', class: '' , set: 8},
+  { name: 'xampp', class: '' , set: 5},
+  { name: 'vitejs', class: '' , set: 9},
+  { name: 'kotlin', class: '' , set: 6},
+]);
 
-const smallScreenButtons = [
-  { name: '1', class: 'active' , delay: 0.5},
+const [smallScreenButtons, setSmallScreenButtons] = useState([
+  { name: '1', class: '' , set: 1},
   { name: '2', class: '' },
-  { name: '3', class: 'active' , delay: 0.5},
+  { name: '3', class: '' , set: 1},
   { name: '4', class: '' },
   { name: '5', class: '' },
-  { name: '6', class: 'active' , delay: 0.5},
+  { name: '6', class: '' , set: 1},
   { name: '7', class: '' },
-  { name: '8', class: 'active' , delay: 0.5},
-  { name: '9', class: 'active' , delay: 0.5},
+  { name: '8', class: '' , set: 1},
+  { name: '9', class: '' , set: 1},
   { name: '10', class: '' },
-  { name: '11', class: 'active' , delay: 0.5},
+  { name: '11', class: '' , set: 1},
   { name: '12', class: '' },
   { name: '13', class: '' },
-  { name: '14', class: 'active' , delay: 0.5},
+  { name: '14', class: '' , set: 1},
   { name: '15', class: '' },
-  { name: '16', class: 'active' , delay: 0.5},
-  { name: '17', class: 'active' , delay: 0.5},
+  { name: '16', class: '' , set: 1},
+  { name: '17', class: '' , set: 1},
   { name: '18', class: '' },
-  { name: '19', class: 'active' , delay: 0.5},
+  { name: '19', class: '' , set: 1},
   { name: '20', class: '' },
-];
+]);
+
+const [currentSet, setCurrentSet] = useState(1);
+
+useEffect(() => {
+  const maxSet = Math.max(...buttons.map(button => button.set));
+
+  const intervalId = setInterval(() => {
+    setButtons(prevButtons => prevButtons.map(button => {
+      if (button.set === currentSet) {
+        return { ...button, class: 'active' };
+      } else if (button.class === 'active') {
+        return { ...button, class: '' };
+      }
+      return button;
+    }));
+
+    if (currentSet === maxSet) {
+      setCurrentSet(1);
+    } else {
+      setCurrentSet(currentSet + 1);
+    }
+  }, 1000); // Adjust this value to change the delay between each set's animation
+
+  return () => clearInterval(intervalId); // Clean up on component unmount
+}, [buttons, currentSet]);
+
+
 
 useEffect(() => {
   const handleResize = () => {
@@ -466,7 +493,7 @@ useEffect(() => {
                               alt="Description of Image 2"
                               initial={{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
                               animate={controls2}
-                              transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
+                              transition={{ set: 3 }}  // Add a delay of 0.5 seconds
                             />
                             
                             <motion.video 
@@ -477,7 +504,7 @@ useEffect(() => {
                               muted 
                               initial={{ x: -250, y:50 }}  // Start from 200px below
                               animate={controls2}
-                              transition={{ delay: 0.5 }}
+                              transition={{ set: 3 }}
                               style={{ height: '101.8%', top: '59.3%', left: '11.8%' }}
                             />
 
@@ -540,7 +567,7 @@ useEffect(() => {
                               alt="Description of Image 2"
                               initial={window.innerWidth <= 639 ? {  x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
                               animate={controls2}
-                              transition={{ delay: 0.5 }}  // Add a delay of 0.5 seconds
+                              transition={{ set: 3 }}  // Add a delay of 0.5 seconds
                               style={window.innerWidth <= 639 ? {height: '87.7%', top: '0%', left: '100%',scale:4.5 } : { height: '178.7%', top: '-1%', left: '-0.1%'}}
                             />
                             
@@ -552,7 +579,7 @@ useEffect(() => {
                               muted 
                               initial={window.innerWidth <= 639 ? { x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 200px below
                               animate={controls2}
-                              transition={{ delay: 0.5 }}
+                              transition={{ set: 3 }}
                               style={window.innerWidth <= 639 ? {height: '195.2%', top: '-40.6%', left: '39.8%', filter: 'blur(2px)'} : { height: '87.7%', top: '50.1%', left: '11.7%', filter: 'blur(2px)' }}
                             />
 
