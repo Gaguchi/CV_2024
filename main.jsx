@@ -75,7 +75,9 @@ function ThreeScene({ rotation }) {
 		ref.current.appendChild(renderer.domElement);
 
 		return () => {
-			ref.current.removeChild(renderer.domElement);
+			if (ref.current) {
+				ref.current.removeChild(renderer.domElement);
+			}
 			window.removeEventListener('resize', handleResize);
 			window.removeEventListener('mousemove', handleMouseMove);
 		};

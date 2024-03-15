@@ -24,7 +24,9 @@
         @apply translate-y-0;
     }
 }
-
+.group {
+    transition: transform 0.3s ease, padding-bottom 0.3s ease, opacity 0.3s ease;
+}
 .animactive{
     border-style: solid;
     border-width: 1px;

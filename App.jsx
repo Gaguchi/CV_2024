@@ -1,5 +1,5 @@
 // App.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import 'windi.css';
 import { motion, useAnimation } from 'framer-motion';
 import ThreeScene from './main.jsx';
@@ -56,56 +56,108 @@ function App() {
 ]);
 
 const [smallScreenButtons, setSmallScreenButtons] = useState([
-  { name: '1', class: '' , set: 1},
-  { name: '2', class: '' },
-  { name: '3', class: '' , set: 1},
-  { name: '4', class: '' },
-  { name: '5', class: '' },
-  { name: '6', class: '' , set: 1},
-  { name: '7', class: '' },
-  { name: '8', class: '' , set: 1},
-  { name: '9', class: '' , set: 1},
-  { name: '10', class: '' },
-  { name: '11', class: '' , set: 1},
-  { name: '12', class: '' },
-  { name: '13', class: '' },
-  { name: '14', class: '' , set: 1},
-  { name: '15', class: '' },
-  { name: '16', class: '' , set: 1},
-  { name: '17', class: '' , set: 1},
-  { name: '18', class: '' },
-  { name: '19', class: '' , set: 1},
-  { name: '20', class: '' },
+  { name: 'angular', class: '' , set: 1},
+  { name: 'aws', class: '' , set: 10},
+  { name: 'azure', class: '' , set: 2},
+  { name: 'blender', class: '' , set: 11},
+  { name: 'bootstrap', class: '' , set: 3},
+  { name: 'css', class: '' , set: 12},
+  { name: 'django', class: '' , set: 9},
+  { name: 'docker', class: '' , set: 2},
+  { name: 'firebase', class: '' , set: 10},
+  { name: 'git-bash', class: '' , set: 3},
+  { name: 'github', class: '' , set: 11},
+  { name: 'graphql', class: '' , set: 4},
+  { name: 'html', class: '' , set: 2},
+  { name: 'javascript', class: '' , set: 9},
+  { name: 'laravel', class: '' , set: 3},
+  { name: 'mongodb', class: '' , set: 10},
+  { name: 'nextjs', class: '' , set: 4},
+  { name: 'nodejs', class: '' , set: 11},
+  { name: 'php', class: '' , set: 8},
+  { name: 'postgresql', class: '' , set: 3},
 ]);
 
-const [currentSet, setCurrentSet] = useState(1);
+let activeButtonSet = 1;
 
-useEffect(() => {
-  const maxSet = Math.max(...buttons.map(button => button.set));
+// Get the maximum set number
+const maxSet = Math.max(...buttons.map(button => button.set));
 
-  const intervalId = setInterval(() => {
-    if (currentSet <= maxSet) {
-      setButtons(prevButtons => prevButtons.map(button => {
-        if (button.set === currentSet) {
-          return { ...button, class: 'active' };
-        }
-        return button;
-      }));
+// Create an interval that updates the activeButtonSet every second
+const intervalId = setInterval(() => {
+  // Remove the 'animactive' class from the buttons in the current set
+  const currentSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
+  currentSetButtons.forEach(button => {
+    button.classList.remove('animactive');
+    // Change the last string in the svg from "1" to "w"
+    const img = button.querySelector('img');
+    img.src = img.src.replace('-1.svg', '-w.svg');
+    // Change the transform and padding-bottom styles
+    button.style.transform = `scale(${scale - 0.3})`;
+    img.style.transform = `scale(${scale - 0.5})`;
+    img.style.paddingBottom = '0px';
+    // Change the opacity of the span
+    const span = button.querySelector('span');
+    span.style.opacity = '0';
+  });
 
-      setCurrentSet(currentSet + 1);
-    } else {
-      setButtons(prevButtons => prevButtons.map(button => {
-        return { ...button, class: '' };
-      }));
+  // Update the activeButtonSet
+  activeButtonSet = activeButtonSet < maxSet ? activeButtonSet + 1 : 1;
 
-      setCurrentSet(1);
-    }
-  }, 1000); // Adjust this value to change the delay between each set's animation
+  // Add the 'animactive' class to the buttons in the new set
+  const newSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
+  newSetButtons.forEach(button => {
+    button.classList.add('animactive');
+    // Change the last string in the svg from "w" to "1"
+    const img = button.querySelector('img');
+    img.src = img.src.replace('-w.svg', '-1.svg');
+    // Change the transform and padding-bottom styles
+    button.style.transform = `scale(${scale - 0.1})`;
+    img.style.transform = `scale(${scale - 0.3})`;
+    img.style.paddingBottom = '15px';
+    // Change the opacity of the span
+    const span = button.querySelector('span');
+    span.style.opacity = '1';
+  });
+}, 1000);
 
-  return () => clearInterval(intervalId); // Clean up on component unmount
-}, [buttons, currentSet]);
+// Remember to clear the interval when the page is unloaded
+window.addEventListener('unload', () => clearInterval(intervalId));
 
+const ButtonComponent = React.memo(({ button, scale }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
+  // Add 'animactive' class to the button if it's in the active set
+  const buttonClass = `set-${button.set} group w-20 h-20 anim flex text-center items-center justify-center relative overflow-hidden ${isHovered ? 'animactive' : ''} ${button.set === activeButtonSet ? 'animactive' : ''}`;
+
+  return (
+    <button 
+      className={buttonClass}
+      style={{ transform: `scale(${button.set === activeButtonSet || isHovered ? scale-0.1 : scale-0.3})`, transition: 'transform 0.3s ease'  }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <img 
+        src={`images/${button.name}${button.set === activeButtonSet || isHovered ? '-1' : '-w'}.svg`} 
+        alt={`${button.name}`} 
+        style={{ 
+          transform: `scale(${button.set === activeButtonSet || isHovered ? scale-0.3 : scale-0.5})`, 
+          paddingBottom: button.set === activeButtonSet || isHovered ? '15px' : '0px',
+          transition: 'transform 0.3s ease, padding-bottom 0.3s ease',
+          maxHeight: '80px',
+        }} 
+      />
+      <span 
+        className={`absolute bottom-0 flex items-center justify-center transition-opacity ${button.set === activeButtonSet || isHovered ? 'hovered-span' : ''}`}
+        style={{ opacity: button.set === activeButtonSet || isHovered ? 1 : 0,
+                 transition: 'opacity 0.3s ease',
+               }}
+      >
+        {button.name}
+      </span>
+    </button>
+  );
+});
 
 useEffect(() => {
   const handleResize = () => {
@@ -408,61 +460,21 @@ useEffect(() => {
       <h3 className="text-xl mb-2">Sub-header</h3>
       <p>Some paragraph text goes here.</p>
     </div>
-      {windowWidth < 640 ? (
-        <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
-          {smallScreenButtons.map((button, index) => (
-            button.class === 'active' ? (
-              <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
-                <img src={`images/${button.name}-1.svg`} alt={`${button.name}`} style={{ transform: `scale(${scale-0.1})` }} />
-                <span className="absolute inset-0 flex items-center justify-center transition-opacity">{button.name}</span>
-              </button>
-            ) : (
-              <button key={index} className={`group w-13 h-13 anim${button.class} relative overflow-hidden`} style={{ transform: `scale(${scale-0.1})` }}>
-                <img src={`images/${button.name}-w.svg`} alt={`${button.name}`} style={{ transform: `scale(${scale-0.1})` }} />
-                <span className="absolute inset-0 flex items-center justify-center transition-opacity">{button.name}</span>
-              </button>
-            )
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-cols-6 grid-rows-6 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
-        {buttons.map((button, index) => {
-          const [isHovered, setIsHovered] = useState(false);
-
-          return (
-            <button 
-              key={index} 
-              className={`group w-20 h-20 anim${button.class} flex text-center items-center justify-center relative overflow-hidden ${isHovered ? 'animactive' : 'anim'}`} 
-              style={{ transform: `scale(${button.class === 'active' || isHovered ? scale-0.1 : scale-0.3})`, transition: 'transform 0.3s ease'  }}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <img 
-                src={`images/${button.name}${button.class === 'active' || isHovered ? '-1' : '-w'}.svg`} 
-                alt={`${button.name}`} 
-                style={{ 
-                  transform: `scale(${button.class === 'active' || isHovered ? scale-0.3 : scale-0.5})`, 
-                  paddingBottom: button.class === 'active' || isHovered ? '15px' : '0px',
-                  transition: 'transform 0.3s ease, padding-bottom 0.3s ease',
-                  maxHeight: '80px',
-                }} 
-              />
-              <span 
-                className={`absolute bottom-0 flex items-center justify-center transition-opacity ${button.class === 'active' || isHovered ? 'hovered-span' : ''}`}
-                style={{ opacity: button.class === 'active' || isHovered ? 1 : 0,
-                         transition: 'opacity 0.3s ease',
-                       }}
-              >
-                {button.name}
-              </span>
-            </button>
-          );
-        })}
-        </div>
-      )}
+    {windowWidth < 640 ? (
+      <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
+        {smallScreenButtons.map((button, index) => (
+          <ButtonComponent key={index} button={button} scale={scale} />
+        ))}
+      </div>
+    ) : (
+      <div className="grid grid-cols-6 grid-rows-6 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
+        {buttons.map((button, index) => (
+          <ButtonComponent key={index} button={button} scale={scale} />
+        ))}
+      </div>
+    )}
   </div>
 </section>
-
             {/* <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center p-5">
                 <div className='lg:max-w-7xl w-full'>
                     <div className="relative">
