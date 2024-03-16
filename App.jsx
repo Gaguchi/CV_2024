@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect, memo } from 'react';
 import 'windi.css';
 import { motion, useAnimation } from 'framer-motion';
 import ThreeScene from './main.jsx';
+import startInterval from './public/js/ButtonBehavior';
+
 
 function App() {
   const [rotation, setRotation] = useState(0);
@@ -15,6 +17,7 @@ function App() {
   const [scale, setScale] = useState(1);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [activeButtonSet, setActiveButtonSet] = useState(null);
   
   const [buttons, setButtons] = useState([
   { name: 'angular', class: '' , set: 1},
@@ -78,51 +81,12 @@ const [smallScreenButtons, setSmallScreenButtons] = useState([
   { name: 'postgresql', class: '' , set: 3},
 ]);
 
-let activeButtonSet = 1;
 
-// Get the maximum set number
-const maxSet = Math.max(...buttons.map(button => button.set));
+useEffect(() => {
+  // Call the function to start the interval
+  startInterval(buttons, scale, 'mySection');
+}, []);         
 
-// Create an interval that updates the activeButtonSet every second
-const intervalId = setInterval(() => {
-  // Remove the 'animactive' class from the buttons in the current set
-  const currentSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
-  currentSetButtons.forEach(button => {
-    button.classList.remove('animactive');
-    // Change the last string in the svg from "1" to "w"
-    const img = button.querySelector('img');
-    img.src = img.src.replace('-1.svg', '-w.svg');
-    // Change the transform and padding-bottom styles
-    button.style.transform = `scale(${scale - 0.3})`;
-    img.style.transform = `scale(${scale - 0.5})`;
-    img.style.paddingBottom = '0px';
-    // Change the opacity of the span
-    const span = button.querySelector('span');
-    span.style.opacity = '0';
-  });
-
-  // Update the activeButtonSet
-  activeButtonSet = activeButtonSet < maxSet ? activeButtonSet + 1 : 1;
-
-  // Add the 'animactive' class to the buttons in the new set
-  const newSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
-  newSetButtons.forEach(button => {
-    button.classList.add('animactive');
-    // Change the last string in the svg from "w" to "1"
-    const img = button.querySelector('img');
-    img.src = img.src.replace('-w.svg', '-1.svg');
-    // Change the transform and padding-bottom styles
-    button.style.transform = `scale(${scale - 0.1})`;
-    img.style.transform = `scale(${scale - 0.3})`;
-    img.style.paddingBottom = '15px';
-    // Change the opacity of the span
-    const span = button.querySelector('span');
-    span.style.opacity = '1';
-  });
-}, 1000);
-
-// Remember to clear the interval when the page is unloaded
-window.addEventListener('unload', () => clearInterval(intervalId));
 
 const ButtonComponent = React.memo(({ button, scale }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -453,7 +417,7 @@ useEffect(() => {
           </section>
 
 
-<section className="bg-gray-300 flex justify-center">
+<section id="mySection" className="bg-gray-300 flex justify-center">
   <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     <div>
       <h2 className="text-2xl font-bold mb-2">Header</h2>
