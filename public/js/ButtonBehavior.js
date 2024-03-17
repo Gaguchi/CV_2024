@@ -23,25 +23,6 @@ function startInterval(buttons, scale, sectionId) {
 
                 // Create an interval that updates the activeButtonSet every second
                 intervalId = setInterval(() => {
-                    // Remove the 'animactive' class from the buttons in the current set
-                    const currentSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
-                    currentSetButtons.forEach(button => {
-                        button.classList.remove('animactive');
-                        // Change the last string in the svg from "1" to "w"
-                        const img = button.querySelector('img');
-                        img.src = img.src.replace('-1.svg', '-w.svg');
-                        // Change the transform and padding-bottom styles
-                        button.style.transform = `scale(${scale - 0.3})`;
-                        img.style.transform = `scale(${scale - 0.5})`;
-                        img.style.paddingBottom = '0px';
-                        // Change the opacity of the span
-                        const span = button.querySelector('span');
-                        span.style.opacity = '0';
-                    });
-
-                    // Update the activeButtonSet
-                    activeButtonSet = activeButtonSet < maxSet ? activeButtonSet + 1 : 1;
-
                     // Add the 'animactive' class to the buttons in the new set
                     const newSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
                     newSetButtons.forEach(button => {
@@ -57,6 +38,27 @@ function startInterval(buttons, scale, sectionId) {
                         const span = button.querySelector('span');
                         span.style.opacity = '1';
                     });
+
+                    // Update the activeButtonSet
+                    activeButtonSet = activeButtonSet < maxSet+1 ? activeButtonSet + 1 : 1;
+
+                    // If the activeButtonSet is the first set, remove the 'animactive' class from all buttons
+                    if (activeButtonSet === 1) {
+                        const allButtons = document.querySelectorAll('.animactive');
+                        allButtons.forEach(button => {
+                            button.classList.remove('animactive');
+                            // Change the last string in the svg from "1" to "w"
+                            const img = button.querySelector('img');
+                            img.src = img.src.replace('-1.svg', '-w.svg');
+                            // Change the transform and padding-bottom styles
+                            button.style.transform = `scale(${scale - 0.3})`;
+                            img.style.transform = `scale(${scale - 0.5})`;
+                            img.style.paddingBottom = '0px';
+                            // Change the opacity of the span
+                            const span = button.querySelector('span');
+                            span.style.opacity = '0';
+                        });
+                    }
                 }, 1000);
             }
             // If the section is not in view, clear the interval

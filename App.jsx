@@ -88,32 +88,44 @@ useEffect(() => {
 }, []);         
 
 
-const ButtonComponent = React.memo(({ button, scale }) => {
+const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const buttonRef = useRef(null);
 
-  // Add 'animactive' class to the button if it's in the active set
-  const buttonClass = `set-${button.set} group w-20 h-20 anim flex text-center items-center justify-center relative overflow-hidden ${isHovered ? 'animactive' : ''} ${button.set === activeButtonSet ? 'animactive' : ''}`;
+  useEffect(() => {
+    if (buttonRef.current.classList.contains('animactive')) {
+      setIsHovered(true);
+    }
+  }, [activeButtonSet]);
+
+  const isActive = button.set === activeButtonSet;
+  const buttonClass = `set-${button.set} group w-20 h-20 anim flex text-center items-center justify-center relative overflow-hidden ${isActive ? 'animactive' : ''}`;
 
   return (
     <button 
+      ref={buttonRef}
       className={buttonClass}
-      style={{ transform: `scale(${button.set === activeButtonSet || isHovered ? scale-0.1 : scale-0.3})`, transition: 'transform 0.3s ease'  }}
+      style={{ transform: `scale(${isActive || isHovered ? scale-0.1 : scale-0.3})`, transition: 'transform 0.3s ease'  }}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        if (!buttonRef.current.classList.contains('animactive')) {
+          setIsHovered(false);
+        }
+      }}
     >
       <img 
-        src={`images/${button.name}${button.set === activeButtonSet || isHovered ? '-1' : '-w'}.svg`} 
+        src={`images/${button.name}${isActive || isHovered ? '-1' : '-w'}.svg`} 
         alt={`${button.name}`} 
         style={{ 
-          transform: `scale(${button.set === activeButtonSet || isHovered ? scale-0.3 : scale-0.5})`, 
-          paddingBottom: button.set === activeButtonSet || isHovered ? '15px' : '0px',
+          transform: `scale(${isActive || isHovered ? scale-0.3 : scale-0.5})`, 
+          paddingBottom: isActive || isHovered ? '15px' : '0px',
           transition: 'transform 0.3s ease, padding-bottom 0.3s ease',
           maxHeight: '80px',
         }} 
       />
       <span 
-        className={`absolute bottom-0 flex items-center justify-center transition-opacity ${button.set === activeButtonSet || isHovered ? 'hovered-span' : ''}`}
-        style={{ opacity: button.set === activeButtonSet || isHovered ? 1 : 0,
+        className={`absolute bottom-0 flex items-center justify-center transition-opacity ${isActive || isHovered ? 'hovered-span' : ''}`}
+        style={{ opacity: isActive || isHovered ? 1 : 0,
                  transition: 'opacity 0.3s ease',
                }}
       >
@@ -418,7 +430,7 @@ useEffect(() => {
 
 
 <section id="mySection" className="bg-gray-300 flex justify-center">
-  <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
+  <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     <div>
       <h2 className="text-2xl font-bold mb-2">Header</h2>
       <h3 className="text-xl mb-2">Sub-header</h3>
@@ -427,7 +439,7 @@ useEffect(() => {
     {windowWidth < 640 ? (
       <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
         {smallScreenButtons.map((button, index) => (
-          <ButtonComponent key={index} button={button} scale={scale} />
+          <ButtonComponent key={index} button={button} scale={scale-0.2} />
         ))}
       </div>
     ) : (
