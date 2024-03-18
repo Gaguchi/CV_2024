@@ -437,9 +437,9 @@ useEffect(() => {
       <p>Some paragraph text goes here.</p>
     </div>
     {windowWidth < 640 ? (
-      <div className="grid grid-cols-4 grid-rows-5 gap-4" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
+      <div className="grid grid-cols-4 grid-rows-5 gap-4 justify-center" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
         {smallScreenButtons.map((button, index) => (
-          <ButtonComponent key={index} button={button} scale={scale-0.2} />
+          <ButtonComponent key={index} button={button} scale={scale-0.3} />
         ))}
       </div>
     ) : (
