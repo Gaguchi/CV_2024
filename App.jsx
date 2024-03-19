@@ -299,137 +299,43 @@ useEffect(() => {
         </div>
     </div>
 </main>
-          
-          <section>
-          <div className="p-1 flex flex-wrap items-center justify-center max-w-6xl min-h-screen px-10 py-10 mx-auto sm:px-16">
 
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
-              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
-                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
-                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
-                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-              </svg>
-              <div className="relative pt-10 px-10 flex items-center justify-center">
-                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                      style={{ 
-  background: "radial-gradient(black, transparent 60%)", 
-  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-  opacity: 0.2 
-}}>
-                  </div>
-                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
-              </div>
-              <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Indoor</span>
-                  <div className="flex justify-between">
-                      <span className="block font-semibold text-xl">Peace Lily</span>
-                      <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$36.00</span>
-                  </div>
-              </div>
+<div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 dark:bg-gray-900">
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
+        Projects
+    </h2>
+    <div
+        className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
+        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl transform hover:scale-95 transition-all ease-in-out group"
+          href="#" target="_blank">
+          <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
+          <div>
+            <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Framework7</div>
+            <div className="text-sm opacity-75">Full featured framework for building iOS, Android &amp; desktop apps
+            </div>
           </div>
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
-              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
-                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
-                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
-                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-              </svg>
-              <div className="relative pt-10 px-10 flex items-center justify-center">
-                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                      style={{ 
-  background: "radial-gradient(black, transparent 60%)", 
-  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-  opacity: 0.2 
-}}>
-                  </div>
-                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png" alt=""/>
-              </div>
-              <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Outdoor</span>
-                  <div className="flex justify-between">
-                      <span className="block font-semibold text-xl">Monstera</span>
-                      <span className="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$45.00</span>
-                  </div>
-              </div>
-          </div>
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
-              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
-                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
-                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
-                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-              </svg>
-              <div className="relative pt-10 px-10 flex items-center justify-center">
-                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                      style={{ 
-  background: "radial-gradient(black, transparent 60%)", 
-  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-  opacity: 0.2 
-}}>
-                  </div>
-                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
-              </div>
-              <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Outdoor</span>
-                  <div className="flex justify-between">
-                      <span className="block font-semibold text-xl">Oak Tree</span>
-                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
-                  </div>
-              </div>
-          </div>
-
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
-              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
-                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
-                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
-                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-              </svg>
-              <div className="relative pt-10 px-10 flex items-center justify-center">
-                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                      style={{ 
-  background: "radial-gradient(black, transparent 60%)", 
-  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-  opacity: 0.2 
-}}>
-                  </div>
-                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
-              </div>
-              <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Outdoor</span>
-                  <div className="flex justify-between">
-                      <span className="block font-semibold text-xl">Oak Tree</span>
-                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
-                  </div>
-              </div>
-          </div>
-
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg">
-              <svg className="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
-                  style={{ transform: "scale(1.5)", opacity: 0.1 }}>
-                  <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
-                  <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-              </svg>
-              <div className="relative pt-10 px-10 flex items-center justify-center">
-                  <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                      style={{ 
-                        background: "radial-gradient(black, transparent 60%)", 
-                        transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)", 
-                        opacity: 0.2 
-                      }}>
-                  </div>
-                  <img className="relative w-40" src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png" alt=""/>
-              </div>
-              <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Outdoor</span>
-                  <div className="flex justify-between">
-                      <span className="block font-semibold text-xl">Oak Tree</span>
-                      <span className="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$68.50</span>
-                  </div>
-              </div>
-          </div>
-          </div>
-          </section>
+        </a>
+        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+            href="#" target="_blank">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Atropos"></img>
+            <div>
+                <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2">Atropos</div>
+                <div className="text-sm opacity-75">Stunning touch-friendly 3D parallax hover effects</div>
+            </div>
+        </a>
+        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+            href="#" target="_blank">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/konsta.svg" alt="Konsta UI"></img>
+            <div>
+                <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2">Konsta UI</div>
+                <div className="text-sm opacity-75">Pixel perfect mobile UI components built with Tailwind CSS</div>
+            </div>
+        </a>
+    </div>
+</div>
 
 
-<section id="mySection" className="bg-gray-300 flex justify-center">
+<section id="mySection" className="flex justify-center">
   <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     <div>
       <h2 className="text-2xl font-bold mb-2">Header</h2>
@@ -523,7 +429,7 @@ useEffect(() => {
                 </div>
             </section> */}
             <section className="body-font relative bg-gray-900 text-gray-400">
-            <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
+            {/* <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
         <div className="container mx-auto  flex  relative py-16 justify-evenly">
             
             <div className='lg:max-w-7xl w-full'>
@@ -614,7 +520,7 @@ useEffect(() => {
                     </div>
                 </div>
         </div>
-    </div>
+    </div> */}
 <div className="container mx-auto px-5 py-24">
   
   <div className="mb-12 flex w-full flex-col text-center">
