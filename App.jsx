@@ -18,6 +18,7 @@ function App() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [activeButtonSet, setActiveButtonSet] = useState(null);
+  const gridRef = useRef(null);
   
   const [buttons, setButtons] = useState([
   { name: 'angular', class: '' , set: 1},
@@ -134,6 +135,20 @@ const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
     </button>
   );
 });
+
+useEffect(() => {
+  const setGridHeight = () => {
+    if (gridRef.current) {
+      gridRef.current.style.height = `${gridRef.current.offsetWidth}px`;
+    }
+  };
+
+  setGridHeight(); // Set initial height
+  window.addEventListener('resize', setGridHeight); // Update height on resize
+
+  // Clean up event listener on unmount
+  return () => window.removeEventListener('resize', setGridHeight);
+}, []);
 
 useEffect(() => {
   const handleResize = () => {
@@ -306,7 +321,7 @@ useEffect(() => {
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
-        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl transform hover:scale-95 transition-all ease-in-out group"
+        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
           href="#" target="_blank">
           <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
           <div>
@@ -334,6 +349,9 @@ useEffect(() => {
     </div>
 </div>
 
+<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
+        Projects
+    </h2>
 
 <section id="mySection" className="flex justify-center">
   <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
@@ -357,77 +375,21 @@ useEffect(() => {
     )}
   </div>
 </section>
-            {/* <section className="bg-gray-300 flex flex-col-reverse sm:flex-row justify-center p-5">
-                <div className='lg:max-w-7xl w-full'>
-                    <div className="relative">
-                        <div style={{ paddingTop: '30.25%' }}>
-                            <div style={{position:'absolute', top: '-70%', left: 0, width: '100%', height: '100%'}}>
-                            <motion.img
-                              ref={image1Ref}
-                              className="absolute z-10"
-                              src="/images/laptop.png"
-                              alt="Description of Image 1"
-                              initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
-                              animate={controls1}
-                            />
-
-                            <motion.video 
-                              className="absolute z-8" 
-                              src="/videos/cv_example_1v2_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={{ x: 100, y: 55  }}  // Start from 200px below
-                              animate={controls1}
-                              style={{ height: '99.8%', top: '37%', left: '37.8%' }}
-                            />
-
-                            <motion.img
-                              ref={image2Ref}
-                              className="absolute z-20"
-                              src="/images/tablet.png"
-                              alt="Description of Image 2"
-                              initial={{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
-                              animate={controls2}
-                              transition={{ set: 3 }}  // Add a delay of 0.5 seconds
-                            />
-                            
-                            <motion.video 
-                              className="absolute z-19" 
-                              src="/videos/cv_example_2_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={{ x: -250, y:50 }}  // Start from 200px below
-                              animate={controls2}
-                              transition={{ set: 3 }}
-                              style={{ height: '101.8%', top: '59.3%', left: '11.8%' }}
-                            />
-
-                            <motion.img
-                              ref={image3Ref}
-                              className="absolute z-30"
-                              src="/images/phone.png"
-                              alt="Description of Image 3"
-                              initial={{ y: 250 }}  // Start from 200px below
-                              animate={controls3}
-                            />
-
-                            <motion.video 
-                              className="absolute z-29" 
-                              src="/videos/cv_example_3_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={{ y: 250 }}  // Start from 200px below
-                              animate={controls3}
-                              style={{ height: '91.8%', top: '95.1%', left: '29.8%' }}
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
+    <div className="mx-auto mt-24 mb-20 max-w-4xl text-center p-6 dark:bg-gray-900">
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
+        Projects
+    </h2>
+      <div ref={gridRef} className="grid grid-rows-4 grid-cols-3 gap-4">
+        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">1</div>
+        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">2</div>
+        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">3</div>
+        <div className="col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">4</div>
+        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">5</div>
+        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">6</div>
+        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">7</div>
+        <div className=" flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">8</div>
+      </div>
+    </div>
             <section className="body-font relative bg-gray-900 text-gray-400">
             {/* <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
         <div className="container mx-auto  flex  relative py-16 justify-evenly">
