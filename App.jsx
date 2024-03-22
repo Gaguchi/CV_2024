@@ -370,15 +370,15 @@ useEffect(() => {
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
         <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">1</div>
         <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
+            <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
         <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-            <img  className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
+            <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
         <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">4</div>
         <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">5</div>
         <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
             <div className="frame lab-bg" id="soil">
-              <div className="mask w-20 h-20 flex flex-col items-center justify-center relative">
+              <div className="mask flex flex-col items-center justify-center relative">
                 <img className="absolute w-20 h-20" src="/images/bloom.png" id="bloom"></img>
                 <img className="absolute w-20 h-20" src="/images/particle2.png" id="particle-bg"></img>
                 <img className="absolute w-20 h-20" src="/images/scientist.png" id="scientist"></img>
