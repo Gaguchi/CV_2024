@@ -1,3 +1,7 @@
+.text-center{
+    text-align: -webkit-center !important;
+}
+
 @keyframes slideRight {
     0% {
         @apply translate-x-full;
@@ -49,3 +53,58 @@
     border-radius: 8px;
 }
 
+#milnort{
+    background-image: url('/images/1c-1.png');
+    background-size: cover;
+}
+
+#scientist-hand{
+    top: 5px;
+    left: 10px;
+}
+  
+  #soil:hover > div > #scientist{
+    transform: translate(-10px, -10px);
+    transition: all 0.5s ease;
+  }
+  
+  #soil:hover > div > #scientist-hand{
+    transform: translate(-8px, -7px);
+    rotate: 25deg;
+  }
+  
+  #soil:hover > div > #particle-fg{
+    transform: translate(-20%, 2%);
+    scale: 0.7;
+  }
+  
+  #soil:hover > div > #particle-bg{
+    transform: translate(-18%, -13%);
+    scale: 1.2;
+  }
+  
+  #soil:hover > div > #bloom{
+    transform: translate(-64%, -57%);
+    scale: 1.2;
+  }
+
+  .mask{
+    clip-path: inset(-120px -25.6px 0px -150px round 100px);
+    max-height: 176px;
+    }
+    
+    .mask > img {
+    max-height: 250px;
+    transition: all 0.5s ease;
+    }
+
+
+.centered-frame{
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-align: -webkit-center;
+  }
+
+  .fullheight{
+    height: 100% !important;
+  }

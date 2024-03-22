@@ -136,19 +136,6 @@ const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
   );
 });
 
-useEffect(() => {
-  const setGridHeight = () => {
-    if (gridRef.current) {
-      gridRef.current.style.height = `${gridRef.current.offsetWidth}px`;
-    }
-  };
-
-  setGridHeight(); // Set initial height
-  window.addEventListener('resize', setGridHeight); // Update height on resize
-
-  // Clean up event listener on unmount
-  return () => window.removeEventListener('resize', setGridHeight);
-}, []);
 
 useEffect(() => {
   const handleResize = () => {
@@ -375,21 +362,37 @@ useEffect(() => {
     )}
   </div>
 </section>
-    <div className="mx-auto mt-24 mb-20 max-w-4xl text-center p-6 dark:bg-gray-900">
+<section className="text-center content-center">
+    <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 dark:bg-gray-900">
     <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
         Projects
     </h2>
-      <div ref={gridRef} className="grid grid-rows-4 grid-cols-3 gap-4">
-        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">1</div>
-        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">2</div>
-        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">3</div>
-        <div className="col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">4</div>
-        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">5</div>
-        <div className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">6</div>
-        <div className="row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">7</div>
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">1</div>
+        <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
+        <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+            <img  className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
+        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">4</div>
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">5</div>
+        <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+          <div className="centered-frame flex flex-col items-center justify-center relative">
+            <div className="frame lab-bg" id="soil">
+              <div className="mask w-20 h-20 flex flex-col items-center justify-center relative">
+                <img className="absolute w-20 h-20" src="/images/bloom.png" id="bloom"></img>
+                <img className="absolute w-20 h-20" src="/images/particle2.png" id="particle-bg"></img>
+                <img className="absolute w-20 h-20" src="/images/scientist.png" id="scientist"></img>
+                <img className="absolute w-4 h-10" src="/images/scientist-hand-2.png" id="scientist-hand"></img>
+                <img className="absolute w-20 h-20" src="/images/particle1.png" id="particle-fg"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">7</div>
         <div className=" flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">8</div>
       </div>
     </div>
+    </section>
             <section className="body-font relative bg-gray-900 text-gray-400">
             {/* <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
         <div className="container mx-auto  flex  relative py-16 justify-evenly">

@@ -31,7 +31,7 @@ function startInterval(buttons, scale, sectionId) {
                         const img = button.querySelector('img');
                         img.src = img.src.replace('-w.svg', '-1.svg');
                         // Change the transform and padding-bottom styles
-                        button.style.transform = `scale(${scale - 0.1})`;
+                        button.style.transform = `scale(${scale - 0.2})`;
                         img.style.transform = `scale(${scale - 0.3})`;
                         img.style.paddingBottom = '15px';
                         // Change the opacity of the span
@@ -51,7 +51,7 @@ function startInterval(buttons, scale, sectionId) {
                             const img = button.querySelector('img');
                             img.src = img.src.replace('-1.svg', '-w.svg');
                             // Change the transform and padding-bottom styles
-                            button.style.transform = `scale(${scale - 0.3})`;
+                            button.style.transform = `scale(${scale - 0.2})`;
                             img.style.transform = `scale(${scale - 0.5})`;
                             img.style.paddingBottom = '0px';
                             // Change the opacity of the span
