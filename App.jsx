@@ -1,9 +1,8 @@
 // App.jsx
 import React, { useState, useRef, useEffect, memo } from 'react';
-import 'windi.css';
 import { motion, useAnimation } from 'framer-motion';
 import ThreeScene from './main.jsx';
-import startInterval from './public/js/ButtonBehavior';
+import startInterval from './public/js/ButtonBehavior.js';
 
 
 function App() {
@@ -19,6 +18,8 @@ function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [activeButtonSet, setActiveButtonSet] = useState(null);
   const gridRef = useRef(null);
+  const [isHovered, setBookHovered] = useState(false);
+  const [isClicked, setBookClicked] = useState(false);
   
   const [buttons, setButtons] = useState([
   { name: 'angular', class: '' , set: 1},
@@ -388,8 +389,24 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">7</div>
-        <div className=" flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">8</div>
+        
+    <div 
+      className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+    >8
+    </div>
+        <div className=" flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+      onMouseEnter={() => setBookHovered(true)}
+      onMouseLeave={() => setBookHovered(false)}
+      onClick={() => setBookClicked(!isClicked)}>
+      <div className="wrap">
+        <div className="perspective">
+          <div className={`book-wrap ${isHovered ? 'rotate' : ''} ${isClicked ? 'flip' : ''}`}>
+            <div className="book book-1"></div>
+            <div className="book-title book-1"></div>
+            <div className="book-back book-1"></div>
+          </div>
+        </div>
+      </div></div>
       </div>
     </div>
     </section>
