@@ -286,3 +286,36 @@
     background-position: right bottom, left top;
     background-repeat: no-repeat;
 }
+
+#tabl{
+  rotate: 10deg;
+  height: 336px;
+  top: -99px;
+  right: -96px;
+  overflow: visible;
+}
+
+#tabl-vid{
+  rotate: 10deg;
+  top: -26px;
+  right: 18px;
+  height: 165px;
+  width: auto;
+}
+
+#mobl{
+  height: 261px;
+  top: -78px;
+  overflow: visible;
+  left: 60px;
+  rotate: 343deg;
+}
+
+#mobl-vid{
+  top: 56px;
+  rotate: 343deg;
+  height: 119px;
+  width: auto;
+  border-radius: 10px;
+  left: 32px;
+}

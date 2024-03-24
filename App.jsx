@@ -154,80 +154,6 @@ useEffect(() => {
   return () => window.removeEventListener('resize', handleResize);
 }, []);
 
-  useEffect(() => {
-    if (window.innerWidth >= 639) {
-      console.log(window.innerWidth)
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          console.log("Intersecting element:", entry.target);
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);  // Set the state variable to true
-            if (entry.target.isSameNode(image1Ref.current)) {
-              console.log("Animating image 1");
-              controls1.start({
-                x: 0,
-                transition: { duration: 1 },
-              });
-              console.log("Animating image 2");
-              controls2.start({
-                x: 0,
-                transition: { duration: 1},
-              });
-              console.log("Animating image 3");
-              controls3.start({
-                y: 0,
-                transition: { duration: 1},
-              });
-            }
-          }
-        },
-        { threshold: 0.1 }
-      );
-
-      if (image1Ref.current) observer.observe(image1Ref.current);
-      if (image2Ref.current) observer.observe(image2Ref.current);
-      if (image3Ref.current) observer.observe(image3Ref.current);
-
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [controls1, controls2, controls3, image1Ref.current, image2Ref.current, image3Ref.current, hasAnimated]);  // Add the state variable to the dependency array
-
-  useEffect(() => {
-    // Check if the viewport width is less than or equal to 768px (typical breakpoint for mobile devices)
-    if (window.innerWidth <= 639) {
-      console.log(window.innerWidth)
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          console.log("Intersecting element:", entry.target);
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);  // Set the state variable to true
-            if (image2Ref.current && entry.target.isSameNode(image2Ref.current)) {
-              console.log("Animating image 2");
-              controls2.start({
-                x: 0,
-                transition: { duration: 1},
-              });
-              console.log("Animating image 3");
-              controls3.start({
-                y: 0,
-                transition: { duration: 1},
-              });
-            }
-          }
-        },
-        { threshold: 0.1 }
-      );
-
-      if (image2Ref.current) observer.observe(image2Ref.current);
-      if (image3Ref.current) observer.observe(image3Ref.current);
-
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [controls2, controls3, image2Ref.current, image3Ref.current, hasAnimated]);  // Remove controls1 and image1Ref.current from the dependency array
 
   const handleSliderChange = (event) => {
     setRotation(event.target.value);
@@ -369,12 +295,26 @@ useEffect(() => {
         Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">1</div>
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className='flex flex-col items-center justify-center relative w-full h-full'>
+          <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
+          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
+          <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover " id='mobl' src="/images/phone.png"alt="Description of Image 3"/>
+          <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
+        </div>
+                            </div>
         <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
         <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
-        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">4</div>
+        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
+             style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
+          <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
+          <span className="absolute -right-2 top-3 border border-3 border-black h-7 rounded-md"></span>
+          <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
+        </div>
+        </div>
         <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
       <MarshallScene rotation={Math.PI / 4} /></div>
         <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
