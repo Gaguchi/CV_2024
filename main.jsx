@@ -105,11 +105,22 @@ function MarshallScene({ rotation }) {
 		loader.setDRACOLoader(dracoLoader);
 
 		let model;
+		let mixer;
 
 		loader.load('/assets/Marshall.glb', (gltf) => {
 			model = gltf.scene;
 			model.position.set(0, -2, -1);
 			scene.add(model);
+			
+			// Create an AnimationMixer and connect it to the model
+			mixer = new THREE.AnimationMixer(model);
+
+			// Find the animations and play them
+			const action1 = mixer.clipAction(gltf.animations.find(clip => clip.name === 'Cube.003Action'));
+			const action2 = mixer.clipAction(gltf.animations.find(clip => clip.name === 'Cube.004Action'));
+			action1.play();
+			action2.play();	
+
 		}, undefined, function (error) {
 			console.error(error);
 		});
@@ -121,7 +132,7 @@ function MarshallScene({ rotation }) {
 		directionalLight.position.set(1, 1, 10);
 		scene.add(directionalLight);
 
-		camera.position.z = 3;
+		camera.position.z = 5;
 
 		let direction = 1;
 		const upperLimit = 0.5; // Set the upper limit
@@ -140,6 +151,11 @@ function MarshallScene({ rotation }) {
 					direction = 1;
 				}
 				model.rotation.x += 0.001 * direction;
+			}
+			
+			// Update the animation mixer on each frame
+			if (mixer) {
+				mixer.update(0.03); // The argument to .update() is the time in seconds since the last frame
 			}
 
 			renderer.render(scene, camera);
