@@ -15,11 +15,16 @@ function ThreeScene({ rotation }) {
 		const renderer = new THREE.WebGLRenderer({ alpha: true });
 
 		const loader = new GLTFLoader();
+
+		const dracoLoader = new DRACOLoader();
+		dracoLoader.setDecoderPath('/node_modules/three/examples/jsm/libs/draco/'); // Set the path to the Draco decoder files
+		loader.setDRACOLoader(dracoLoader);
+
 		let model;
 
 		loader.load('/robo.glb', (gltf) => {
 			model = gltf.scene;
-			model.position.set(0, -2, -1);
+			model.position.set(0, -2, 0.5);
 			model.traverse((object) => {
 				if (object.isMesh) {
 					object.geometry.rotateZ(rotation); 
@@ -30,10 +35,10 @@ function ThreeScene({ rotation }) {
 			console.error(error);
 		});
 
-		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 		scene.add(ambientLight);
 
-		const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+		const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 		directionalLight.position.set(1, 1, 1);
 		scene.add(directionalLight);
 
@@ -43,7 +48,7 @@ function ThreeScene({ rotation }) {
 			requestAnimationFrame(animate);
 
 			if (model) {
-				const vector = new THREE.Vector3(mouse.x * 0.5, mouse.y * 0.5, 0.5); // Reduce the rotation strength
+				const vector = new THREE.Vector3(mouse.x * 0.1, mouse.y * 0.1, 0.1); // Reduce the rotation strength
 				vector.unproject(camera);
 				const dir = vector.sub(camera.position).normalize();
 				const distance = -camera.position.z / dir.z;
