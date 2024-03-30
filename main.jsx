@@ -9,6 +9,7 @@ function ThreeScene({ rotation }) {
 	const ref = useRef();
 	const mouse = new THREE.Vector2();
 	let firstRender = true; // Add a flag for the first render
+	const clock = new THREE.Clock(); // Create a clock for the AnimationMixer
 
 	useEffect(() => {
 		const scene = new THREE.Scene();
@@ -35,13 +36,30 @@ function ThreeScene({ rotation }) {
 		loader.setDRACOLoader(dracoLoader);
 
 		let model;
+		let mixer; // Declare the mixer variable outside the loader.load function
 
-		loader.load('/robo.glb', (gltf) => {
+		loader.load('/robo2.glb', (gltf) => {
 			model = gltf.scene;
-			model.position.set(0, -3, 0); // Move the model slightly down on the y-axis
+			model.position.set(0, -2.5, 0); // Move the model slightly down on the y-axis
 			scene.add(model);
 
-			
+			// Create an AnimationMixer and connect it to the model
+			mixer = new THREE.AnimationMixer(model);
+
+			// Find the 'Cube.026Action' and 'screenAction.001' animations
+			const cubeAction = THREE.AnimationClip.findByName(gltf.animations, 'Cube.026Action');
+			const screenAction = THREE.AnimationClip.findByName(gltf.animations, 'screenAction.001');
+
+			// Create an AnimationAction for each animation and play them
+			if (cubeAction) {
+				const action = mixer.clipAction(cubeAction);
+				action.play();
+			}
+			if (screenAction) {
+				const action = mixer.clipAction(screenAction);
+				action.play();
+			}
+
 			const screenMesh = model.getObjectByName('screen');
 			if (screenMesh) {
 				// Create a rotation matrix
@@ -54,11 +72,10 @@ function ThreeScene({ rotation }) {
 				// Apply the rotation matrix to the texture
 				videoTexture.center.set(0.5, 0.5);
 				videoTexture.rotation = Math.PI / 2;
-		
+
 				screenMesh.material.map = videoTexture;
 				screenMesh.material.needsUpdate = true;
-		
-		
+
 				// Move the screen mesh slightly forward on the z-axis
 				screenMesh.position.x += 0.1;
 
@@ -90,22 +107,27 @@ function ThreeScene({ rotation }) {
 					firstRender = false; // Set the flag to false after the first render
 				} else {
 					// Clamp the mouse position to limit the rotation
-					const clampedMouseX = THREE.MathUtils.clamp(mouse.x, -1, 1);
-					const clampedMouseY = THREE.MathUtils.clamp(mouse.y, -1, 1);
+					const clampedMouseX = THREE.MathUtils.clamp(mouse.x, 0, 1);
+					const clampedMouseY = THREE.MathUtils.clamp(mouse.y, 0, 1);
 
-					const vector = new THREE.Vector3(clampedMouseX * -0.1, clampedMouseY * -0.1, 0.1); // Reduce the rotation strength
+					const vector = new THREE.Vector3(clampedMouseX * -0.5, clampedMouseY * -0.5, 0.5); // Reduce the rotation strength
 					vector.unproject(camera);
 					const dir = vector.sub(camera.position).normalize();
 					const distance = -camera.position.z / dir.z;
 					const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
 					// Add the initial rotations to the position that the model is looking at
-					pos.x += THREE.MathUtils.degToRad(-90);
-					pos.y += THREE.MathUtils.degToRad(-180);
+					pos.x += THREE.MathUtils.degToRad(-180);
+					pos.y += THREE.MathUtils.degToRad(-145);
 					pos.z += THREE.MathUtils.degToRad(-20);
 
 					model.lookAt(pos);
 				}
+			}
+			// Update the animation mixer on each frame
+			if (mixer) {
+				const delta = clock.getDelta();
+				mixer.update(delta);
 			}
 
 			renderer.render(scene, camera);
