@@ -21,6 +21,22 @@ function App() {
   const [isHovered, setBookHovered] = useState(false);
   const [isClicked, setBookClicked] = useState(false);
   
+  const [rotationX, setRotationX] = useState(0);
+  const [rotationY, setRotationY] = useState(0);
+  const [rotationZ, setRotationZ] = useState(0);
+
+  const handleSliderChangeX = (event) => {
+    setRotationX(event.target.value);
+  };
+
+  const handleSliderChangeY = (event) => {
+    setRotationY(event.target.value);
+  };
+
+  const handleSliderChangeZ = (event) => {
+    setRotationZ(event.target.value);
+  };
+
   const [buttons, setButtons] = useState([
   { name: 'angular', class: '' , set: 1},
   { name: 'aws', class: '' , set: 10},
@@ -212,7 +228,7 @@ useEffect(() => {
                 <p className="text-sm sm:text-base text-gray-700 dark:text-white">
                     Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
                 </p>
-            <input type="range" min="0" max="2" step="0.01" value={rotation} onChange={handleSliderChange} />
+                <input type="range" min="0" max="360" value={rotation} onChange={handleSliderChange} className="w-full mt-8"/>
                 <div className="flex mt-8">
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                         Get started

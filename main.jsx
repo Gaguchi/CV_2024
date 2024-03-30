@@ -8,11 +8,25 @@ import 'windi.css'
 function ThreeScene({ rotation }) {
 	const ref = useRef();
 	const mouse = new THREE.Vector2();
+	let firstRender = true; // Add a flag for the first render
 
 	useEffect(() => {
 		const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-		const renderer = new THREE.WebGLRenderer({ alpha: true });
+		const camera = new THREE.PerspectiveCamera(75, 1, 1, 1000);
+		const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+		// Create a video element
+		const video = document.createElement('video');
+		video.src = '/videos/eyes.mp4';
+		video.loop = true;
+		video.muted = true;
+		video.play();
+
+		// Log to the console to verify that the video has been found
+		console.log('Video found:', video);
+
+		// Create a texture from the video
+		const videoTexture = new THREE.VideoTexture(video);
 
 		const loader = new GLTFLoader();
 
@@ -24,36 +38,74 @@ function ThreeScene({ rotation }) {
 
 		loader.load('/robo.glb', (gltf) => {
 			model = gltf.scene;
-			model.position.set(0, -2, 0.5);
-			model.traverse((object) => {
-				if (object.isMesh) {
-					object.geometry.rotateZ(rotation); 
-				}
-			});
+			model.position.set(0, -3, 0); // Move the model slightly down on the y-axis
 			scene.add(model);
+
+			
+			const screenMesh = model.getObjectByName('screen');
+			if (screenMesh) {
+				// Create a rotation matrix
+				const rotationMatrix = new THREE.Matrix3().set(
+					Math.cos(Math.PI / 2), Math.sin(Math.PI / 2), 0,
+					-Math.sin(Math.PI / 2), Math.cos(Math.PI / 2), 0,
+					0, 0, 1
+				);
+
+				// Apply the rotation matrix to the texture
+				videoTexture.center.set(0.5, 0.5);
+				videoTexture.rotation = Math.PI / 2;
+		
+				screenMesh.material.map = videoTexture;
+				screenMesh.material.needsUpdate = true;
+		
+		
+				// Move the screen mesh slightly forward on the z-axis
+				screenMesh.position.x += 0.1;
+
+				// Log to the console to verify that the screen mesh has been found
+				console.log('Screen mesh found:', screenMesh);
+			} else {
+				console.log('Screen mesh not found');
+			}
 		}, undefined, function (error) {
 			console.error(error);
 		});
 
-		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 		scene.add(ambientLight);
 
 		const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-		directionalLight.position.set(1, 1, 1);
+		directionalLight.position.set(0, 0, 10);
 		scene.add(directionalLight);
 
-		camera.position.z = 5;
+		camera.position.z = 4;
+		camera.position.y = 0;
+		camera.position.x = 0;
 
 		const animate = () => {
 			requestAnimationFrame(animate);
 
 			if (model) {
-				const vector = new THREE.Vector3(mouse.x * 0.1, mouse.y * 0.1, 0.1); // Reduce the rotation strength
-				vector.unproject(camera);
-				const dir = vector.sub(camera.position).normalize();
-				const distance = -camera.position.z / dir.z;
-				const pos = camera.position.clone().add(dir.multiplyScalar(distance));
-				model.lookAt(pos);
+				if (firstRender) {
+					firstRender = false; // Set the flag to false after the first render
+				} else {
+					// Clamp the mouse position to limit the rotation
+					const clampedMouseX = THREE.MathUtils.clamp(mouse.x, -1, 1);
+					const clampedMouseY = THREE.MathUtils.clamp(mouse.y, -1, 1);
+
+					const vector = new THREE.Vector3(clampedMouseX * -0.1, clampedMouseY * -0.1, 0.1); // Reduce the rotation strength
+					vector.unproject(camera);
+					const dir = vector.sub(camera.position).normalize();
+					const distance = -camera.position.z / dir.z;
+					const pos = camera.position.clone().add(dir.multiplyScalar(distance));
+
+					// Add the initial rotations to the position that the model is looking at
+					pos.x += THREE.MathUtils.degToRad(-90);
+					pos.y += THREE.MathUtils.degToRad(-180);
+					pos.z += THREE.MathUtils.degToRad(-20);
+
+					model.lookAt(pos);
+				}
 			}
 
 			renderer.render(scene, camera);
@@ -75,7 +127,7 @@ function ThreeScene({ rotation }) {
 
 		window.addEventListener('resize', handleResize);
 		window.addEventListener('mousemove', handleMouseMove);
-		
+
 		setTimeout(handleResize, 100);
 
 		animate();
@@ -101,7 +153,7 @@ function MarshallScene({ rotation }) {
 	useEffect(() => {
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-		const renderer = new THREE.WebGLRenderer({ alpha: true });
+		const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
 		const loader = new GLTFLoader();
 
