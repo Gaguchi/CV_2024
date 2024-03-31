@@ -20,10 +20,25 @@ function App() {
   const gridRef = useRef(null);
   const [isHovered, setBookHovered] = useState(false);
   const [isClicked, setBookClicked] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
   const [rotationZ, setRotationZ] = useState(0);
+
+  const[theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  },[theme]);
+
+  const toggleDarkMode = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
   const handleSliderChangeX = (event) => {
     setRotationX(event.target.value);
@@ -203,14 +218,11 @@ useEffect(() => {
                   Carrer
                 </a>
               </nav>
-              <button className="lg:hidden flex flex-col ml-4">
-                <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1">
-                </span>
-                <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1">
-                </span>
-                <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1">
-                </span>
-              </button>
+              <div className="flex flex-col ml-4">
+                <button onClick={toggleDarkMode} className="p-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-black darkmode">
+                  Toggle Dark Mode
+                </button>
+              </div>
             </div>
           </div>
         </header>
