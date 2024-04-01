@@ -194,14 +194,14 @@ useEffect(() => {
 
   return (
     <div className="font-sans text-gray-900 antialiased">
-      <main className="dark:bg-gray-800 bg-white relative overflow-hidden">
+      <main className="bg-darker relative overflow-hidden">
         <header className="h-24 sm:h-32 flex items-center z-30 w-full">
           <div className="container mx-auto px-6 flex items-center justify-between">
-            <div className="uppercase text-gray-800 dark:text-white font-black text-3xl">
+            <div className="uppercase text-white font-black text-3xl">
               Watch.ME
             </div>
             <div className="flex items-center">
-              <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
+              <nav className="font-sen text-white uppercase text-lg lg:flex items-center hidden">
                 <a href="#" className="py-2 px-6 flex">
                   Home
                 </a>
@@ -219,25 +219,25 @@ useEffect(() => {
                 </a>
               </nav>
               <div className="flex flex-col ml-4">
-                <button onClick={toggleDarkMode} className="p-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-black darkmode">
+                <button onClick={toggleDarkMode} className="p-2 bg-darker text-white ">
                   Toggle Dark Mode
                 </button>
               </div>
             </div>
           </div>
         </header>
-    <div className=" bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+    <div className="bg-darker flex relative z-20 items-center overflow-hidden">
         <div className="max-w-15c;c;,d, xl container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
             <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
-                <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+                <span className="w-20 h-2 bg-white mb-12">
                 </span>
-                <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none text-white ">
                     Be on
                     <span className="text-5xl sm:text-7xl">
                         Time
                     </span>
                 </h1>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-white">
+                <p className="text-sm sm:text-base text-white">
                     Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
                 </p>
                 <input type="range" min="0" max="360" value={rotation} onChange={handleSliderChange} className="w-full mt-8"/>
@@ -245,7 +245,7 @@ useEffect(() => {
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
                         Get started
                     </a>
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-white hover:bg-pink-500 hover:text-white text-md">
                         Read more
                     </a>
                 </div>
@@ -257,49 +257,49 @@ useEffect(() => {
     </div>
 </main>
 
-<div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 dark:bg-gray-900">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">My Web Development Skills
+<div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 bg-darker">
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Web Development Skills
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
-        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
           href="#" target="_blank">
           <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
           <div>
-            <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Frontend Development</div>
+            <div className="font-semibold text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Frontend Development</div>
             <div className="text-sm opacity-75">Proficient in HTML, CSS, and JavaScript. Experienced in using modern frameworks like React &amp; Vue.js.
             </div>
           </div>
         </a>
-        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Atropos"></img>
             <div>
-                <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2">Backend Development</div>
+                <div className="font-semibold text-white sm:mt-4 sm:mb-2">Backend Development</div>
                 <div className="text-sm opacity-75">Specialized in backend development using Django and Laravel, providing robust and efficient solutions.</div>
             </div>
         </a>
-        <a className="flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/konsta.svg" alt="Konsta UI"></img>
             <div>
-                <div className="font-semibold text-black dark:text-white sm:mt-4 sm:mb-2">Diverse Skillset</div>
+                <div className="font-semibold text-white sm:mt-4 sm:mb-2">Diverse Skillset</div>
                 <div className="text-sm opacity-75">Leveraged a variety of programming languages like Python and Java, and tools such as Blender and Photoshop, to accomplish diverse tasks across multiple projects.</div>
             </div>
         </a>
     </div>
 </div>
 
-<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
+<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">More Of Our
         Projects
     </h2>
 
 <section id="mySection" className="flex justify-center">
   <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     <div>
-      <h2 className="text-2xl font-bold mb-2">Header</h2>
-      <h3 className="text-xl mb-2">Sub-header</h3>
-      <p>Some paragraph text goes here.</p>
+      <h2 className="text-2xl font-bold mb-2 text-white">Header</h2>
+      <h3 className="text-xl mb-2 text-white">Sub-header</h3>
+      <p className=' text-white'>Some paragraph text goes here.</p>
     </div>
     {windowWidth < 640 ? (
       <div className="grid grid-cols-4 grid-rows-5 gap-4 justify-center" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
@@ -317,12 +317,12 @@ useEffect(() => {
   </div>
 </section>
 <section className="text-center content-center">
-    <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 dark:bg-gray-900">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-200 sm:text-5xl">More Of Our
+    <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 bg-darker">
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">More Of Our
         Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div className='flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
@@ -330,11 +330,11 @@ useEffect(() => {
           <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
         </div>
                             </div>
-        <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
-        <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
-        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
              style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
           <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
@@ -342,9 +342,9 @@ useEffect(() => {
           <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
         </div>
         </div>
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
       <MarshallScene rotation={Math.PI / 4} /></div>
-        <div className="flex w-full items-center justify-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
             <div className="frame lab-bg" id="soil">
               <div className="mask flex flex-col items-center justify-center relative">
@@ -359,10 +359,10 @@ useEffect(() => {
         </div>
         
     <div 
-      className="sm:row-span-2 flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+      className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
     >MKSBonat
     </div>
-        <div className=" flex w-full items-center rounded-xl border border-black border-opacity-10 px-4 py-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <div className=" flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
       onMouseEnter={() => setBookHovered(true)}
       onMouseLeave={() => setBookHovered(false)}
       onClick={() => setBookClicked(!isClicked)}>
@@ -379,7 +379,7 @@ useEffect(() => {
     </div>
     </section>
             <section className="body-font relative bg-gray-900 text-gray-400">
-            {/* <div className="bg-white dark:bg-gray-800 relative z-20 items-center ">
+            {/* <div className="bg-white bg-darker relative z-20 items-center ">
         <div className="container mx-auto  flex  relative py-16 justify-evenly">
             
             <div className='lg:max-w-7xl w-full'>
@@ -454,7 +454,7 @@ useEffect(() => {
                             
                             </div>
                             <div className="relative z-20" style={{position:'absolute', top: '28%', left: '43.2%'}}>
-                                <h1 className="font-bebas-neue uppercase md:text-6xl sm:text-5xl text-2xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                                <h1 className="font-bebas-neue uppercase md:text-6xl sm:text-5xl text-2xl font-black flex flex-col leading-none text-white text-gray-800">
                                     My 
                                     <span className="sm:text-4xl md:text-7xl text-1xl">
                                     Projects
@@ -485,19 +485,19 @@ useEffect(() => {
 
       <div className="w-1/2 p-2">
         <div className="relative">
-          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
+          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Name" />
           <label htmlFor="name" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Name</label>
         </div>
       </div>
       <div className="w-1/2 p-2">
         <div className="relative">
-          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
+          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Email" />
           <label htmlFor="email" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Email</label>
         </div>
       </div>
       <div className="mt-4 w-full p-2">
         <div className="relative">
-          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
+          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900" placeholder="Message"></textarea>
           <label htmlFor="message" className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:bg-gray-900 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500">Message</label>
         </div>
       </div>
