@@ -240,12 +240,11 @@ useEffect(() => {
                 <p className="text-sm sm:text-base text-white">
                     Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
                 </p>
-                <input type="range" min="0" max="360" value={rotation} onChange={handleSliderChange} className="w-full mt-8"/>
                 <div className="flex mt-8">
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-red-500 border-2 border-transparent text-white text-md mr-4 hover:bg-red-400">
                         Get started
                     </a>
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-white hover:bg-pink-500 hover:text-white text-md">
+                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-500 text-white hover:bg-red-500 hover:text-white text-md">
                         Read more
                     </a>
                 </div>
