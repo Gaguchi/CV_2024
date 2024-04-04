@@ -121,6 +121,31 @@ useEffect(() => {
 }, []);         
 
 
+const greetings = ['Hello', 'Hola', 'Привет', 'გამარჯობა'];
+const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
+const [isErasing, setIsErasing] = useState(false);
+const [greetingIndex, setGreetingIndex] = useState(0);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    if (isErasing) {
+      setCurrentGreeting(currentValue => currentValue.slice(0, currentValue.length - 1));
+      if (currentGreeting === '') {
+        setIsErasing(false);
+        setGreetingIndex((greetingIndex + 1) % greetings.length);
+      }
+    } else {
+      setCurrentGreeting(greetings[greetingIndex].slice(0, currentGreeting.length + 1));
+      if (currentGreeting === greetings[greetingIndex]) {
+        setIsErasing(true);
+      }
+    }
+  }, isErasing ? 100 : 500); // Erase faster than typing
+
+  return () => clearTimeout(timer);
+}, [currentGreeting, isErasing, greetingIndex]);
+
+
 const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
   const [isHovered, setIsHovered] = useState(false);
   const buttonRef = useRef(null);
@@ -231,14 +256,14 @@ useEffect(() => {
             <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
-                <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none text-white ">
-                    Be on
-                    <span className="text-5xl sm:text-7xl">
-                        Time
+                <h1 className="font-bebas-neue uppercase text-5xl sm:text-8xl font-black flex flex-col leading-none text-white " >
+                 {currentGreeting}‎ 
+                    <span className="text-4xl sm:text-7xl">
+                    I'm Boris Karaia
                     </span>
                 </h1>
                 <p className="text-sm sm:text-base text-white">
-                    Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
+                As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.
                 </p>
                 <div className="flex mt-8">
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-red-500 border-2 border-transparent text-white text-md mr-4 hover:bg-red-400">
