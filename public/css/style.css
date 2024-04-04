@@ -323,3 +323,13 @@
 .bg-darker{
   background-color: #0f0f0f;
 }
+
+#greeting{
+  min-height: 7rem;
+}
+
+@media screen and (max-width: 640px) {
+  #greeting{
+    min-height: 3rem;
+  }
+}

@@ -121,29 +121,35 @@ useEffect(() => {
 }, []);         
 
 
-const greetings = ['Hello', 'Hola', 'Привет', 'გამარჯობა'];
-const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
-const [isErasing, setIsErasing] = useState(false);
-const [greetingIndex, setGreetingIndex] = useState(0);
+let greetings = ['Hello', 'Hola', 'Привет', 'გამარჯობა'];
+let currentGreeting = greetings[0];
+let isErasing = false;
+let greetingIndex = 0;
+let timer;
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    if (isErasing) {
-      setCurrentGreeting(currentValue => currentValue.slice(0, currentValue.length - 1));
-      if (currentGreeting === '') {
-        setIsErasing(false);
-        setGreetingIndex((greetingIndex + 1) % greetings.length);
-      }
-    } else {
-      setCurrentGreeting(greetings[greetingIndex].slice(0, currentGreeting.length + 1));
-      if (currentGreeting === greetings[greetingIndex]) {
-        setIsErasing(true);
-      }
+function updateGreeting() {
+  let greetingElement = document.getElementById('greeting');
+
+  if (isErasing) {
+    currentGreeting = currentGreeting.slice(0, currentGreeting.length - 1);
+    if (currentGreeting === '') {
+      isErasing = false;
+      greetingIndex = (greetingIndex + 1) % greetings.length;
     }
-  }, isErasing ? 100 : 500); // Erase faster than typing
+  } else {
+    currentGreeting = greetings[greetingIndex].slice(0, currentGreeting.length + 1);
+    if (currentGreeting === greetings[greetingIndex]) {
+      isErasing = true;
+    }
+  }
 
-  return () => clearTimeout(timer);
-}, [currentGreeting, isErasing, greetingIndex]);
+  greetingElement.textContent = currentGreeting;
+
+  clearTimeout(timer);
+  timer = setTimeout(updateGreeting, isErasing ? 100 : 500); // Erase faster than typing
+}
+
+window.onload = updateGreeting;
 
 
 const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
@@ -223,7 +229,7 @@ useEffect(() => {
         <header className="h-24 sm:h-32 flex items-center z-30 w-full">
           <div className="container mx-auto px-6 flex items-center justify-between">
             <div className="uppercase text-white font-black text-3xl">
-              Watch.ME
+              Boris.K
             </div>
             <div className="flex items-center">
               <nav className="font-sen text-white uppercase text-lg lg:flex items-center hidden">
@@ -231,22 +237,19 @@ useEffect(() => {
                   Home
                 </a>
                 <a href="#" className="py-2 px-6 flex">
-                  Watch
+                  About
                 </a>
                 <a href="#" className="py-2 px-6 flex">
-                  Product
+                  Skills
+                </a>
+                <a href="#" className="py-2 px-6 flex">
+                  Projects
                 </a>
                 <a href="#" className="py-2 px-6 flex">
                   Contact
                 </a>
-                <a href="#" className="py-2 px-6 flex">
-                  Carrer
-                </a>
               </nav>
               <div className="flex flex-col ml-4">
-                <button onClick={toggleDarkMode} className="p-2 bg-darker text-white ">
-                  Toggle Dark Mode
-                </button>
               </div>
             </div>
           </div>
@@ -257,9 +260,9 @@ useEffect(() => {
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
                 <h1 className="font-bebas-neue uppercase text-5xl sm:text-8xl font-black flex flex-col leading-none text-white " >
-                 {currentGreeting}‎ 
-                    <span className="text-4xl sm:text-7xl">
-                    I'm Boris Karaia
+                 <span id='greeting'></span>
+                    <span className="text-4zxl sm:text-7xl">
+                    I'm Boris
                     </span>
                 </h1>
                 <p className="text-sm sm:text-base text-white">
@@ -267,10 +270,10 @@ useEffect(() => {
                 </p>
                 <div className="flex mt-8">
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-red-500 border-2 border-transparent text-white text-md mr-4 hover:bg-red-400">
-                        Get started
+                        About Me
                     </a>
                     <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-500 text-white hover:bg-red-500 hover:text-white text-md">
-                        Read more
+                        My Projects
                     </a>
                 </div>
             </div>
@@ -282,7 +285,7 @@ useEffect(() => {
 </main>
 
 <div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 bg-darker">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Web Development Skills
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">About Me
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
@@ -314,8 +317,7 @@ useEffect(() => {
     </div>
 </div>
 
-<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">More Of Our
-        Projects
+<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Skills
     </h2>
 
 <section id="mySection" className="flex justify-center">
@@ -342,8 +344,7 @@ useEffect(() => {
 </section>
 <section className="text-center content-center">
     <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 bg-darker">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">More Of Our
-        Projects
+    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
         <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
