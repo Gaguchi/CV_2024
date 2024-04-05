@@ -260,10 +260,12 @@ useEffect(() => {
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
                 <h1 className="font-bebas-neue uppercase text-5xl sm:text-8xl font-black flex flex-col leading-none text-white " >
-                 <span id='greeting'></span>
-                    <span className="text-4zxl sm:text-7xl">
-                    I'm Boris
-                    </span>
+                  <span className='text-3xl sm:text-6xl'>
+                    <span id='greeting'></span><span className="caret">|</span>
+                  </span>
+                  <span className="text-4xl sm:text-7xl">
+                    I'm <span className='gradient-text'>Boris</span>
+                  </span>
                 </h1>
                 <p className="text-sm sm:text-base text-white">
                 As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.

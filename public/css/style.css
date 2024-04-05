@@ -333,3 +333,27 @@
     min-height: 3rem;
   }
 }
+
+.caret {
+  font-weight: 700;
+  color: #ffffff;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { color: transparent; }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, white, white, red, red, white, white);
+  background-size: 200% auto; /* make the background larger than the element */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
