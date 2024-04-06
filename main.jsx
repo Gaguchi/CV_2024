@@ -38,7 +38,7 @@ function ThreeScene({ rotation }) {
 		let model;
 		let mixer; // Declare the mixer variable outside the loader.load function
 
-		loader.load('/robo3.glb', (gltf) => {
+		loader.load('/robo4.glb', (gltf) => {
 			model = gltf.scene;
 			model.position.set(0, -2.5, 0); // Move the model slightly down on the y-axis
 			scene.add(model);
@@ -48,11 +48,17 @@ function ThreeScene({ rotation }) {
 
 			// Find the 'Cube.026Action' and 'screenAction.001' animations
 			const cubeActions = [];
-			for (let i = 26; i <= 54; i++) {
+			for (let i = 26; i <= 56 ; i++) {
 			const action = THREE.AnimationClip.findByName(gltf.animations, `Cube.${i < 100 ? '0' : ''}${i}Action`);
 			cubeActions.push(action);
 			}
-			const screenAction = THREE.AnimationClip.findByName(gltf.animations, 'screenAction.001');
+			const chessActions = [];
+			for (let i = 0; i <= 7; i++) {
+			const action = THREE.AnimationClip.findByName(gltf.animations, `chesspiece.${i < 100 ? '0' : ''}${i}Action`);
+			chessActions.push(action);
+			}
+			const screenAction = THREE.AnimationClip.findByName(gltf.animations, 'screenAction');
+			const roboAction = THREE.AnimationClip.findByName(gltf.animations, 'roboAction.001');
 
 						// Create an AnimationAction for each animation and play them
 			cubeActions.forEach((action) => {
@@ -61,8 +67,18 @@ function ThreeScene({ rotation }) {
 				animationAction.play();
 			}
 			});
+			chessActions.forEach((action) => {
+				if (action) {
+					const animationAction = mixer.clipAction(action);
+					animationAction.play();
+				}
+			});
 			if (screenAction) {
 				const action = mixer.clipAction(screenAction);
+				action.play();
+			}
+			if (roboAction) {
+				const action = mixer.clipAction(roboAction);
 				action.play();
 			}
 

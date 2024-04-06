@@ -1,0 +1,370 @@
+@import 'windi.css';
+
+.text-center{
+    text-align: -webkit-center !important;
+}
+
+:root {
+    --theme-color: #006400;
+  }
+  
+
+@keyframes slideRight {
+    0% {
+        @apply translate-x-full;
+    }
+    100% {
+        @apply translate-x-0;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        @apply -translate-x-full;
+    }
+    100% {
+        @apply translate-x-0;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        @apply translate-y-full;
+    }
+    100% {
+        @apply translate-y-0;
+    }
+}
+.group {
+    transition: transform 0.3s ease, padding-bottom 0.3s ease, opacity 0.3s ease;
+}
+.animactive{
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0px 2px 13.2px -1.5733px rgba(50,50,93,0.2)
+}
+
+.group:hover {
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0px 2px 13.2px -1.5733px rgba(50,50,93,0.2)
+}
+
+.anim{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+#milnort{
+    background-image: url('/images/1c-1.png');
+    background-size: cover;
+}
+
+
+.frame {
+    background-color: var(--theme-color);
+    width: 80px;
+    height: 80px;
+    padding: 25px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    /* border-radius: 100%; */
+    box-shadow: 0px 0px 0 5px white, 0px 0px 0px 10px var(--theme-color), 4px 4px 8px 5px black;
+    /* margin-bottom: 25px; */
+    transform: scale(1);
+    transition: all 0.3s ease;
+  }
+  
+  .frame:hover {
+  box-shadow: 0px 0px 0 5px white, 0px 0px 0px 10px var(--theme-color);
+  transform: scale(0.99);
+  transition: all 0.3s ease;
+  }
+  
+
+#scientist-hand{
+    top: -21px;
+    left: -18px;
+    height: 46px;
+    width: auto;
+}
+
+#scientist{
+    top: -29px;
+    left: -31px;
+    height: 98px;
+    width: auto;
+}
+
+#particle-fg{
+    top: -29px;
+    left: -31px;
+    height: 98px;
+    width: auto;
+}
+
+#particle-bg{
+    top: -29px;
+    left: -31px;
+    height: 98px;
+    width: auto;
+}
+  
+  #soil:hover > div > #scientist{
+    transform: translate(-10px, -10px);
+    transition: all 0.5s ease;
+  }
+  
+  #soil:hover > div > #scientist-hand{
+    transform: translate(-8px, -7px);
+    rotate: 25deg;
+  }
+  
+  #soil:hover > div > #particle-fg{
+    transform: translate(-20px, -20px);
+    scale: 0.7;
+  }
+  
+  #soil:hover > div > #particle-bg{
+    transform: translate(-20px, -20px);
+    scale: 1.2;
+  }
+  
+  #soil:hover > div > #bloom{
+    transform: translate(-64%, -57%);
+    scale: 1.2;
+  }
+
+  .mask{
+    clip-path: inset(-130px 43.6px -23.6px -172.8px round 41px);
+    max-height: 32px;
+    width: 99px;
+    height: 73px;
+    }
+    
+    .mask > img {
+    max-height: 250px;
+    transition: all 0.5s ease;
+    }
+
+
+.centered-frame{
+    /* margin-bottom: 1.5rem; */
+    text-align: center;
+    text-align: -webkit-center;
+  }
+
+  .fullheight{
+    height: 100% !important;
+  }
+
+  
+.wrap {
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .wrap .perspective {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    overflow: visible;
+  }
+  .book-wrap {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all ease-out 0.6s;
+    -webkit-transition: all ease-out 0.6s;
+    -moz-transition: all ease-out 0.6s;
+    -ms-transition: all ease-out 0.6s;
+    -o-transition: all ease-out 0.6s;
+    transform-origin: 70px;
+  }
+  .book {
+    width: 140px;
+    height: 200px;
+    background: url(../images/report.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    rotate: 10deg;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+  }
+  .book-title {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 15px;
+    left: -5px;
+    top: -25px;
+    bottom: 0;
+    rotate: 10deg;
+    margin: auto;
+    background: #ffffff;
+    transform: rotateY(-80deg) translateX(-7px);
+  }
+  .book-back {    
+    width: 140px;
+    height: 200px;
+    background: url(../images/report_back.jpg) no-repeat center center;
+    box-shadow: 7px 13px 15px #00000059;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    rotate: 10deg;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    transform: rotate(180deg) translateZ(-15px) translateX(0px);
+  }
+
+  @media screen and (max-width: 992px) {
+    .wrap{
+        padding-top: 125px;
+        padding-bottom: 50px;
+    }
+    .book {
+      width: 140px;
+      height: 200px;
+    }
+    .book-title {
+      content: "";
+      height: 200px;
+      width: 15px;
+      left: -5px;
+      top: -25px;
+    }
+    .book-back {    
+      width: 140px;
+      height: 200px;
+    }
+}
+
+  .book-back .text {
+    transform: rotateX(180deg);
+    position: absolute;
+    bottom: 30px;
+    padding: 20px;
+    text-align: left;
+  }
+  .book-back .text h3 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .book-back .text span {
+    display: block;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .book-back .text span:last-of-type {
+    margin-top: 30px;
+  }
+  .rotate {
+    transform: rotateY(20deg);
+  }
+  .flip {
+    transform: rotateY(180deg);
+  }
+
+.background-flip{
+    background-image: url(../images/bg-shape2.png),url(../images/bg-shape1.png);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat;
+}
+
+#tabl{
+  rotate: 10deg;
+  height: 336px;
+  top: -99px;
+  right: -96px;
+  overflow: visible;
+}
+
+#tabl-vid{
+  rotate: 10deg;
+  top: -26px;
+  right: 18px;
+  height: 165px;
+  width: auto;
+}
+
+#mobl{
+  height: 261px;
+  top: -78px;
+  overflow: visible;
+  left: 60px;
+  rotate: 343deg;
+}
+
+#mobl-vid{
+  top: 56px;
+  rotate: 343deg;
+  height: 119px;
+  width: auto;
+  border-radius: 10px;
+  left: 32px;
+}
+
+.bg-darker{
+  background-color: #0f0f0f;
+}
+
+#greeting{
+  min-height: 7rem;
+}
+
+@media screen and (max-width: 640px) {
+  #greeting{
+    min-height: 3rem;
+  }
+}
+
+.caret {
+  font-weight: 700;
+  color: #ffffff;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { color: transparent; }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, white, white, red, red, white, white);
+  background-size: 200% auto; /* make the background larger than the element */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
+
+.calc-h {
+  height: calc(100vh - 8rem);
+}
+
+@media screen and (max-width: 640px) {
+    .calc-h {
+    height: calc(100vh - 6rem);
+  }
+}
+
