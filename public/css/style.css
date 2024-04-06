@@ -357,3 +357,14 @@
   0% { background-position: 200% 0; }
   100% { background-position: 0 0; }
 }
+
+.calc-h {
+  height: calc(100vh - 8rem);
+}
+
+@media screen and (max-width: 640px) {
+    .calc-h {
+    height: calc(100vh - 6rem);
+  }
+}
+

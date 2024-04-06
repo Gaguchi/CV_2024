@@ -254,8 +254,8 @@ useEffect(() => {
             </div>
           </div>
         </header>
-    <div className="bg-darker flex relative z-20 items-center overflow-hidden">
-        <div className="max-w-15c;c;,d, xl container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
+    <div className="bg-darker flex relative z-20 items-center overflow-hidden calc-h">
+        <div className="h-full xl container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
             <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
@@ -284,8 +284,6 @@ useEffect(() => {
             </div>
         </div>
     </div>
-</main>
-
 <div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 bg-darker">
     <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">About Me
     </h2>
@@ -568,6 +566,8 @@ useEffect(() => {
 </div>
 
 </section>
+</main>
+
       </div>
     );
   }
