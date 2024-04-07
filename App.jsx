@@ -149,8 +149,9 @@ function updateGreeting() {
   timer = setTimeout(updateGreeting, isErasing ? 100 : 500); // Erase faster than typing
 }
 
-window.onload = updateGreeting;
-
+useEffect(() => {
+  updateGreeting();
+}, []);
 
 const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
   const [isHovered, setIsHovered] = useState(false);
