@@ -368,3 +368,7 @@
   }
 }
 
+.logo {
+  height: 50px; /* adjust as needed */
+  width: auto;
+}

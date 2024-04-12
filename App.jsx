@@ -325,16 +325,36 @@ useEffect(() => {
   <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
   <h2 className="text-2xl font-bold mb-2 text-white">Diverse Solutions</h2>
   <h3 className="text-xl mb-2 text-white">Fields of Expertise</h3>
-  <p className='text-white'>
-    I have experience in various fields of software development, including:
-  </p>
-  <ul className='text-white'>
-    <li><strong>Front-End Development:</strong> I've built interactive and responsive websites using JavaScript, HTML, CSS, and frameworks like React and Vue.js.</li>
-    <li><strong>Back-End Development:</strong> I've developed robust and scalable server-side applications using languages like Java, Python, and Node.js.</li>
-    <li><strong>Mobile Development:</strong> I've created native and cross-platform mobile apps using Swift, Kotlin, and React Native.</li>
-    <li><strong>Data Analysis:</strong> I've performed data cleaning, exploration, and visualization tasks using Python libraries like pandas, numpy, and matplotlib.</li>
-    <li><strong>Machine Learning:</strong> I've built and trained machine learning models using Python libraries like scikit-learn and TensorFlow.</li>
-  </ul>
+<p className='text-white'>
+  I have experience in various fields of software development, including:
+</p>
+<ul className='text-white'>
+  <li>
+    <strong>Front-End Development:</strong> I've built interactive and responsive websites using 
+    <span className="text-yellow-500">JavaScript</span><img className="logo" src="/images/javascript-1.svg" alt="JavaScript logo" />, 
+    HTML, CSS, and frameworks like 
+    <span className="text-blue-500">React</span><img className="logo" src="/images/react-1.svg" alt="React logo" /> and 
+    <span className="text-green-500">Vue.js</span><img className="logo" src="/images/vue-1.svg" alt="Vue logo" />.
+  </li>
+  <li>
+    <strong>Back-End Development:</strong> I've developed robust and scalable server-side applications using languages like 
+    <span className="text-red-500">Java</span><img className="logo" src="/images/java-1.svg" alt="Java logo" />, 
+    <span className="text-blue-500">Python</span><img className="logo" src="/images/python-1.svg" alt="Python logo" />, and 
+    <span className="text-green-500">Node.js</span><img className="logo" src="/images/nodejs-1.svg" alt="Node.js logo" />.
+  </li>
+  <li>
+    <strong>Mobile Development:</strong> I've created native and cross-platform mobile apps using 
+    <span className="text-orange-500">Swift</span><img className="logo" src="/images/swift-1.svg" alt="Swift logo" />, 
+    <span className="text-green-500">Kotlin</span><img className="logo" src="/images/kotlin-1.svg" alt="Kotlin logo" />, and 
+    <span className="text-purple-500">React Native</span><img className="logo" src="/images/react-native-1.svg" alt="React Native logo" />.
+  </li>
+  <li>
+    <strong>Data Analysis:</strong> I've performed data cleaning, exploration, and visualization tasks using Python libraries like pandas, numpy, and matplotlib.
+  </li>
+  <li>
+    <strong>Machine Learning:</strong> I've built and trained machine learning models using Python libraries like scikit-learn and TensorFlow.
+  </li>
+</ul>
 </div>
     {windowWidth < 640 ? (
       <div className="grid grid-cols-4 grid-rows-5 gap-4 justify-center" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
