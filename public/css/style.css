@@ -368,3 +368,7 @@
   }
 }
 
+.logo{
+  max-height: 25px;
+  display: inline;
+}

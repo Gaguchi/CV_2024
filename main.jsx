@@ -75,19 +75,46 @@ function ThreeScene({ rotation }) {
         action.play();
       }
 
-      const screenMesh = model.getObjectByName('screen');
-      if (screenMesh) {
-        videoTexture.center.set(0.5, 0.5);
-        videoTexture.rotation = Math.PI / 2;
+		const screenMesh = model.getObjectByName('screen');
+		if (screenMesh) {
+		videoTexture.center.set(0.5, 0.5);
+		videoTexture.rotation = Math.PI / 2;
 
-        screenMesh.position.x += 50;
-        screenMesh.material.map = videoTexture;
-        screenMesh.material.needsUpdate = true;
-      }
-      if (screenAction) {
-        const action = mixer.clipAction(screenAction);
-        action.play();
-      }
+		const delta = new THREE.Vector3(0, 0, 0.1); // Define the delta
+		screenMesh.position.add(delta); // Add the delta to the current position
+
+		screenMesh.material.map = videoTexture;
+		screenMesh.material.needsUpdate = true;
+		}
+		if (screenAction) {
+		const action = mixer.clipAction(screenAction);
+
+		// Adjust the x values of the keyframes and log them
+		const newTracks = action._clip.tracks.map((track) => {
+			if (track.name.includes('.position')) { // Only adjust position tracks
+			const newValues = track.values.map((value, index) => {
+				if (index % 3 === 0) { // Only adjust x values
+				return value - 0.02; // Adjust the x value
+				}
+				return value;
+			});
+
+			console.log(newValues); // Log the new keyframes
+
+			// Create a new track with the adjusted keyframes
+			return new THREE.VectorKeyframeTrack(track.name, track.times, newValues);
+			}
+			return track;
+		});
+
+		// Create a new clip with the adjusted tracks
+		const newClip = new THREE.AnimationClip(action._clip.name, action._clip.duration, newTracks);
+
+		// Replace the old action with the new one
+		mixer.uncacheClip(screenAction);
+		const newAction = mixer.clipAction(newClip);
+		newAction.play();
+		}
     });
 
     const time = Date.now();

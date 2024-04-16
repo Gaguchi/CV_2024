@@ -322,7 +322,7 @@ useEffect(() => {
     </h2>
 
 <section id="mySection" className="flex justify-center">
-  <div className=" max-w-screen-lg pl-1 pr-1 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
+  <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
   <h2 className="text-2xl font-bold mb-2 text-white">Diverse Solutions</h2>
   <h3 className="text-xl mb-2 text-white">Fields of Expertise</h3>
 <p className='text-white'>
