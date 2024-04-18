@@ -372,3 +372,18 @@
   max-height: 25px;
   display: inline;
 }
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 2s forwards;
+}

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, memo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import  { ThreeScene, MarshallScene }  from './main.jsx';
 import startInterval from './public/js/ButtonBehavior.js';
+import ScrollTrigger from 'react-scroll-trigger';
 
 
 function App() {
@@ -38,6 +39,18 @@ function App() {
 
   const toggleDarkMode = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+  
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onEnterViewport = () => {
+    setIsVisible(true);
+    console.log('Entered viewport');
+  };
+
+  const onExitViewport = () => {
+    setIsVisible(false);
+    console.log('Exited viewport');
   };
 
   const handleSliderChangeX = (event) => {
@@ -256,7 +269,7 @@ useEffect(() => {
           </div>
         </header>
     <div className="bg-darker flex relative z-20 items-center overflow-hidden calc-h">
-        <div className="h-full xl container mx-auto px-6 flex  flex-wrap-reverse relative py-16">
+        <div className="h-full xl container mx-auto px-6 flex  flex-wrap-reverse relative py-10 px-10">
             <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
@@ -264,9 +277,11 @@ useEffect(() => {
                   <span className='text-3xl sm:text-6xl'>
                     <span id='greeting'></span><span className="caret">|</span>
                   </span>
-                  <span className="text-4xl sm:text-7xl">
-                    I'm <span className='gradient-text'>Boris</span>
-                  </span>
+<ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport}>
+  <span className={`text-4xl sm:text-7xl ${isVisible ? 'animate-slide-in' : ''}`}>
+    I'm <span className='gradient-text'>Boris</span>
+  </span>
+</ScrollTrigger>
                 </h1>
                 <p className="text-sm sm:text-base text-white">
                 As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.
@@ -290,15 +305,15 @@ useEffect(() => {
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
-        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
-          href="#" target="_blank">
-          <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
-          <div>
-            <div className="font-semibold text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Frontend Development</div>
-            <div className="text-sm opacity-75">Proficient in HTML, CSS, and JavaScript. Experienced in using modern frameworks like React &amp; Vue.js.
+          <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-gradient-to-r from-black via-gray-800 to-black shadow-sm"
+            href="#" target="_blank">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
+            <div>
+              <div className="font-semibold text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Frontend Development</div>
+              <div className="text-sm opacity-75">Proficient in HTML, CSS, and JavaScript. Experienced in using modern frameworks like React &amp; Vue.js.
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
         <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Atropos"></img>
@@ -329,25 +344,7 @@ useEffect(() => {
   I have experience in various fields of software development, including:
 </p>
 <p className='text-white'>
-  <strong>Front-End Development:</strong> I've built interactive and responsive websites using 
-  <span className="text-yellow-500">JavaScript</span><img className="logo" src="/images/javascript-1.svg" alt="JavaScript logo" />, 
-  HTML, CSS, and frameworks like 
-  <span className="text-blue-500">React</span><img className="logo" src="/images/react-1.svg" alt="React logo" /> and 
-  <span className="text-green-500">Vue.js</span><img className="logo" src="/images/vue-1.svg" alt="Vue logo" />.
-  <br />
-  <strong>Back-End Development:</strong> I've developed robust and scalable server-side applications using languages like 
-  <span className="text-red-500">Java</span><img className="logo" src="/images/java-1.svg" alt="Java logo" />, 
-  <span className="text-blue-500">Python</span><img className="logo" src="/images/python-1.svg" alt="Python logo" />, and 
-  <span className="text-green-500">Node.js</span><img className="logo" src="/images/nodejs-1.svg" alt="Node.js logo" />.
-  <br />
-  <strong>Mobile Development:</strong> I've created native and cross-platform mobile apps using 
-  <span className="text-orange-500">Swift</span><img className="logo" src="/images/swift-1.svg" alt="Swift logo" />, 
-  <span className="text-green-500">Kotlin</span><img className="logo" src="/images/kotlin-1.svg" alt="Kotlin logo" />, and 
-  <span className="text-purple-500">React Native</span><img className="logo" src="/images/react-native-1.svg" alt="React Native logo" />.
-  <br />
-  <strong>Data Analysis:</strong> I've performed data cleaning, exploration, and visualization tasks using Python libraries like pandas, numpy, and matplotlib.
-  <br />
-  <strong>Machine Learning:</strong> I've built and trained machine learning models using Python libraries like scikit-learn and TensorFlow.
+Throughout my career, I've had the opportunity to wear many hats and tackle a variety of challenges. In the realm of web development, I've utilized <span className="font-bold text-html">HTML</span> <img className="logo" src="/images/html-1.svg" alt="JavaScript logo" />, <span className="font-bold text-css">CSS</span> <img className="logo" src="/images/css-1.svg" alt="JavaScript logo" />, and vanilla <span className="font-bold text-js">JavaScript</span> <img className="logo" src="/images/javascript-1.svg" alt="JavaScript logo" />, along with PHP, Laravel, and Django for a diverse range of projects. These projects span from public-facing websites to internal tools, each with their unique requirements and objectives. Beyond web development, I've leveraged Python's powerful capabilities for data analysis and web scraping tasks, extracting valuable insights and automating processes. Additionally, I've had the chance to delve into mobile application development, specifically working on an Android application using Java. Each experience has enriched my skill set and broadened my understanding of the vast landscape of software development.
 </p>
 </div>
     {windowWidth < 640 ? (
