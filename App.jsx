@@ -277,11 +277,11 @@ useEffect(() => {
                   <span className='text-3xl sm:text-6xl'>
                     <span id='greeting'></span><span className="caret">|</span>
                   </span>
-<ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport}>
-  <span className={`text-4xl sm:text-7xl ${isVisible ? 'animate-slide-in' : ''}`}>
-    I'm <span className='gradient-text'>Boris</span>
-  </span>
-</ScrollTrigger>
+                  <ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport}>
+                    <span className={`text-4xl sm:text-7xl ${isVisible ? 'animate-slide-in' : ''}`}>
+                      I'm <span className='gradient-text'>Boris</span>
+                    </span>
+                  </ScrollTrigger>
                 </h1>
                 <p className="text-sm sm:text-base text-white">
                 As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.
@@ -388,6 +388,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
         </div>
         </div>
         <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+      
       <MarshallScene rotation={Math.PI / 4} /></div>
         <div className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
