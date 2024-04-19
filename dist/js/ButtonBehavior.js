@@ -27,6 +27,7 @@ function startInterval(buttons, scale, sectionId) {
                     const newSetButtons = document.querySelectorAll(`.set-${activeButtonSet}`);
                     newSetButtons.forEach(button => {
                         button.classList.add('animactive');
+                        button.classList.remove('bg-grad-element'); // Added this line
                         // Change the last string in the svg from "w" to "1"
                         const img = button.querySelector('img');
                         img.src = img.src.replace('-w.svg', '-1.svg');
@@ -47,11 +48,12 @@ function startInterval(buttons, scale, sectionId) {
                         const allButtons = document.querySelectorAll('.animactive');
                         allButtons.forEach(button => {
                             button.classList.remove('animactive');
+                            button.classList.add('bg-grad-element'); // Added this line
                             // Change the last string in the svg from "1" to "w"
                             const img = button.querySelector('img');
                             img.src = img.src.replace('-1.svg', '-w.svg');
                             // Change the transform and padding-bottom styles
-                            button.style.transform = `scale(${scale - 0.2})`;
+                            button.style.transform = `scale(${scale - 0.3})`;
                             img.style.transform = `scale(${scale - 0.5})`;
                             img.style.paddingBottom = '0px';
                             // Change the opacity of the span
@@ -61,9 +63,26 @@ function startInterval(buttons, scale, sectionId) {
                     }
                 }, 1000);
             }
-            // If the section is not in view, clear the interval
+            // If the section is not in view, clear the interval and remove 'animactive' class
             else if (intervalId) {
                 clearInterval(intervalId);
+
+                // Remove the 'animactive' class from all buttons
+                const allButtons = document.querySelectorAll('.animactive');
+                allButtons.forEach(button => {
+                    button.classList.remove('animactive');
+                    button.classList.add('bg-grad-element'); // Added this line
+                    // Change the last string in the svg from "1" to "w"
+                    const img = button.querySelector('img');
+                    img.src = img.src.replace('-1.svg', '-w.svg');
+                    // Change the transform and padding-bottom styles
+                    button.style.transform = `scale(${scale - 0.3})`;
+                    img.style.transform = `scale(${scale - 0.5})`;
+                    img.style.paddingBottom = '0px';
+                    // Change the opacity of the span
+                    const span = button.querySelector('span');
+                    span.style.opacity = '0';
+                });
             }
         });
     });
