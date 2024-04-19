@@ -40,7 +40,7 @@ function ThreeScene({ rotation }) {
 
     loader.load('/robo4.glb', (gltf) => {
       model = gltf.scene;
-      model.position.set(0, -2.5, 0);
+      model.position.set(0, -2, 0);
       scene.add(model);
 
       mixer = new THREE.AnimationMixer(model);

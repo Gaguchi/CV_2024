@@ -170,14 +170,17 @@ const ButtonComponent = React.memo(({ button, scale, activeButtonSet }) => {
   const [isHovered, setIsHovered] = useState(false);
   const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (buttonRef.current.classList.contains('animactive')) {
-      setIsHovered(true);
-    }
-  }, [activeButtonSet]);
-
   const isActive = button.set === activeButtonSet;
-  const buttonClass = `set-${button.set} group w-20 h-20 anim flex text-center items-center justify-center relative overflow-hidden ${isActive ? 'animactive' : ''}`;
+
+  useEffect(() => {
+    if (isActive) {
+      setIsHovered(true);
+    } else if (!buttonRef.current.classList.contains('animactive')) {
+      setIsHovered(false);
+    }
+  }, [isActive]);
+
+  const buttonClass = `set-${button.set} group w-20 h-20 anim flex text-center items-center justify-center relative overflow-hidden  ${isActive ? 'animactive' : 'bg-grad-element'} `;
 
   return (
     <button 
@@ -300,12 +303,12 @@ useEffect(() => {
             </div>
         </div>
     </div>
-<div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6 bg-darker">
+<div className="mx-auto mb-20 max-w-6xl text-center p-6 bg-darker">
     <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">About Me
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
-          <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-gradient-to-r from-black via-gray-800 to-black shadow-sm"
+          <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
             <div>
@@ -314,7 +317,7 @@ useEffect(() => {
               </div>
             </div>
           </a>
-        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Atropos"></img>
             <div>
@@ -322,7 +325,7 @@ useEffect(() => {
                 <div className="text-sm opacity-75">Specialized in backend development using Django and Laravel, providing robust and efficient solutions.</div>
             </div>
         </a>
-        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
             href="#" target="_blank">
             <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/konsta.svg" alt="Konsta UI"></img>
             <div>
@@ -367,7 +370,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
     <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div className='flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
@@ -375,11 +378,11 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
         </div>
                             </div>
-        <div className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img></div>
         <div id='milnort' className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img></div>
-        <div className="sm:col-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="bg-grad-element sm:col-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
              style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
           <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
@@ -387,10 +390,10 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
         </div>
         </div>
-        <div className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
       
       <MarshallScene rotation={Math.PI / 4} /></div>
-        <div className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
             <div className="frame lab-bg" id="soil">
               <div className="mask flex flex-col items-center justify-center relative">
@@ -405,10 +408,10 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
         </div>
         
     <div 
-      className="sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+      className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
     >MKSBonat
     </div>
-        <div className=" flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <div className="bg-grad-element flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
       onMouseEnter={() => setBookHovered(true)}
       onMouseLeave={() => setBookHovered(false)}
       onClick={() => setBookClicked(!isClicked)}>
@@ -424,99 +427,8 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
       </div>
     </div>
     </section>
-            <section className="body-font relative bg-gray-900 text-gray-400">
-            {/* <div className="bg-white bg-darker relative z-20 items-center ">
-        <div className="container mx-auto  flex  relative py-16 justify-evenly">
-            
-            <div className='lg:max-w-7xl w-full'>
-                    <div className="relative">
-                        <div style={{ paddingTop: '35.250%' }}>
-                            <div style={{position:'absolute', top: '-60%', left:0, width: '100%', height: '100%', pointerEvents: 'none'}}>
-                            <motion.img
-                              ref={image1Ref}
-                              className="absolute z-10 sm:block hidden pointer-events-none" // Change here
-                              src="/images/laptop.png"
-                              alt="Description of Image 1"
-                              initial={{ x: 100, y: 55 }}  // Start from 100px to the right and 50px up
-                              animate={controls1}
-                            />
 
-                            <motion.video 
-                              className="absolute z-8 sm:block hidden pointer-events-none" // Change here
-                              src="/videos/cv_example_1v2_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={{ x: 100, y: 55  }}  // Start from 200px below
-                              animate={controls1}
-                              style={{ height: '85.5%', top: '32%', left: '38%', filter: 'blur(2px)' }}
-                            />
-
-                            <motion.img
-                              ref={image2Ref}
-                              className="absolute z-20 pointer-events-none overflow-x-hidden"
-                              src="/images/tablet.png"
-                              alt="Description of Image 2"
-                              initial={window.innerWidth <= 639 ? {  x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 150px to the left and 50px up
-                              animate={controls2}
-                              transition={{ set: 3 }}  // Add a delay of 0.5 seconds
-                              style={window.innerWidth <= 639 ? {height: '87.7%', top: '0%', left: '100%',scale:4.5 } : { height: '178.7%', top: '-1%', left: '-0.1%'}}
-                            />
-                            
-                            <motion.video 
-                              className="absolute z-19 pointer-events-none" 
-                              src="/videos/cv_example_2_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={window.innerWidth <= 639 ? { x: 100, y:50 }:{ x: -250, y:50 }}  // Start from 200px below
-                              animate={controls2}
-                              transition={{ set: 3 }}
-                              style={window.innerWidth <= 639 ? {height: '195.2%', top: '-40.6%', left: '39.8%', filter: 'blur(2px)'} : { height: '87.7%', top: '50.1%', left: '11.7%', filter: 'blur(2px)' }}
-                            />
-
-                            <motion.img
-                              ref={image3Ref}
-                              className="absolute z-30 pointer-events-none"
-                              src="/images/phone.png"
-                              alt="Description of Image 3"
-                              initial={{ y: 250 }}  // Start from 200px below
-                              animate={controls3}
-                              style={window.innerWidth <= 639 ? { height: '80%', top: '16.2%%', left: '36%', scale:5.1 } : { height: '178.1%', top: '-0.2%', left: '-0.2%' }}
-                            />
-
-                            <motion.video 
-                              className="absolute z-29 pointer-events-none" 
-                              src="/videos/cv_example_3_sm.mp4" 
-                              autoPlay 
-                              loop 
-                              muted 
-                              initial={{ y: 250 }}  // Start from 200px below
-                              animate={controls3}
-                              style={window.innerWidth <= 639 ? { height: '183.2%', top: '24.2%', left: '12.5%' } : { height: '79.2%', top: '81.2%', left: '29.8%' }}
-                            />
-
-                            
-                            
-                            </div>
-                            <div className="relative z-20" style={{position:'absolute', top: '28%', left: '43.2%'}}>
-                                <h1 className="font-bebas-neue uppercase md:text-6xl sm:text-5xl text-2xl font-black flex flex-col leading-none text-white text-gray-800">
-                                    My 
-                                    <span className="sm:text-4xl md:text-7xl text-1xl">
-                                    Projects
-                                    </span>
-                                </h1>
-                                <div className="flex mt-2">
-                                    <a href="#" className="sm:text-1xl md:text-2xl text-xs uppercase py-1 px-2 sm:py-2 sm:px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
-                                        Get started
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div> */}
+    <section className="body-font relative bg-gray-900 text-gray-400">
 <div className="container mx-auto px-5 py-24">
   
   <div className="mb-12 flex w-full flex-col text-center">
