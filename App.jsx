@@ -267,20 +267,19 @@ useEffect(() => {
 {isModalOpen && (
   
   <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isModalOpen ? '' : 'opacity-0 pointer-events-none'}`}>
-    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50"></div>
     
-    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
       
       <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
         <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
           <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
         </svg>
-        <span class="text-sm">{modalContent}</span>
       </div>
 
-      <div class="modal-content py-4 text-left px-6">
+      <div class="bg-grad-element sm:row-span-2 flex w-full rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content py-4 text-left px-6 modal-content py-4 text-left px-6">
         <div class="flex justify-between items-center pb-3">
-          <p class="text-2xl font-bold">Simple Modal!</p>
+          <p class="text-2xl font-bold">{modalContent}</p>
           <div class="modal-close cursor-pointer z-50">
             <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
               <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -435,16 +434,19 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
-        <div className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-          <div className='flex flex-col items-center justify-center relative w-full h-full'>
-            <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
-            <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
-            <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover " id='mobl' src="/images/phone.png"alt="Description of Image 3"/>
-            <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
-          </div>
-        </div>
+      <div  id='petroholod'  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div className='flex flex-col items-center justify-center relative w-full h-full'>
+          <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
+          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
+          <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover " id='mobl' src="/images/phone.png"alt="Description of Image 3"/>
+          <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
 
-        <div className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+          <h1 className="z-40 text-center mt-4">Petroholod</h1>
+          <p className="z-40 text-center text-xs mt-2">I used my web-design and graphic design skills to market the products of the company.</p>
+        </div>
+      </div>
+
+        <div id='harvard' className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img>
         </div>
 
@@ -452,20 +454,21 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img>
         </div>
 
-        <div className="bg-grad-element sm:col-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='iceberry' className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
           <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
               style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
             <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
             <span className="absolute -right-2 top-3 border border-3 border-black h-7 rounded-md"></span>
             <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
           </div>
+          <img  className=" h-32 w-32" src="/images/scanner.svg" alt="Scanner"></img>
         </div>
 
-        <div className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='3d' className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <MarshallScene rotation={Math.PI / 4} />
         </div>
 
-        <div className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='agro' className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
             <div className="frame lab-bg" id="soil">
               <div className="mask flex flex-col items-center justify-center relative">
@@ -479,11 +482,11 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           </div>
         </div>
         
-    <div 
+    <div  id='mksbonat'
       className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
     >MKSBonat
     </div>
-        <div className="bg-grad-element flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+        <div id='mutabalis' className="bg-grad-element flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
       onMouseEnter={() => setBookHovered(true)}
       onMouseLeave={() => setBookHovered(false)}
       onClick={() => setBookClicked(!isClicked)}>
