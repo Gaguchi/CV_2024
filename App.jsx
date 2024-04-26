@@ -78,6 +78,7 @@ function App() {
       </div>
       </>
     );
+    break;
 case '3d':
   content = (
     <>
@@ -99,13 +100,23 @@ case '3d':
         </>
       );
       break;
-case 'mksbonat':
+  case 'mksbonat':
+    content = (
+      <>
+      <div class='p-6'>
+        <h3>Experience at MKSBonat</h3>
+        <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
+        <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
+      </div>
+      </>
+    );
+    break;
+case 'mutabalis':
   content = (
     <>
-    <div clas='p-6'>
-      <h3>Experience at MKSBonat</h3>
-      <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
-      <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
+    <div class='p-6'>
+    <h3>Work for Mutabalis</h3>
+    <p>For <strong>Mutabalis</strong>, a data analytics firm based in London, UK, I created a straightforward informative website. I find it relatively easy to work with foreign companies and clients, especially English-speaking ones, due to my education at Brunel University and my confidence in my English communication skills.</p>
     </div>
     </>
   );
