@@ -36,7 +36,15 @@ function App() {
 
   switch (id) {
     case 'milnort':
-      content = 'Milnort content';
+      content = (
+        <>
+          <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
+          <div class="p-6">
+            <p>At <strong>Milnort</strong>, my role centered around maintaining and enhancing a production cost calculator. I used <strong>1C</strong> for raw data generation, and <strong>Excel</strong> and <strong>Microsoft PowerBI</strong> for data optimization and visualization.</p>
+            <p>I also developed a web scraping system using <strong>Python</strong> and <strong>JavaScript</strong>, with libraries like <strong>BeautifulSoup</strong>, <strong>Selenium</strong>, and <strong>Playwright</strong>. This system gathered and standardized pricing data across all regions of Russia for a specific product category.</p>
+          </div>
+        </>
+      );
       break;
     // Add more cases for other ids
     default:
@@ -265,42 +273,16 @@ useEffect(() => {
 
 
 {isModalOpen && (
+<div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isModalOpen ? '' : 'opacity-0 pointer-events-none'}`}>
+  <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={() => setIsModalOpen(false)}></div>
   
-  <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isModalOpen ? '' : 'opacity-0 pointer-events-none'}`}>
-    <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50"></div>
+  <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto" onClick={e => e.stopPropagation()}>
     
-    <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
-      
-      <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
-        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-        </svg>
-      </div>
-
-      <div class="bg-grad-element sm:row-span-2 flex w-full rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content py-4 text-left px-6 modal-content py-4 text-left px-6">
-        <div class="flex justify-between items-center pb-3">
-          <p class="text-2xl font-bold">{modalContent}</p>
-          <div class="modal-close cursor-pointer z-50">
-            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-            </svg>
-          </div>
-        </div>
-
-        <p>Modal content can go here</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-
-        <div class="flex justify-end pt-2">
-          <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
-          <button onClick={() => setIsModalOpen(false)} class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
-        </div>
-        
-      </div>
+    <div class="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+        {modalContent}
     </div>
   </div>
+</div>
     )}
     {
       
