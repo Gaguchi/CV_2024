@@ -35,6 +35,17 @@ function App() {
   let content;
 
   switch (id) {
+    case 'harvard':
+      content = (
+        <>
+        <div class="p-6">
+          <h3>CS50W Harvard Final Project</h3>
+          <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
+          <p>I used <strong>Django</strong> and <strong>React</strong> for the app development, and integrated the <strong>TMDB API</strong> for movie data. Additionally, I generated my own API to make the system work.</p>
+        </div>
+        </>
+      );
+      break;
     case 'milnort':
       content = (
         <>
@@ -46,8 +57,59 @@ function App() {
         </>
       );
       break;
-    // Add more cases for other ids
-    default:
+    case 'petroholod':
+      content = (
+        <>
+        <div class="p-6">
+          <h3>Experience at Petroholod</h3>
+          <p>During my tenure at <strong>Petroholod</strong>, I was involved in creating several webpages for different products of the company. These pages were primarily developed using <strong>PHP</strong> and served various purposes such as introducing new products to the market.</p>
+          <p>Some of these webpages were also used for advertising and conducting contests. For instance, one such web app was designed to accept information from customers and assign winners using a built-in random number generator.</p>
+        </div>
+        </>
+      );
+      break;
+  case 'iceberry':
+    content = (
+      <>
+      <div class="p-6">
+        <h3>Work at Iceberry</h3>
+        <p>At <strong>Iceberry</strong>, I implemented an in-house training and testing system for the company's merchandisers. This was done using <strong>Django</strong> and was aimed at educating new employees, testing them, and providing a simple system for their daily work.</p>
+        <p>To facilitate maintenance, I created a CMS system with several admin layers. This system was also built using <strong>Django</strong>.</p>
+      </div>
+      </>
+    );
+case '3d':
+  content = (
+    <>
+      <div class="p-6">
+        <h3>3D Modeling Experience</h3>
+        <p>I have experience in creating 3D models using software like <strong>Blender</strong> (which is my preferred tool, although I also have experience with Autodesk 3DS Max). My focus is on creating visually appealing yet lightweight models that won't be taxing for mobile users.</p>
+      </div>
+    </>
+  );
+  break;
+    case 'agro':
+      content = (
+        <>
+        <div class='p-6'>
+          <h3>Agro E-commerce Project</h3>
+          <p>For Agro, I developed a relatively simple e-commerce website using <strong>PHP</strong> and vanilla <strong>JavaScript</strong>. One of the key features of this site was an auto-updating price system.</p>
+          <p>This system would dynamically change the price based on the quantity the user desired. It would inform the user how many more items they needed to purchase to qualify for a discount, and would display the discount percentage and the amount saved.</p>
+        </div>
+        </>
+      );
+      break;
+case 'mksbonat':
+  content = (
+    <>
+    <div clas='p-6'>
+      <h3>Experience at MKSBonat</h3>
+      <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
+      <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
+    </div>
+    </>
+  );
+  break;
       content = 'Default content';
   }
 
@@ -416,7 +478,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
-      <div  id='petroholod'  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+      <div  id='petroholod'  onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div className='flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
@@ -428,7 +490,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
         </div>
       </div>
 
-        <div id='harvard' className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='harvard'  onClick={modalClick}   className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
             <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img>
         </div>
 
@@ -436,7 +498,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img>
         </div>
 
-        <div id='iceberry' className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
+        <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
           <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
               style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
             <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
@@ -446,11 +508,11 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           <img  className=" h-32 w-32" src="/images/scanner.svg" alt="Scanner"></img>
         </div>
 
-        <div id='3d' className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='3d'  onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <MarshallScene rotation={Math.PI / 4} />
         </div>
 
-        <div id='agro' className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
+        <div id='agro'  onClick={modalClick}  className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
           <div className="centered-frame flex flex-col items-center justify-center relative">
             <div className="frame lab-bg" id="soil">
               <div className="mask flex flex-col items-center justify-center relative">
@@ -464,14 +526,14 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           </div>
         </div>
         
-    <div  id='mksbonat'
+    <div  id='mksbonat'  onClick={modalClick} 
       className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
     >MKSBonat
     </div>
-        <div id='mutabalis' className="bg-grad-element flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
-      onMouseEnter={() => setBookHovered(true)}
-      onMouseLeave={() => setBookHovered(false)}
-      onClick={() => setBookClicked(!isClicked)}>
+    <div id='mutabalis' className="bg-grad-element flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl"
+      onMouseEnter={() => setBookClicked(!isClicked)}
+      onMouseLeave={() => setBookClicked(!isClicked)}
+      onClick={modalClick} >
       <div className="wrap">
         <div className="perspective">
           <div className={`book-wrap ${isHovered ? 'rotate' : ''} ${isClicked ? 'flip' : ''}`}>
@@ -480,7 +542,8 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <div className="book-back book-1"></div>
           </div>
         </div>
-      </div></div>
+      </div>
+      </div>
       </div>
     </div>
     </section>
