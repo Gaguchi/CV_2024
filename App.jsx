@@ -29,6 +29,28 @@ function App() {
   const [rotationZ, setRotationZ] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [isAnimatingClose, setIsAnimatingClose] = useState(false);
+
+  useEffect(() => {
+    if (isAnimatingClose) {
+      const timer = setTimeout(() => {
+        setIsModalOpen(false);
+        setIsAnimatingClose(false);
+      }, 500); // match this with your longest animation time
+  
+      return () => clearTimeout(timer); // clean up on unmount
+    }
+  }, [isAnimatingClose]);
+  
+  const handleClose = () => {
+    setIsAnimatingClose(true);
+  
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsAnimatingClose(false);
+    }, 500); // match this with your longest animation time
+  };
+  
 
   function modalClick(e) {
   const id = e.currentTarget.id;
@@ -38,6 +60,7 @@ function App() {
     case 'harvard':
       content = (
         <>
+        <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class="p-6">
           <h3>CS50W Harvard Final Project</h3>
           <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
@@ -60,6 +83,7 @@ function App() {
     case 'petroholod':
       content = (
         <>
+        <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class="p-6">
           <h3>Experience at Petroholod</h3>
           <p>During my tenure at <strong>Petroholod</strong>, I was involved in creating several webpages for different products of the company. These pages were primarily developed using <strong>PHP</strong> and served various purposes such as introducing new products to the market.</p>
@@ -71,6 +95,7 @@ function App() {
   case 'iceberry':
     content = (
       <>
+      <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class="p-6">
         <h3>Work at Iceberry</h3>
         <p>At <strong>Iceberry</strong>, I implemented an in-house training and testing system for the company's merchandisers. This was done using <strong>Django</strong> and was aimed at educating new employees, testing them, and providing a simple system for their daily work.</p>
@@ -82,6 +107,7 @@ function App() {
 case '3d':
   content = (
     <>
+    <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class="p-6">
         <h3>3D Modeling Experience</h3>
         <p>I have experience in creating 3D models using software like <strong>Blender</strong> (which is my preferred tool, although I also have experience with Autodesk 3DS Max). My focus is on creating visually appealing yet lightweight models that won't be taxing for mobile users.</p>
@@ -92,6 +118,7 @@ case '3d':
     case 'agro':
       content = (
         <>
+        <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class='p-6'>
           <h3>Agro E-commerce Project</h3>
           <p>For Agro, I developed a relatively simple e-commerce website using <strong>PHP</strong> and vanilla <strong>JavaScript</strong>. One of the key features of this site was an auto-updating price system.</p>
@@ -103,6 +130,7 @@ case '3d':
   case 'mksbonat':
     content = (
       <>
+      <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class='p-6'>
         <h3>Experience at MKSBonat</h3>
         <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
@@ -114,6 +142,7 @@ case '3d':
 case 'mutabalis':
   content = (
     <>
+    <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
     <div class='p-6'>
     <h3>Work for Mutabalis</h3>
     <p>For <strong>Mutabalis</strong>, a data analytics firm based in London, UK, I created a straightforward informative website. I find it relatively easy to work with foreign companies and clients, especially English-speaking ones, due to my education at Brunel University and my confidence in my English communication skills.</p>
@@ -345,18 +374,18 @@ useEffect(() => {
     )}
 
 
-{isModalOpen && (
-<div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isModalOpen ? '' : 'opacity-0 pointer-events-none'}`}>
-  <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={() => setIsModalOpen(false)}></div>
-  
-  <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto" onClick={e => e.stopPropagation()}>
-    
-    <div class="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
-        {modalContent}
+{(isModalOpen || isAnimatingClose) && (
+    <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`}>
+      <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={handleClose}></div>
+        
+      <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto" onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
+        
+        <div class="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+            {modalContent}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-    )}
+  )}
     {
       
     <div className="font-sans text-gray-900 antialiased">
