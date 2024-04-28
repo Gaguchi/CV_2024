@@ -419,23 +419,60 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   z-index: 9999;
 }
 
-.preloader::before {
-  content: '';
-  width: 50px;
-  height: 50px;
-  border: 5px solid #ffffff;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.bklogo-container{
+  height: 150px;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.bklogo-style {
+  fill: none;
+  stroke: #ffffff;
+  stroke-miterlimit: 10;
+  stroke-width: 10px;
+}
+
+@keyframes dashk {
+  0%, 20% {
+    stroke-dashoffset: 460;
   }
-  100% {
-    transform: rotate(360deg);
+  70%, 100% {
+    stroke-dashoffset: 920;
   }
+}
+
+@keyframes dashb{
+  0%, 20% {
+    stroke-dashoffset: 230;
+  }
+  70%, 100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dashi{
+  0%, 20% {
+    stroke-dashoffset: 80;
+  }
+  70%, 100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#K {
+  stroke-dasharray: 460;
+  stroke-dashoffset: 460;
+  animation: dashk 5s ease-out infinite alternate;
+}
+
+#B{
+  stroke-dasharray: 230;
+  stroke-dashoffset: 230;
+  animation: dashb 5s ease-out infinite alternate;
+}
+
+#I{
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: dashi 5s ease-out infinite alternate;
 }
 
 .modal{

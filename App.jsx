@@ -4,7 +4,6 @@ import { motion, useAnimation } from 'framer-motion';
 import  { ThreeScene, MarshallScene }  from './main.jsx';
 import startInterval from './public/js/ButtonBehavior.js';
 import ScrollTrigger from 'react-scroll-trigger';
-import Preloader from './Preloader';
 
 
 function App() {
@@ -369,16 +368,22 @@ useEffect(() => {
     <>
     {isLoading && (
       <div className="preloader">
-        <div className="preloader::before"></div>
+        <svg id="BKLogo_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.41 147.38" className="bklogo-container">
+          <g id="BKLogo">
+            <polyline id="K" points="87.87 67.9 122.63 107.65 63.82 141.6 5 107.65 5 39.73 63.82 5.77 122.63 39.73 74.49 78.93" className="bklogo-style"/>
+            <line id="I" x1="74.73" y1="35.76" x2="74.73" y2="114.6" className="bklogo-style"/>
+            <path id="B" d="M5,44.91h33.14c8.28,0,15,6.72,15,15v.27c0,8.28-6.72,15-15,15H5h33.14c8.28,0,15,6.72,15,15v2.85c0,8.28-6.72,15-15,15H5" className="bklogo-style"/>
+          </g>
+        </svg>
       </div>
     )}
 
 
 {(isModalOpen || isAnimatingClose) && (
-    <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`}>
+    <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center`}>
       <div class="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={handleClose}></div>
         
-      <div class="modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto" onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
+      <div className={`modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto  ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`} onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
         
         <div class="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
             {modalContent}
@@ -519,7 +524,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
       <div  id='petroholod'  onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-        <div className='flex flex-col items-center justify-center relative w-full h-full'>
+        <div className='pt-44 md:pt-20 flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
           <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover " id='mobl' src="/images/phone.png"alt="Description of Image 3"/>
