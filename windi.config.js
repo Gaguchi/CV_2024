@@ -8,7 +8,11 @@ export default {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',
-      }},
+      },
+      fontFamily: {
+        'Futura': ['Futura', 'sans-serif'],
+      },
+    },
   },
   extract: {
     include: ['**/*.{jsx,tsx}'], // Add your file extensions here

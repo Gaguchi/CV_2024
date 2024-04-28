@@ -1,8 +1,38 @@
 @import 'windi.css';
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Hex';
+  src:  url('/public/assets/fonts/HexaframeCF-Bold.woff2') format('woff2'),
+        url('/public/assets/fonts/HexaframeCF-Bold.woff') format('woff');
+}
 
-body {
-  font-family: 'Ubuntu', sans-serif;
+@font-face{
+  font-family: 'EU';
+  src:  url('/public/assets/fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('/public/assets/fonts/EuroStyleNormal.woff') format('woff');
+}
+
+@font-face{
+  font-family: 'Futura';
+  src:  url('/public/assets/fonts/FuturaLT.woff') format('woff2'),
+        url('/public/assets/fonts/FuturaLT.woff') format('woff');
+}
+
+.uppercase{
+  font-family: 'Hex', sans-serif;
+}
+
+.EU {
+  font-family: 'EU', sans-serif;
+}
+
+p{
+  font-family: 'Futura', sans-serif;
+}
+
+
+
+.Hex{
+  font-family: 'Hex', sans-serif;
 }
 
 .text-center{
@@ -508,3 +538,4 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .modal-closing {
   animation: modalClose 0.5s forwards;
 }
+

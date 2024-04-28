@@ -61,7 +61,7 @@ function App() {
         <>
         <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class="p-6">
-          <h3>CS50W Harvard Final Project</h3>
+          <h3 class="EU">CS50W Harvard Final Project</h3>
           <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
           <p>I used <strong>Django</strong> and <strong>React</strong> for the app development, and integrated the <strong>TMDB API</strong> for movie data. Additionally, I generated my own API to make the system work.</p>
         </div>
@@ -84,7 +84,7 @@ function App() {
         <>
         <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class="p-6">
-          <h3>Experience at Petroholod</h3>
+          <h3 class="EU">Experience at Petroholod</h3>
           <p>During my tenure at <strong>Petroholod</strong>, I was involved in creating several webpages for different products of the company. These pages were primarily developed using <strong>PHP</strong> and served various purposes such as introducing new products to the market.</p>
           <p>Some of these webpages were also used for advertising and conducting contests. For instance, one such web app was designed to accept information from customers and assign winners using a built-in random number generator.</p>
         </div>
@@ -96,7 +96,7 @@ function App() {
       <>
       <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class="p-6">
-        <h3>Work at Iceberry</h3>
+        <h3 class="EU">Work at Iceberry</h3>
         <p>At <strong>Iceberry</strong>, I implemented an in-house training and testing system for the company's merchandisers. This was done using <strong>Django</strong> and was aimed at educating new employees, testing them, and providing a simple system for their daily work.</p>
         <p>To facilitate maintenance, I created a CMS system with several admin layers. This system was also built using <strong>Django</strong>.</p>
       </div>
@@ -108,7 +108,7 @@ case '3d':
     <>
     <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class="p-6">
-        <h3>3D Modeling Experience</h3>
+        <h3 class="EU">3D Modeling Experience</h3>
         <p>I have experience in creating 3D models using software like <strong>Blender</strong> (which is my preferred tool, although I also have experience with Autodesk 3DS Max). My focus is on creating visually appealing yet lightweight models that won't be taxing for mobile users.</p>
       </div>
     </>
@@ -119,7 +119,7 @@ case '3d':
         <>
         <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
         <div class='p-6'>
-          <h3>Agro E-commerce Project</h3>
+          <h3 class="EU">Agro E-commerce Project</h3>
           <p>For Agro, I developed a relatively simple e-commerce website using <strong>PHP</strong> and vanilla <strong>JavaScript</strong>. One of the key features of this site was an auto-updating price system.</p>
           <p>This system would dynamically change the price based on the quantity the user desired. It would inform the user how many more items they needed to purchase to qualify for a discount, and would display the discount percentage and the amount saved.</p>
         </div>
@@ -131,7 +131,7 @@ case '3d':
       <>
       <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
       <div class='p-6'>
-        <h3>Experience at MKSBonat</h3>
+        <h3 class="EU">Experience at MKSBonat</h3>
         <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
         <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
       </div>
@@ -143,7 +143,7 @@ case 'mutabalis':
     <>
     <img class="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
     <div class='p-6'>
-    <h3>Work for Mutabalis</h3>
+    <h3 class="EU">Work for Mutabalis</h3>
     <p>For <strong>Mutabalis</strong>, a data analytics firm based in London, UK, I created a straightforward informative website. I find it relatively easy to work with foreign companies and clients, especially English-speaking ones, due to my education at Brunel University and my confidence in my English communication skills.</p>
     </div>
     </>
@@ -258,7 +258,7 @@ useEffect(() => {
 }, []);         
 
 
-let greetings = ['Hello', 'Hola', 'Привет', 'გამარჯობა'];
+let greetings = ['Hello', 'გამარჯობა', 'Привет', 'გამარჯობა', 'こんにちは','გამარჯობა', '你好', 'გამარჯობა','안녕하세요', 'გამარჯობა','สวัสดี', 'გამარჯობა','नमस्ते', 'გამარჯობა','مرحبا','გამარჯობა'];
 let currentGreeting = greetings[0];
 let isErasing = false;
 let greetingIndex = 0;
@@ -429,7 +429,7 @@ useEffect(() => {
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
                 <h1 className="font-bebas-neue uppercase text-5xl sm:text-8xl font-black flex flex-col leading-none text-white " >
-                  <span className='text-3xl sm:text-6xl'>
+                  <span className='text-3xl sm:text-6xl' style={{ marginBottom: '-20px' }}>
                     <span id='greeting'></span><span className="caret">|</span>
                   </span>
                   <ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport}>
@@ -438,7 +438,7 @@ useEffect(() => {
                     </span>
                   </ScrollTrigger>
                 </h1>
-                <p className="text-sm sm:text-base text-white">
+                <p className="text-base text-white mt-8">
                 As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.
                 </p>
                 <div className="flex mt-8">
@@ -456,7 +456,7 @@ useEffect(() => {
         </div>
     </div>
 <div className="mx-auto mb-20 max-w-6xl text-center p-6 bg-darker">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">About Me
+    <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">About Me
     </h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
@@ -488,7 +488,7 @@ useEffect(() => {
     </div>
 </div>
 
-<h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Skills
+<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Skills
     </h2>
 
 <section id="mySection" className="flex justify-center">
@@ -519,7 +519,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
 </section>
 <section className="text-center content-center">
     <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 bg-darker">
-    <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Projects
+    <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
@@ -597,7 +597,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
 <div className="container mx-auto px-5 py-24">
   
   <div className="mb-12 flex w-full flex-col text-center">
-    <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl">Contact Us</h1>
+    <h1 className="Hex title-font mb-4 text-2xl font-medium text-white sm:text-3xl">Contact me</h1>
     <p className="mx-auto text-base leading-relaxed lg:w-2/3">Feel free to reach out to us! Whether you have a question,
       feedback, or a collaboration proposal, we'd love to hear from you.
     </p>
