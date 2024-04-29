@@ -532,11 +532,12 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
 
           <h1 className="z-40 text-center mt-4">Petroholod</h1>
           <p className="z-40 text-center text-xs mt-2">I used my web-design and graphic design skills to market the products of the company.</p>
+          <div id='moving-background' className='relative w-52 h-20 overflow-hidden bg-white rounded-2xl'></div>
         </div>
       </div>
 
         <div id='harvard'  onClick={modalClick}   className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-            <img className=" h-32 w-32" src="/images/iceberry-1.svg" alt="IceBerry"></img>
+            <img className=" h-32 w-32" src="/images/Harvard_University_logo.svg" alt="Harvard"></img>
         </div>
 
         <div id='milnort'  onClick={modalClick}  className="flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
@@ -558,14 +559,16 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
         </div>
 
         <div id='agro'  onClick={modalClick}  className="bg-grad-element flex w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-          <div className="centered-frame flex flex-col items-center justify-center relative">
-            <div className="frame lab-bg" id="soil">
-              <div className="mask flex flex-col items-center justify-center relative">
-                <img className="absolute w-20 h-20" src="/images/bloom.png" id="bloom"></img>
-                <img className="absolute w-20 h-20" src="/images/particle2.png" id="particle-bg"></img>
-                <img className="absolute w-20 h-20" src="/images/scientist.png" id="scientist"></img>
-                <img className="absolute w-4 h-10" src="/images/scientist-hand-2.png" id="scientist-hand"></img>
-                <img className="absolute w-20 h-20" src="/images/particle1.png" id="particle-fg"></img>
+          <div id='agro-bg'>
+            <div className="centered-frame flex flex-col items-center justify-center relative">
+              <div className="frame lab-bg" id="soil">
+                <div className="mask flex flex-col items-center justify-center relative">
+                  <img className="absolute w-20 h-20" src="/images/bloom.png" id="bloom"></img>
+                  <img className="absolute w-20 h-20" src="/images/particle2.png" id="particle-bg"></img>
+                  <img className="absolute w-20 h-20" src="/images/scientist.png" id="scientist"></img>
+                  <img className="absolute w-4 h-10" src="/images/scientist-hand-2.png" id="scientist-hand"></img>
+                  <img className="absolute w-20 h-20" src="/images/particle1.png" id="particle-fg"></img>
+                </div>
               </div>
             </div>
           </div>

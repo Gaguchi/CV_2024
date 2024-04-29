@@ -100,6 +100,11 @@ p{
     background-size: cover;
 }
 
+#agro {
+  background-image: url('/images/argo.svg');
+  background-repeat: repeat;
+  background-size: 25%;
+}
 
 .frame {
     background-color: var(--theme-color);
@@ -539,3 +544,13 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   animation: modalClose 0.5s forwards;
 }
 
+#moving-background {
+  background: url('/path/to/your/image.jpg');
+  background-size: cover;
+  background-position: 0 0;
+  transition: background-position 0.5s;
+}
+
+#petroholod:hover #moving-background {
+  background-position: 100% 0;
+}
