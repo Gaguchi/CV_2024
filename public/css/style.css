@@ -100,27 +100,32 @@ p{
     background-size: cover;
 }
 
-#agro-bg {
+#agro {
   position: relative;
   background-repeat: repeat;
   background-size: 25%;
+  overflow: hidden;
 }
 
-#agro-bg::before {
+#agro::before {
+  
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url('/images/argo.svg');
+  width: 300%;
+  height: 300%;
+  top: -50%;
+  left: -50%;
+  background: url('/images/argo.svg') 0 0 repeat;
   opacity: 0.2;
+  transform: rotate(20deg);
+  background-size: 10%;
+  background-color: #1f2021;
 }
 
 .frame {
     background-color: var(--theme-color);
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
     padding: 25px;
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -139,30 +144,30 @@ p{
   
 
 #scientist-hand{
-    top: -21px;
-    left: -18px;
-    height: 46px;
-    width: auto;
+  top: -20px;
+  left: -8px;
+  height: 101px;
+  width: auto;
 }
 
 #scientist{
     top: -29px;
     left: -31px;
-    height: 98px;
+    height: 200px;
     width: auto;
 }
 
 #particle-fg{
     top: -29px;
     left: -31px;
-    height: 98px;
+    height: 200px;
     width: auto;
 }
 
 #particle-bg{
     top: -29px;
     left: -31px;
-    height: 98px;
+    height: 200px;
     width: auto;
 }
   
@@ -172,8 +177,8 @@ p{
   }
   
   #soil:hover > div > #scientist-hand{
-    transform: translate(-8px, -7px);
-    rotate: 25deg;
+    transform: translate(0px, -8px);
+    rotate: 23deg;
   }
   
   #soil:hover > div > #particle-fg{
@@ -192,14 +197,14 @@ p{
   }
 
   .mask{
-    clip-path: inset(-130px 43.6px -23.6px -172.8px round 41px);
-    max-height: 32px;
-    width: 99px;
-    height: 73px;
+    clip-path: inset(-75px 45.6px 4.4px -184.8px round 89px);
+    max-height: 214px;
+    width: 200px;
+    height: 160px;
     }
     
     .mask > img {
-    max-height: 250px;
+    max-height: 200px;
     transition: all 0.5s ease;
     }
 
