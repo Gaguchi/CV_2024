@@ -551,15 +551,20 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img>
         </div>
 
-        <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
+        <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
           <div className="ice-app relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
               style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
             <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
             <span className="absolute border border-red bg-red w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
             <span className="absolute -right-2 top-3 border border-3 border-black h-7 rounded-md"></span>
             <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
+          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='ice-vid' src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted />
           </div>
-          <img  className=" h-32 w-32" src="/images/scanner.svg" alt="Scanner"></img>
+          <img className="h-32 w-32" id="scanner" src="/images/scanner.svg" alt="Scanner"></img>
+          <div className="flex flex-col justify-center items-center">
+            <h2>Your Header</h2>
+            <p>Your paragraph text goes here.</p>
+          </div>
         </div>
 
         <div id='3d'  onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
