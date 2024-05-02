@@ -570,3 +570,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 #petroholod:hover #moving-background {
   background-position: 100% 0;
 }
+
+.ice-app{
+  background-image: url(/public/images/ice-gif-sm.gif);
+  background-size: contain;
+}

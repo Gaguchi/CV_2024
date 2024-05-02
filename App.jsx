@@ -545,9 +545,10 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
         </div>
 
         <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
-          <div className="relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
+          <div className="ice-app relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
               style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
             <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
+            <span className="absolute border border-red bg-red w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
             <span className="absolute -right-2 top-3 border border-3 border-black h-7 rounded-md"></span>
             <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
           </div>
