@@ -529,10 +529,9 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
       <div  id='petroholod'  onMouseEnter={() => setSVGActive(true)} onMouseLeave={() => setSVGActive(false)} onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
         <div  className='pt-44 md:pt-20 flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
-          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted />
-          <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover " id='mobl' src="/images/phone.png"alt="Description of Image 3"/>
-          <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover " id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted />
-
+          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover" id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted playsInline />
+          <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover" id='mobl' src="/images/phone.png" alt="Description of Image 3"/>
+          <video className="absolute z-29 pointer-events-none w-20 h-20 object-cover" id='mobl-vid' src="/videos/cv_example_3_sm.mp4" autoPlay loop muted playsInline />
           <h1 className="z-40 text-center mt-4">Petroholod</h1>
           <p className="z-40 text-center text-xs mt-2">I used my web-design and graphic design skills to market the products of the company.</p>
           <div id='moving-background' className='relative w-52 h-28 overflow-hidden bg-white rounded-2xl'></div>
@@ -558,7 +557,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <span className="absolute border border-red bg-red w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
             <span className="absolute -right-2 top-3 border border-3 border-black h-7 rounded-md"></span>
             <span className="absolute -right-2 top-12 border border-3 border-black h-10 rounded-md"></span>
-          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='ice-vid' src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted />
+          <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='ice-vid' src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted playsInline/>
           </div>
           <img className="h-32 w-32" id="scanner" src="/images/scanner.svg" alt="Scanner"></img>
           <div className="flex flex-col justify-center items-center">
