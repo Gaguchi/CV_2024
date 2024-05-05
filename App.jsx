@@ -254,6 +254,13 @@ const [smallScreenButtons, setSmallScreenButtons] = useState([
   { name: 'postgresql', class: '' , set: 3},
 ]);
 
+useEffect(() => {
+  const img1 = new Image();
+  const img2 = new Image();
+  img1.src = "/images/tablet.png";
+  img2.src = "/images/phone.png";
+}, []);
+
 
 useEffect(() => {
   // Call the function to start the interval
