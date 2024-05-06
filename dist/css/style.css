@@ -1,20 +1,20 @@
 @import 'windi.css';
 @font-face {
   font-family: 'Hex';
-  src:  url('/public/assets/fonts/HexaframeCF-Bold.woff2') format('woff2'),
-        url('/public/assets/fonts/HexaframeCF-Bold.woff') format('woff');
+  src:  url('/assets/fonts/HexaframeCF-Bold.woff2') format('woff2'),
+        url('/assets/fonts/HexaframeCF-Bold.woff') format('woff');
 }
 
 @font-face{
   font-family: 'EU';
-  src:  url('/public/assets/fonts/EuroStyleNormal.woff2') format('woff2'),
-        url('/public/assets/fonts/EuroStyleNormal.woff') format('woff');
+  src:  url('/assets/fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('/assets/fonts/EuroStyleNormal.woff') format('woff');
 }
 
 @font-face{
   font-family: 'Futura';
-  src:  url('/public/assets/fonts/FuturaLT.woff') format('woff2'),
-        url('/public/assets/fonts/FuturaLT.woff') format('woff');
+  src:  url('/assets/fonts/FuturaLT.woff') format('woff2'),
+        url('/assets/fonts/FuturaLT.woff') format('woff');
 }
 
 .uppercase{
@@ -558,13 +558,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 .modal-closing {
   animation: modalClose 0.5s forwards;
-}
-
-#moving-background {
-  background: url('/path/to/your/image.jpg');
-  background-size: cover;
-  background-position: 0 0;
-  transition: background-position 0.5s;
 }
 
 #petroholod:hover #moving-background {
