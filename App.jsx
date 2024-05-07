@@ -433,9 +433,9 @@ useEffect(() => {
             </div>
           </div>
         </header>
-    <div className="bg-darker flex relative z-20 items-center overflow-hidden calc-h">
-        <div className="h-full xl container mx-auto px-6 flex  flex-wrap-reverse relative py-10 px-10">
-            <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+    <div className="bg-darker flex relative z-20 items-center overflow-hidden">
+        <div className="h-full xl container mx-auto flex  flex-wrap-reverse relative ">
+            <div className="xs:w-full sm:w-2/3 lg:w-2/5 flex flex-col relative z-20 py-10 px-10">
                 <span className="w-20 h-2 bg-white mb-12">
                 </span>
                 <h1 className="font-bebas-neue uppercase text-5xl sm:text-8xl font-black flex flex-col leading-none text-white " >
@@ -460,7 +460,7 @@ useEffect(() => {
                     </a>
                 </div>
             </div>
-            <div className="xs:w-1/3 sm:w-1/3 lg:w-3/5 relative">
+            <div className="xs:w-1/3 sm:w-1/3 lg:w-3/5 relative calc-h">
                 <ThreeScene className="h-full" rotation={rotation * Math.PI} />
             </div>
         </div>

@@ -420,7 +420,8 @@ p{
 
 @media screen and (max-width: 640px) {
     .calc-h {
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 19rem);
+    min-width: 100vw;
   }
 }
 

@@ -13,26 +13,37 @@ function ThreeScene({ rotation }) {
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [onPointerDownPointerX, setOnPointerDownPointerX] = useState(0);
   const [onPointerDownModelRotation, setOnPointerDownModelRotation] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // Add this line
 
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, 1, 1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-	
+
+    
+
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false; // Disable zoom
 
-  const video = document.createElement('video');
-  video.src = '/videos/eyes.mp4';
-  video.loop = true;
-  video.muted = true;
-  video.setAttribute('playsinline', ''); // Add this line
-  video.play();
+    const video = document.createElement('video');
+    video.src = '/videos/eyes2.mp4';
+    video.loop = true;
+    video.muted = true;
+    video.setAttribute('playsinline', ''); // Add this line
+    video.play();
 
     const videoTexture = new THREE.VideoTexture(video);
 
-    const loader = new GLTFLoader();
-    const dracoLoader = new DRACOLoader();
+    const manager = new THREE.LoadingManager();
+    manager.onStart = function (url, itemsLoaded, itemsTotal) {
+      setIsLoading(true);
+    };
+    manager.onLoad = function () {
+      setIsLoading(false);
+    };
+
+    const loader = new GLTFLoader(manager); // Pass the manager to the loader
+    const dracoLoader = new DRACOLoader(manager); // Pass the manager to the dracoLoader
     dracoLoader.setDecoderPath('/node_modules/three/examples/jsm/libs/draco/');
     loader.setDRACOLoader(dracoLoader);
 
@@ -75,18 +86,29 @@ function ThreeScene({ rotation }) {
         const action = mixer.clipAction(roboAction);
         action.play();
       }
+const screenMesh = model.getObjectByName('screen');
+if (screenMesh) {
+  videoTexture.center.set(0.5, 0.5);
+  videoTexture.rotation = Math.PI / 2;
 
-		const screenMesh = model.getObjectByName('screen');
-		if (screenMesh) {
-		videoTexture.center.set(0.5, 0.5);
-		videoTexture.rotation = Math.PI / 2;
+  const delta = new THREE.Vector3(0, 0, 0.1); // Define the delta
+  screenMesh.position.add(delta); // Add the delta to the current position
 
-		const delta = new THREE.Vector3(0, 0, 0.1); // Define the delta
-		screenMesh.position.add(delta); // Add the delta to the current position
+  screenMesh.material.map = videoTexture;
+  screenMesh.material.needsUpdate = true;
 
-		screenMesh.material.map = videoTexture;
-		screenMesh.material.needsUpdate = true;
-		}
+  // Create a spot light
+  const spotLight = new THREE.SpotLight(0xffffff, 10);
+  
+  // Position the spot light directly in front of the 'screen' object
+  spotLight.position.set(screenMesh.position.x + 1, screenMesh.position.y - 1, screenMesh.position.z+3);
+  
+  // Point the spot light at the 'screen' object
+  spotLight.target = screenMesh;
+
+  // Add the spot light to the scene
+  scene.add(spotLight);
+}
 		if (screenAction) {
 		const action = mixer.clipAction(screenAction);
 
@@ -193,7 +215,11 @@ function ThreeScene({ rotation }) {
     };
   }, [rotation]);
 
-  return <div ref={ref} className="w-full h-full"></div>;
+  return (
+    <div ref={ref} className="w-full h-full">
+      {isLoading && <div className="preloader">Loading...</div>} {/* Add this line */}
+    </div>
+  );
 }
 
 function MarshallScene({ rotation }) {
@@ -207,6 +233,7 @@ function MarshallScene({ rotation }) {
 
 		const loader = new GLTFLoader();
 
+    
 		const dracoLoader = new DRACOLoader();
 		dracoLoader.setDecoderPath('/node_modules/three/examples/jsm/libs/draco/'); // Set the path to the Draco decoder files
 		loader.setDRACOLoader(dracoLoader);
