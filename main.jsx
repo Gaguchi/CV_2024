@@ -22,11 +22,12 @@ function ThreeScene({ rotation }) {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false; // Disable zoom
 
-    const video = document.createElement('video');
-    video.src = '/videos/eyes.mp4';
-    video.loop = true;
-    video.muted = true;
-    video.play();
+  const video = document.createElement('video');
+  video.src = '/videos/eyes.mp4';
+  video.loop = true;
+  video.muted = true;
+  video.setAttribute('playsinline', ''); // Add this line
+  video.play();
 
     const videoTexture = new THREE.VideoTexture(video);
 
