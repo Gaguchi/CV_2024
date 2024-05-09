@@ -534,7 +534,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
       <div  id='petroholod'  onMouseEnter={() => setSVGActive(true)} onMouseLeave={() => setSVGActive(false)} onClick={modalClick}  className="bg-grad-element sm:row-span-2 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl">
-        <div  className='pt-44 md:pt-20 flex flex-col items-center justify-center relative w-full h-full'>
+        <div  className='pt-44 md:pt-20 pb-30 md:pb-20 flex flex-col items-center justify-center relative w-full h-full'>
           <img className="absolute z-20 pointer-events-none overflow w-20 h-20 object-cover" id='tabl' src="/images/tablet.png" alt="Description of Image 2"/>
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover" id='tabl-vid' src="/videos/cv_example_2_sm.mp4" autoPlay loop muted playsInline />
           <img className="absolute z-30 pointer-events-none w-20 h-20 object-cover" id='mobl' src="/images/phone.png" alt="Description of Image 3"/>
