@@ -614,16 +614,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   }
 }
 
-@keyframes bodydash {
-  0% {
-    stroke-dashoffset: 361.4220275878906px;
-    stroke-dasharray: 361.4220275878906px;
-  }
-  100% {
-    stroke-dashoffset: 0px;
-    stroke-dasharray: 361.4220275878906px;
-  }
-}
 
 @keyframes footdash {
   0% {
@@ -657,15 +647,18 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
              fill 0.5s ease forwards 2s;
 }
 
-svg .svg-elem-2 {
-  stroke-dashoffset: 361.4220275878906px;
+.svg-elem-2 {
   stroke-dasharray: 361.4220275878906px;
+  stroke-dashoffset: 361.4220275878906px;
+  stroke: white;
   fill: transparent;
+  animation: bodydash 2s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
 }
 
-.svg-elem-2-active {
-  animation: bodydash 2s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s forwards ;
+@keyframes bodydash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 svg .svg-elem-3 {
