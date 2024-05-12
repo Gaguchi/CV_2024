@@ -773,3 +773,15 @@ animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-revers
   animation-delay: 2s;
   background-size: cover;
 }
+
+.stacked-images {
+  position: relative;
+  width: 200px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+}
+
+.stacked-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

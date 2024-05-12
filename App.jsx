@@ -61,9 +61,11 @@ function App() {
     case 'harvard':
       content = (
         <>
-        <img className="phone-modal absolute" src="/images/phone.png" alt="" />
-        <img className="phone-modal absolute" src="/images/tablet.png" alt="" />
-        <img className="phone-modal absolute" src="/images/laptop.png" alt="" />
+        <div className="stacked-images">
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+        </div>
         <div className="p-6">
           <h3 className="EU">CS50W Harvard Final Project</h3>
           <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
@@ -398,7 +400,7 @@ useEffect(() => {
     <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center`}>
       <div className="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={handleClose}></div>
         
-      <div className={`modal-container w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto  ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`} onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
+      <div className={`modal-container w-11/12 md:max-w-3xl mx-auto rounded-xl shadow-lg z-50 overflow-y-auto  ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`} onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
         
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
             {modalContent}
