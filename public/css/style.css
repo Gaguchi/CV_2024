@@ -343,11 +343,11 @@ p{
     background-repeat: no-repeat;
 }
 
-#tabl{
+#tabl{    
   rotate: 10deg;
-  height: 336px;
-  top: -99px;
-  right: -96px;
+  height: 185px;
+  top: -37px;
+  right: 44px;
   overflow: visible;
 }
 
@@ -359,11 +359,11 @@ p{
   width: auto;
 }
 
-#mobl{
-  height: 261px;
-  top: -78px;
+#mobl{ 
+  width: 71px;
+  top: 75px;
   overflow: visible;
-  left: 60px;
+  left: 24px;
   rotate: 343deg;
 }
 
@@ -393,7 +393,8 @@ p{
 .caret {
   font-weight: 700;
   color: #ffffff;
-  animation: caret 1s steps(1) infinite;
+  animation: caret 1s steps(1) infinite alternate-reverse;
+  animation-delay: 2s;
 }
 
 @keyframes caret {
@@ -406,7 +407,8 @@ p{
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient 5s ease-in-out infinite;
+  animation: gradient 5s ease-in-out infinite alternate-reverse;
+  animation-delay: 2s;
 }
 
 @keyframes gradient {
@@ -638,10 +640,19 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 @keyframes fill {
   0% {
-    fill: rgb(0, 0, 0);
+    fill: rgba(0, 0, 0, 0);
+  }
+  50% {
+    fill: rgba(0, 0, 0, 0);
   }
   100% {
     fill: rgb(255, 255, 255);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -650,70 +661,65 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   stroke-dasharray: 84.79936981201172px;
   fill: transparent;
   transition: fill 0.5s, stroke 0.5s;
+  stroke: white;
+  animation-delay: 2s;
+  animation: dash 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-.svg-elem-1-active {
-  animation: balldash 2s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.5s ease forwards 2s;
-}
 
 .svg-elem-2 {
   stroke-dasharray: 361.4220275878906px;
   stroke-dashoffset: 361.4220275878906px;
   stroke: white;
   fill: transparent;
-  animation: bodydash 2s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  animation-delay: 2s;
+  animation: dash 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-@keyframes bodydash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
 
 svg .svg-elem-3 {
   stroke-dashoffset: 84.47728729248047px;
   stroke-dasharray: 84.47728729248047px;
   fill: transparent;
+  stroke: white;
+  animation-delay: 2s;
+  animation: dash 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-.svg-elem-3-active {
-  animation: footdash 2s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s forwards ;
-}
 
 svg .svg-elem-4 {
   stroke-dashoffset: 36.05646514892578px;
   stroke-dasharray: 36.05646514892578px;
   fill: transparent;
+  stroke: white;
+
+  animation-delay: 2s;
+animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-.active .svg-elem-4 {
-  animation: dash 1s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s forwards;
-}
+
 
 svg .svg-elem-5 {
   stroke-dashoffset: 214.78253173828125px;
   stroke-dasharray: 214.78253173828125px;
   fill: transparent;
+  stroke: white;
+
+  animation-delay: 2s;
+animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-.active .svg-elem-5 {
-  animation: dash 1s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s forwards;
-}
 
 svg .svg-elem-6 {
   stroke-dashoffset: 61.30393600463867px;
   stroke-dasharray: 61.30393600463867px;
   fill: transparent;
+  stroke: white;
+
+  animation-delay: 2s;
+animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-reverse;
 }
 
-.active .svg-elem-6 {
-  animation: dash 1s cubic-bezier(0.47, 0, 0.745, 0.715) forwards,
-             fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s forwards;
-}
 
 @keyframes scanner {
   0% {
@@ -731,5 +737,39 @@ svg .svg-elem-6 {
 }
 
 #scanner {
-  animation: scanner 2s infinite;
+  animation: scanner 2s infinite alternate-reverse;
+  animation-delay: 2s;
+}
+
+.scrolling-background {
+  height: 50px;
+  width: 100%;
+  rotate: 353deg;
+  margin-top: 40px;
+  scale: 1.5;
+}
+
+@keyframes scroll-right {
+  0% { background-position: 0 0; }
+  100% { background-position: 826px 0; }
+}
+
+.scroll-right {
+  background: url(../images/mks-bg-1.png) repeat-x;
+  background-repeat: repeat-x;
+  animation: scroll-right 60s linear infinite alternate-reverse;
+  animation-delay: 2s;
+  background-size: cover;
+}
+
+@keyframes scroll-left {
+  0% { background-position: 826px 0; }
+  100% { background-position: 0 0; }
+}
+
+.scroll-left {
+  background: url(../images/mks-bg-2.png) repeat-x;
+  animation: scroll-left 60s linear infinite alternate-reverse;
+  animation-delay: 2s;
+  background-size: cover;
 }
