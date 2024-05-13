@@ -785,3 +785,46 @@ animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-revers
   top: 0;
   left: 0;
 }
+
+.laptop-modal{
+  top: -4%;
+  left: 80%;
+  width: 400px;
+  max-width: max-content;
+}
+
+.laptop-modal-vid{
+  width: 309px;
+  top: 3%;
+  left: 102%;
+  max-width: max-content;
+}
+
+.phone-modal{
+  top: 21%;
+  left: 63%;
+  width: 100px;
+  max-width: max-content;
+}
+
+.phone-modal-vid{
+  top: 25%;
+  left: 68%;
+  width: 77px;
+  border-radius: 10px;
+  max-width: max-content;
+}
+
+.tablet-modal{
+  top: 8%;
+  left: 250%;
+  width: 161px;
+  max-width: max-content;
+}
+
+.tablet-modal-vid{
+  top: 13.5%;
+  left: 256%;
+  width: 138px;
+  max-width: max-content;
+}

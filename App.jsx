@@ -62,14 +62,19 @@ function App() {
       content = (
         <>
         <div className="stacked-images">
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+          <video className="laptop-modal-vid stacked-image"  src="/videos/Harv-Vid-laptop.mp4" autoPlay loop muted playsInline />
           <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <video className="phone-modal-vid stacked-image"  src="/videos/Harv-Vid-Phone.mp4" autoPlay loop muted playsInline />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <video className="tablet-modal-vid stacked-image"  src="/videos/Harv-Vid-Tablet.mp4" autoPlay loop muted playsInline />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
         </div>
-        <div className="p-6">
-          <h3 className="EU">CS50W Harvard Final Project</h3>
-          <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
-          <p>I used <strong>Django</strong> and <strong>React</strong> for the app development, and integrated the <strong>TMDB API</strong> for movie data. Additionally, I generated my own API to make the system work.</p>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+          <div className="p-6">
+            <h3 className="EU">CS50W Harvard Final Project</h3>
+            <p>For my final project in CS50W at Harvard, I developed a mobile app for movie recommendations and a gamified movie selection system. This involved creating games similar to the Wheel of Fortune or Plinketto.</p>
+            <p>I used <strong>Django</strong> and <strong>React</strong> for the app development, and integrated the <strong>TMDB API</strong> for movie data. Additionally, I generated my own API to make the system work.</p>
+          </div>
         </div>
         </>
       );
@@ -77,11 +82,15 @@ function App() {
     case 'milnort':
       content = (
         <>
-          <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
+           <div className="stacked-images">
+          <img className="laptop-modal stacked-image" src="/images/laptop-2.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className="p-6">
             <p>At <strong>Milnort</strong>, my role centered around maintaining and enhancing a production cost calculator. I used <strong>1C</strong> for raw data generation, and <strong>Excel</strong> and <strong>Microsoft PowerBI</strong> for data optimization and visualization.</p>
             <p>I also developed a web scraping system using <strong>Python</strong> and <strong>JavaScript</strong>, with libraries like <strong>BeautifulSoup</strong>, <strong>Selenium</strong>, and <strong>Playwright</strong>. This system gathered and standardized pricing data across all regions of Russia for a specific product category.</p>
           </div>
+        </div>
         </>
       );
       break;
@@ -89,11 +98,20 @@ function App() {
       setSVGActive(true)
       content = (
         <>
-        <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-        <div className="p-6">
-          <h3 className="EU">Experience at Petroholod</h3>
-          <p>During my tenure at <strong>Petroholod</strong>, I was involved in creating several webpages for different products of the company. These pages were primarily developed using <strong>PHP</strong> and served various purposes such as introducing new products to the market.</p>
-          <p>Some of these webpages were also used for advertising and conducting contests. For instance, one such web app was designed to accept information from customers and assign winners using a built-in random number generator.</p>
+         <div className="stacked-images">
+          <video className="laptop-modal-vid stacked-image"  src="/videos/petro-vid-laptop-sm.mp4" autoPlay loop muted playsInline />
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <video className="phone-modal-vid stacked-image"  src="/videos/cv_example_3_sm.mp4" autoPlay loop muted playsInline />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <video className="tablet-modal-vid stacked-image"  src="/videos/petro-vid-tablet.mp4" autoPlay loop muted playsInline />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+          <div className="p-6">
+            <h3 className="EU">Experience at Petroholod</h3>
+            <p>During my tenure at <strong>Petroholod</strong>, I was involved in creating several webpages for different products of the company. These pages were primarily developed using <strong>PHP</strong> and served various purposes such as introducing new products to the market.</p>
+            <p>Some of these webpages were also used for advertising and conducting contests. For instance, one such web app was designed to accept information from customers and assign winners using a built-in random number generator.</p>
+          </div>
         </div>
         </>
       );
@@ -101,34 +119,55 @@ function App() {
   case 'iceberry':
     content = (
       <>
-      <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-      <div className="p-6">
-        <h3 className="EU">Work at Iceberry</h3>
-        <p>At <strong>Iceberry</strong>, I implemented an in-house training and testing system for the company's merchandisers. This was done using <strong>Django</strong> and was aimed at educating new employees, testing them, and providing a simple system for their daily work.</p>
-        <p>To facilitate maintenance, I created a CMS system with several admin layers. This system was also built using <strong>Django</strong>.</p>
-      </div>
+        <div className="stacked-images">
+          <video className="laptop-modal-vid stacked-image"  src="/videos/ice-vid-laptop.mp4" autoPlay loop muted playsInline />
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <video className="phone-modal-vid stacked-image" src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted playsInline style={{ top: '26%' }} />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <video className="tablet-modal-vid stacked-image"  src="/videos/ice-vid-tablet.mp4" autoPlay loop muted playsInline />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+          <div className="p-6">
+            <h3 className="EU">Work at Iceberry</h3>
+            <p>At <strong>Iceberry</strong>, I implemented an in-house training and testing system for the company's merchandisers. This was done using <strong>Django</strong> and was aimed at educating new employees, testing them, and providing a simple system for their daily work.</p>
+            <p>To facilitate maintenance, I created a CMS system with several admin layers. This system was also built using <strong>Django</strong>.</p>
+          </div>
+        </div>
       </>
     );
     break;
 case '3d':
   content = (
     <>
-    <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-      <div className="p-6">
-        <h3 className="EU">3D Modeling Experience</h3>
-        <p>I have experience in creating 3D models using software like <strong>Blender</strong> (which is my preferred tool, although I also have experience with Autodesk 3DS Max). My focus is on creating visually appealing yet lightweight models that won't be taxing for mobile users.</p>
-      </div>
+     <div className="stacked-images">
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">        
+          <div className="p-6">
+            <h3 className="EU">3D Modeling Experience</h3>
+            <p>I have experience in creating 3D models using software like <strong>Blender</strong> (which is my preferred tool, although I also have experience with Autodesk 3DS Max). My focus is on creating visually appealing yet lightweight models that won't be taxing for mobile users.</p>
+          </div>
+        </div>
     </>
   );
   break;
     case 'agro':
       content = (
         <>
-        <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-        <div className='p-6'>
-          <h3 className="EU">Agro E-commerce Project</h3>
-          <p>For Agro, I developed a relatively simple e-commerce website using <strong>PHP</strong> and vanilla <strong>JavaScript</strong>. One of the key features of this site was an auto-updating price system.</p>
-          <p>This system would dynamically change the price based on the quantity the user desired. It would inform the user how many more items they needed to purchase to qualify for a discount, and would display the discount percentage and the amount saved.</p>
+         <div className="stacked-images">
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">       
+          <div className='p-6'>
+            <h3 className="EU">Agro E-commerce Project</h3>
+            <p>For Agro, I developed a relatively simple e-commerce website using <strong>PHP</strong> and vanilla <strong>JavaScript</strong>. One of the key features of this site was an auto-updating price system.</p>
+            <p>This system would dynamically change the price based on the quantity the user desired. It would inform the user how many more items they needed to purchase to qualify for a discount, and would display the discount percentage and the amount saved.</p>
+          </div>
         </div>
         </>
       );
@@ -136,23 +175,35 @@ case '3d':
   case 'mksbonat':
     content = (
       <>
-      <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-      <div className='p-6'>
-        <h3 className="EU">Experience at MKSBonat</h3>
-        <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
-        <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
-      </div>
+       <div className="stacked-images">
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+            <div className='p-6'>
+              <h3 className="EU">Experience at MKSBonat</h3>
+              <p>At <strong>MKSBonat</strong>, I maintained their e-commerce website, which was created with <strong>Drupal</strong>. My responsibilities included implementing updates to the site content and creating graphical designs for different products or events.</p>
+              <p>One of my designs was used for a commercial truck, which was especially gratifying for me whenever I saw my design on the sides and back of trucks throughout the city.</p>
+            </div>
+        </div>
       </>
     );
     break;
 case 'mutabalis':
   content = (
     <>
-    <img className="rounded-t-lg max-h-xl w-full" src="/images/1c-1.png" alt="" />
-    <div className='p-6'>
-    <h3 className="EU">Work for Mutabalis</h3>
-    <p>For <strong>Mutabalis</strong>, a data analytics firm based in London, UK, I created a straightforward informative website. I find it relatively easy to work with foreign companies and clients, especially English-speaking ones, due to my education at Brunel University and my confidence in my English communication skills.</p>
-    </div>
+     <div className="stacked-images">
+          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+        </div>
+        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
+          <div className='p-6'>
+          <h3 className="EU">Work for Mutabalis</h3>
+          <p>For <strong>Mutabalis</strong>, a data analytics firm based in London, UK, I created a straightforward informative website. I find it relatively easy to work with foreign companies and clients, especially English-speaking ones, due to my education at Brunel University and my confidence in my English communication skills.</p>
+          </div>
+        </div>
     </>
   );
   break;
@@ -400,11 +451,9 @@ useEffect(() => {
     <div className={`modal fixed w-full h-full top-0 left-0 flex items-center justify-center`}>
       <div className="modal-overlay absolute w-full h-full bg-zinc-900 opacity-50" onClick={handleClose}></div>
         
-      <div className={`modal-container w-11/12 md:max-w-3xl mx-auto rounded-xl shadow-lg z-50 overflow-y-auto  ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`} onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
+      <div className={`modal-container w-11/12 md:max-w-3xl mx-auto rounded-xl shadow-lg z-50 overflow-visible  ${isAnimatingClose ? 'modal-closing' : 'modal-opening'}`} onClick={e => e.stopPropagation()} style={{transform: `${isModalOpen ? 'scale(1)' : 'scale(0.7)'}`, transition: 'transform 0.3s ease-out'}}>
         
-        <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
             {modalContent}
-        </div>
       </div>
     </div>
   )}
