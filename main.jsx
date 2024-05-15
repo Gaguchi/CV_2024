@@ -17,7 +17,7 @@ function ThreeScene({ rotation }) {
 
   useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 1, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(90, 1, 1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
     
@@ -25,14 +25,14 @@ function ThreeScene({ rotation }) {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false; // Disable zoom
 
-    const video = document.createElement('video');
-    video.src = '/videos/eyes2.mp4';
-    video.loop = true;
-    video.muted = true;
-    video.setAttribute('playsinline', ''); // Add this line
-    video.play();
+    // const video = document.createElement('Screen');
+    // video.src = '/videos/eyes2.mp4';
+    // video.loop = true;
+    // video.muted = true;
+    // video.setAttribute('playsinline', ''); // Add this line
+    // video.play();
 
-    const videoTexture = new THREE.VideoTexture(video);
+    // const videoTexture = new THREE.VideoTexture(video);
 
     const manager = new THREE.LoadingManager();
     manager.onStart = function (url, itemsLoaded, itemsTotal) {
@@ -50,9 +50,9 @@ function ThreeScene({ rotation }) {
     let model;
     let mixer;
 
-    loader.load('/robo4.glb', (gltf) => {
+    loader.load('/room.glb', (gltf) => {
       model = gltf.scene;
-      model.position.set(0, -2, 0);
+      model.position.set(0, -5, 0);
       scene.add(model);
 
       mixer = new THREE.AnimationMixer(model);
@@ -67,8 +67,8 @@ function ThreeScene({ rotation }) {
         const action = THREE.AnimationClip.findByName(gltf.animations, `chesspiece.${i < 100 ? '0' : ''}${i}Action`);
         chessActions.push(action);
       }
-      const screenAction = THREE.AnimationClip.findByName(gltf.animations, 'screenAction');
-      const roboAction = THREE.AnimationClip.findByName(gltf.animations, 'roboAction.001');
+      const screenAction = THREE.AnimationClip.findByName(gltf.animations, 'screenAction.001');
+      const roboAction = THREE.AnimationClip.findByName(gltf.animations, 'RoombaAnimation');
 
       cubeActions.forEach((action) => {
         if (action) {

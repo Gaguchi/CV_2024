@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.41 147.38">
-  <g id="BKLogo">
-    <polyline id="K" points="87.87 67.9 122.63 107.65 63.82 141.6 5 107.65 5 39.73 63.82 5.77 122.63 39.73 74.49 78.93" style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 10px;"/>
-    <line id="I" x1="74.73" y1="35.76" x2="74.73" y2="114.6" style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 10px;"/>
-    <path id="B" d="M5,44.91h33.14c8.28,0,15,6.72,15,15v.27c0,8.28-6.72,15-15,15H5h33.14c8.28,0,15,6.72,15,15v2.85c0,8.28-6.72,15-15,15H5" style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 10px;"/>
-  </g>
-</svg>

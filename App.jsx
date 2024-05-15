@@ -158,9 +158,8 @@ case '3d':
       content = (
         <>
          <div className="stacked-images">
+          <video className="laptop-modal-vid stacked-image"  src="/videos/Gela-Vid-Laptop.mp4" autoPlay loop muted playsInline />
           <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">       
           <div className='p-6'>
@@ -176,9 +175,8 @@ case '3d':
     content = (
       <>
        <div className="stacked-images">
+          <video className="laptop-modal-vid stacked-image"  src="/videos/Mks-Vid-Laptop.mp4" autoPlay loop muted playsInline />
           <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
             <div className='p-6'>
@@ -194,9 +192,8 @@ case 'mutabalis':
   content = (
     <>
      <div className="stacked-images">
+          <video className="laptop-modal-vid stacked-image"  src="/videos/Mutabalis-Vid-Laptop.mp4" autoPlay loop muted playsInline />
           <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className='p-6'>
