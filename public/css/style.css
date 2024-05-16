@@ -778,6 +778,7 @@ animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-revers
   position: relative;
   width: 200px; /* Adjust as needed */
   height: 200px; /* Adjust as needed */
+  pointer-events: none;
 }
 
 .stacked-image {
@@ -793,10 +794,24 @@ animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-revers
   max-width: max-content;
 }
 
+.laptop-modal-mob{
+    top: 13%;
+    left: 16%;
+    width: 320px;
+    max-width: max-content;
+}
+
 .laptop-modal-vid{
   width: 309px;
   top: 3%;
   left: 102%;
+  max-width: max-content;
+}
+
+.laptop-modal-vid-mob{
+  width: 248px;
+  top: 19%;
+  left: 34%;
   max-width: max-content;
 }
 

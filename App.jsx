@@ -62,12 +62,21 @@ function App() {
       content = (
         <>
         <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/Harv-Vid-laptop.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <video className="phone-modal-vid stacked-image"  src="/videos/Harv-Vid-Phone.mp4" autoPlay loop muted playsInline />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <video className="tablet-modal-vid stacked-image"  src="/videos/Harv-Vid-Tablet.mp4" autoPlay loop muted playsInline />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image" src="/videos/Harv-Vid-laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+                <video className="phone-modal-vid stacked-image" src="/videos/Harv-Vid-Phone.mp4" autoPlay loop muted playsInline />
+                <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+                <video className="tablet-modal-vid stacked-image" src="/videos/Harv-Vid-Tablet.mp4" autoPlay loop muted playsInline />
+                <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image" src="/videos/Harv-Vid-laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className="p-6">
@@ -83,7 +92,15 @@ function App() {
       content = (
         <>
            <div className="stacked-images">
-          <img className="laptop-modal stacked-image" src="/images/laptop-2.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <img className="laptop-modal stacked-image" src="/images/laptop-2.png" alt="" />
+              </>
+            ) : (
+              <>
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop-2.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className="p-6">
@@ -99,12 +116,21 @@ function App() {
       content = (
         <>
          <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/petro-vid-laptop-sm.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <video className="phone-modal-vid stacked-image"  src="/videos/cv_example_3_sm.mp4" autoPlay loop muted playsInline />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <video className="tablet-modal-vid stacked-image"  src="/videos/petro-vid-tablet.mp4" autoPlay loop muted playsInline />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image" src="/videos/petro-vid-laptop-sm.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+                <video className="phone-modal-vid stacked-image" src="/videos/cv_example_3_sm.mp4" autoPlay loop muted playsInline />
+                <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+                <video className="tablet-modal-vid stacked-image" src="/videos/petro-vid-tablet.mp4" autoPlay loop muted playsInline />
+                <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image" src="/videos/petro-vid-laptop-sm.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className="p-6">
@@ -120,12 +146,21 @@ function App() {
     content = (
       <>
         <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/ice-vid-laptop.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <video className="phone-modal-vid stacked-image" src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted playsInline style={{ top: '26%' }} />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <video className="tablet-modal-vid stacked-image"  src="/videos/ice-vid-tablet.mp4" autoPlay loop muted playsInline />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image"  src="/videos/ice-vid-laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+                <video className="phone-modal-vid stacked-image" src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted playsInline style={{ top: '26%' }} />
+                <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+                <video className="tablet-modal-vid stacked-image"  src="/videos/ice-vid-tablet.mp4" autoPlay loop muted playsInline />
+                <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image"  src="/videos/ice-vid-laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className="p-6">
@@ -141,9 +176,16 @@ case '3d':
   content = (
     <>
      <div className="stacked-images">
+            {window.innerWidth > 425 ? (
+              <>
           <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
           <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
           <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+              </>
+            ) : (
+              <>
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">        
           <div className="p-6">
@@ -158,8 +200,17 @@ case '3d':
       content = (
         <>
          <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/Gela-Vid-Laptop.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image"  src="/videos/Gela-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image"  src="/videos/Gela-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">       
           <div className='p-6'>
@@ -175,8 +226,17 @@ case '3d':
     content = (
       <>
        <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/Mks-Vid-Laptop.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image"  src="/videos/Mks-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image"  src="/videos/Mks-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
             <div className='p-6'>
@@ -192,8 +252,17 @@ case 'mutabalis':
   content = (
     <>
      <div className="stacked-images">
-          <video className="laptop-modal-vid stacked-image"  src="/videos/Mutabalis-Vid-Laptop.mp4" autoPlay loop muted playsInline />
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+            {window.innerWidth > 425 ? (
+              <>
+                <video className="laptop-modal-vid stacked-image"  src="/videos/Mutabalis-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            ) : (
+              <>
+                <video className="laptop-modal-vid-mob stacked-image"  src="/videos/Mutabalis-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
+              </>
+            )}
         </div>
         <div className="bg-grad-element sm:row-span-2 w-full rounded-xl border border-white border-opacity-10  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl modal-content modal-content">
           <div className='p-6'>
@@ -554,6 +623,62 @@ useEffect(() => {
 <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Skills
     </h2>
 
+
+<div class="container mx-auto w-full h-full">
+  <div class="relative wrap overflow-hidden p-10 h-full">
+    <div class="border-4-4 absolute border-opacity-20 border-gray-700 h-full border" style={{left: '50%', borderColor: '#1f2937bd;', marginTop:'90px'}}></div>
+
+    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-14 h-14 rounded-full ml-1">
+        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
+      </div>
+      <div class="order-1 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-5/12 px-6 py-4">
+        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+        <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
+    </div>
+
+
+    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-14 h-14 rounded-full ml-1">
+        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
+      </div>
+      <div class="order-1 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-5/12 px-6 py-4">
+        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+        <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
+    </div>
+    
+
+    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-14 h-14 rounded-full ml-1">
+        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
+      </div>
+      <div class="order-1 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-5/12 px-6 py-4">
+        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+        <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
+    </div>
+
+    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-14 h-14 rounded-full ml-1">
+        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
+      </div>
+      <div class="order-1 flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-5/12 px-6 py-4">
+        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+        <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl">My Skills
+    </h2>
+
 <section id="mySection" className="flex justify-center">
   <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
   <h2 className="text-2xl font-bold mb-2 text-white">Diverse Solutions</h2>
@@ -568,7 +693,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
     {windowWidth < 640 ? (
       <div className="grid grid-cols-4 grid-rows-5 gap-4 justify-center" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
         {smallScreenButtons.map((button, index) => (
-          <ButtonComponent key={index} button={button} scale={scale-0.3} />
+          <ButtonComponent key={index} button={button} scale={scale} />
         ))}
       </div>
     ) : (
@@ -609,7 +734,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
             <img  className=" h-32 w-32" src="/images/milnort.svg" alt="Milnort"></img>
         </div>
 
-        <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
+        <div id='iceberry' onClick={modalClick}  className="bg-grad-element sm:col-span-2 flex flex-row flex-wrap w-full items-center justify-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:hover:shadow-2xl">
           <div className="ice-app relative flex justify-center h-[173px] w-[83px] border border-4 border-black rounded-2xl bg-gray-50"
               style={{ boxShadow: "rgb(209, 218, 218) 3px 4px 3px 0px" }}>
             <span className="border border-black bg-black w-13 h-1 rounded-br-xl rounded-bl-xl"></span>
@@ -619,7 +744,7 @@ Throughout my career, I've had the opportunity to wear many hats and tackle a va
           <video className="absolute z-19 pointer-events-none w-20 h-20 object-cover " id='ice-vid' src="/videos/Ice-Gif-Sm-4.mp4" autoPlay loop muted playsInline/>
           </div>
           <img className="h-32 w-32" id="scanner" src="/images/scanner.svg" alt="Scanner"></img>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center pt-6">
             <h2>Your Header</h2>
             <p>Your paragraph text goes here.</p>
           </div>
