@@ -22,8 +22,16 @@ function ThreeScene({ rotation }) {
 
     
 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = false; // Disable zoom
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false; // Disable zoom
+
+// Limit vertical rotation (up and down)
+controls.minPolarAngle = Math.PI / 2; // radians
+controls.maxPolarAngle = Math.PI / 2; // radians
+
+// Limit horizontal rotation (left and right)
+controls.minAzimuthAngle = -Math.PI / 4; // radians
+controls.maxAzimuthAngle = Math.PI / 4; // radians
 
     // const video = document.createElement('Screen');
     // video.src = '/videos/eyes2.mp4';
