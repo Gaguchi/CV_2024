@@ -523,28 +523,28 @@ useEffect(() => {
   )}
     {
       
-    <div className="font-sans text-gray-900 antialiased">
+    <div className="font-sans text-gray-900 antialiased" id='home'>
       <main className="bg-darker relative">
         <header className="h-24 sm:h-32 flex items-center z-50 w-full sticky top-0">
           <div className="container mx-auto px-6 flex items-center justify-between">
-            <div className="uppercase text-white font-black text-3xl" id='home'>
+            <div className="uppercase text-white font-black text-3xl strong-shadow" >
               Boris.K
             </div>
             <div className="flex items-center">
-              <nav className="font-sen text-white uppercase text-lg lg:flex items-center hidden">
-                <a href="#home" className="py-2 px-6 flex">
+              <nav nav className="font-sen text-white uppercase text-lg lg:flex items-center hidden">
+                <a href="#home" className="py-2 px-6 flex strong-shadow">
                   Home
                 </a>
-                <a href="#about" className="py-2 px-6 flex">
+                <a href="#about" className="py-2 px-6 flex strong-shadow">
                   About
                 </a>
-                <a href="#skills" className="py-2 px-6 flex">
+                <a href="#skills" className="py-2 px-6 flex strong-shadow">
                   Skills
                 </a>
-                <a href="#projects" className="py-2 px-6 flex">
+                <a href="#projects" className="py-2 px-6 flex strong-shadow">
                   Projects
                 </a>
-                <a href="#contacts" className="py-2 px-6 flex">
+                <a href="#contacts" className="py-2 px-6 flex strong-shadow">
                   Contact
                 </a>
               </nav>
@@ -572,10 +572,10 @@ useEffect(() => {
                 As a passionate web developer, I specialize in creating dynamic and beautiful web applications. I have been in the field for nearly a decade, and have been loving every minute of it. I am a developer, an engineer, a problem solver, and a perfectionist. Always hungry for new technologies and techniques in web development.
                 </p>
                 <div className="flex mt-8">
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-red-500 border-2 border-transparent text-white text-md mr-4 hover:bg-red-400">
+                    <a href="#about" className="uppercase py-2 px-4 rounded-lg bg-red-500 border-2 border-transparent text-white text-md mr-4 hover:bg-red-400">
                         About Me
                     </a>
-                    <a href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-500 text-white hover:bg-red-500 hover:text-white text-md">
+                    <a href="#projects" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-red-500 text-white hover:bg-red-500 hover:text-white text-md">
                         My Projects
                     </a>
                 </div>
@@ -586,8 +586,9 @@ useEffect(() => {
         </div>
     </div>
 <div className="mx-auto mb-20 max-w-6xl text-center p-6 bg-darker">
-    <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl" id="about">About Me
-    </h2>
+<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl strong-shadow relative" id="about">
+  About Me
+</h2>
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
           <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
@@ -618,7 +619,7 @@ useEffect(() => {
     </div>
 </div>
 
-<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl" id='education'>Education & Career</h2>
+<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl  strong-shadow" id='education'>Education & Career</h2>
 
 
 <div class="container mx-auto w-full h-full">
@@ -702,7 +703,7 @@ useEffect(() => {
   </div>
 </div>
 
-<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl" id='skills'>My Skills</h2>
+<h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl strong-shadow" id='skills'>My Skills</h2>
 
 <section id="mySection" className="flex justify-center">
   <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
@@ -729,7 +730,7 @@ As a versatile developer, I've worked with <span className="font-bold text-html"
 </section>
 <section className="text-center content-center">
     <div className="max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 text-center p-6 bg-darker">
-    <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl" id='projects'>My Projects
+    <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl strong-shadow" id='projects'>My Projects
     </h2>
       <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-4 gap-4">
 
@@ -821,7 +822,7 @@ As a versatile developer, I've worked with <span className="font-bold text-html"
 <div className="container mx-auto px-5 py-24">
   
   <div className="mb-12 flex w-full flex-col text-center">
-    <h1 className="Hex title-font mb-4 text-2xl font-medium text-white sm:text-3xl" id='contacts'>Contact me</h1>
+    <h1 className="Hex title-font mb-4 text-2xl font-medium text-white sm:text-3xl strong-shadow" id='contacts'>Contact me</h1>
     <p className="mx-auto text-base leading-relaxed lg:w-2/3">Feel free to reach out to me! Whether you have a question,
       feedback, or a collaboration proposal, I'd love to hear from you.
     </p>

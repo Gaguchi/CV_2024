@@ -855,3 +855,53 @@ animation: fill 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate-revers
   width: 138px;
   max-width: max-content;
 }
+
+
+.strong-shadow{
+  text-shadow: 3px 3px 1px rgb(0 0 0), 4px 4px 4px rgb(0, 0, 0);
+}
+
+#about::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#skills::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#projects::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#contacts::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#home::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+  pointer-events: none;
+}
