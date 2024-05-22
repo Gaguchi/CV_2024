@@ -42,6 +42,63 @@ controls.maxAzimuthAngle = Math.PI / 4; // radians
 
     // const videoTexture = new THREE.VideoTexture(video);
 
+    const video = document.createElement('video');
+    video.src = '/videos/eyes2.mp4';
+    video.loop = true;
+    video.muted = true;
+    video.setAttribute('playsinline', '');
+    video.play();
+  
+    const videoTexture = new THREE.VideoTexture(video);
+  
+    const video1 = document.createElement('video');
+    video1.src = '/videos/Screen-Vid-1.mp4';
+    video1.loop = true;
+    video1.muted = true;
+    video1.setAttribute('playsinline', '');
+    video1.play();
+
+    const videoTexture1 = new THREE.VideoTexture(video1);
+
+    const video2 = document.createElement('video');
+    video2.src = '/videos/Screen-Vid-2.mp4';
+    video2.loop = true;
+    video2.muted = true;
+    video2.setAttribute('playsinline', '');
+    video2.play();
+
+    const videoTexture2 = new THREE.VideoTexture(video2);
+
+    const shaderMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        texture: { value: null },
+        brightness: { value: 0.5 }, // Adjust to your liking
+        contrast: { value: 2.0 }, // Adjust to your liking
+      },
+      vertexShader: `
+        varying vec2 vUv;
+    
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform sampler2D texture;
+        uniform float brightness;
+        uniform float contrast;
+    
+        varying vec2 vUv;
+    
+        void main() {
+          vec4 color = texture2D(texture, vUv);
+          color.rgb += brightness;
+          color.rgb = ((color.rgb - 0.5) * max(contrast, 0.0)) + 0.5;
+          gl_FragColor = color;
+        }
+      `,
+    });
+
     const manager = new THREE.LoadingManager();
     manager.onStart = function (url, itemsLoaded, itemsTotal) {
       setIsLoading(true);
@@ -94,59 +151,70 @@ controls.maxAzimuthAngle = Math.PI / 4; // radians
         const action = mixer.clipAction(roboAction);
         action.play();
       }
-const screenMesh = model.getObjectByName('screen');
-if (screenMesh) {
-  videoTexture.center.set(0.5, 0.5);
-  videoTexture.rotation = Math.PI / 2;
 
-  const delta = new THREE.Vector3(0, 0, 0.1); // Define the delta
-  screenMesh.position.add(delta); // Add the delta to the current position
+      const screenMesh = model.getObjectByName('Screen');
+      const screenMesh2 = model.getObjectByName('Screen2');
+      if (screenMesh) {
+        screenMesh.material.map = videoTexture2;
+        screenMesh.material.needsUpdate = true;
+      }
+      if (screenMesh2) {
+        screenMesh2.material.map = videoTexture1;
+        screenMesh2.material.needsUpdate = true;
+      }
+    // const screenMesh = model.getObjectByName('screen');
+    // if (screenMesh) {
+    //   videoTexture.center.set(0.5, 0.5);
+    //   videoTexture.rotation = Math.PI / 2;
 
-  screenMesh.material.map = videoTexture;
-  screenMesh.material.needsUpdate = true;
+    //   const delta = new THREE.Vector3(0, 0, 0.1); // Define the delta
+    //   screenMesh.position.add(delta); // Add the delta to the current position
 
-  // Create a spot light
-  const spotLight = new THREE.SpotLight(0xffffff, 10);
-  
-  // Position the spot light directly in front of the 'screen' object
-  spotLight.position.set(screenMesh.position.x + 1, screenMesh.position.y - 1, screenMesh.position.z+3);
-  
-  // Point the spot light at the 'screen' object
-  spotLight.target = screenMesh;
+    //   screenMesh.material.map = videoTexture;
+    //   screenMesh.material.needsUpdate = true;
 
-  // Add the spot light to the scene
-  scene.add(spotLight);
-}
-		if (screenAction) {
-		const action = mixer.clipAction(screenAction);
+    //   // Create a spot light
+    //   const spotLight = new THREE.SpotLight(0xffffff, 10);
+      
+    //   // Position the spot light directly in front of the 'screen' object
+    //   spotLight.position.set(screenMesh.position.x + 1, screenMesh.position.y - 1, screenMesh.position.z+3);
+      
+    //   // Point the spot light at the 'screen' object
+    //   spotLight.target = screenMesh;
 
-		// Adjust the x values of the keyframes and log them
-		const newTracks = action._clip.tracks.map((track) => {
-			if (track.name.includes('.position')) { // Only adjust position tracks
-			const newValues = track.values.map((value, index) => {
-				if (index % 3 === 0) { // Only adjust x values
-				return value - 0.02; // Adjust the x value
-				}
-				return value;
-			});
+    //   // Add the spot light to the scene
+    //   scene.add(spotLight);
+    // }
+    //     if (screenAction) {
+    //     const action = mixer.clipAction(screenAction);
 
-			console.log(newValues); // Log the new keyframes
+    //     // Adjust the x values of the keyframes and log them
+    //     const newTracks = action._clip.tracks.map((track) => {
+    //       if (track.name.includes('.position')) { // Only adjust position tracks
+    //       const newValues = track.values.map((value, index) => {
+    //         if (index % 3 === 0) { // Only adjust x values
+    //         return value - 0.02; // Adjust the x value
+    //         }
+    //         return value;
+    //       });
 
-			// Create a new track with the adjusted keyframes
-			return new THREE.VectorKeyframeTrack(track.name, track.times, newValues);
-			}
-			return track;
-		});
+    //       console.log(newValues); // Log the new keyframes
 
-		// Create a new clip with the adjusted tracks
-		const newClip = new THREE.AnimationClip(action._clip.name, action._clip.duration, newTracks);
+    //       // Create a new track with the adjusted keyframes
+    //       return new THREE.VectorKeyframeTrack(track.name, track.times, newValues);
+    //       }
+    //       return track;
+    //     });
 
-		// Replace the old action with the new one
-		mixer.uncacheClip(screenAction);
-		const newAction = mixer.clipAction(newClip);
-		newAction.play();
-		}
-    });
+    //     // Create a new clip with the adjusted tracks
+    //     const newClip = new THREE.AnimationClip(action._clip.name, action._clip.duration, newTracks);
+
+    //     // Replace the old action with the new one
+    //     mixer.uncacheClip(screenAction);
+    //     const newAction = mixer.clipAction(newClip);
+    //     newAction.play();
+    //     }
+        });
 
     const time = Date.now();
     const delta = (time - lastTime.current) / 1000;

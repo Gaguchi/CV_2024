@@ -528,7 +528,9 @@ useEffect(() => {
         <header className="h-24 sm:h-32 flex items-center z-50 w-full sticky top-0">
           <div className="container mx-auto px-6 flex items-center justify-between">
             <div className="uppercase text-white font-black text-3xl strong-shadow" >
-              Boris.K
+                <a href="#home" className="py-2 px-6 flex strong-shadow">
+                  Boris.K
+                </a>
             </div>
             <div className="flex items-center">
               <nav nav className="font-sen text-white uppercase text-lg lg:flex items-center hidden">
@@ -706,13 +708,14 @@ useEffect(() => {
 <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl strong-shadow" id='skills'>My Skills</h2>
 
 <section id="mySection" className="flex justify-center">
-  <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4 "><div>
-  <h2 className="text-2xl font-bold mb-2 text-white">Diverse Solutions</h2>
-  <h3 className="text-xl mb-2 text-white">Fields of Expertise</h3>
-<p className='text-white'>
-As a versatile developer, I've worked with <span className="font-bold text-html">HTML</span> <img className="logo" src="/images/html-1.svg" alt="JavaScript logo" />, <span className="font-bold text-css">CSS</span> <img className="logo" src="/images/css-1.svg" alt="JavaScript logo" />, and <span className="font-bold text-js">JavaScript</span> <img className="logo" src="/images/javascript-1.svg" alt="JavaScript logo" />, along with PHP, Laravel, and Django for various web projects. I've also used Python for data analysis and web scraping, and developed an Android app using Java. Each project has expanded my skills and understanding of software development.
-</p>
-</div>
+  <div className=" max-w-screen-lg pl-5 pr-5 sm:pr-15 sm:pl-15 pt-15 pb-15 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className='content-center'>
+        <h2 className="text-2xl font-bold mb-2 text-white">Diverse Solutions</h2>
+        <h3 className="text-xl mb-2 text-white">Fields of Expertise</h3>
+          <p className='text-white'>
+          As a versatile developer, I've worked with <span className="font-bold text-html">HTML</span> <img className="logo" src="/images/html-1.svg" alt="JavaScript logo" />, <span className="font-bold text-css">CSS</span> <img className="logo" src="/images/css-1.svg" alt="JavaScript logo" />, and <span className="font-bold text-js">JavaScript</span> <img className="logo" src="/images/javascript-1.svg" alt="JavaScript logo" />, along with PHP, Laravel, and Django for various web projects. I've also used Python for data analysis and web scraping, and developed an Android app using Java. Each project has expanded my skills and understanding of software development.
+          </p>
+    </div>
     {windowWidth < 640 ? (
       <div className="grid grid-cols-4 grid-rows-5 gap-4 justify-center" style={{ maxWidth: '600px', maxHeight: '600px', transform: `scale(${scale})`, aspectRatio: '1' }}>
         {smallScreenButtons.map((button, index) => (
