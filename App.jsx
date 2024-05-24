@@ -7,6 +7,38 @@ import ScrollTrigger from 'react-scroll-trigger';
 
 
 function App() {
+  useEffect(() => {
+    const resources = [
+      '/videos/Harv-Vid-laptop.mp4',
+      '/images/laptop.png',
+      '/images/laptop-2.png',
+      '/videos/Harv-Vid-Phone.mp4',
+      '/images/phone.png',
+      '/videos/Harv-Vid-Tablet.mp4',
+      '/images/tablet.png',
+      '/videos/petro-vid-laptop-sm.mp4',
+      '/videos/cv_example_3_sm.mp4',
+      '/videos/petro-vid-tablet.mp4',
+      '/videos/ice-vid-laptop.mp4',
+      '/videos/Ice-Gif-Sm-4.mp4',
+      '/videos/ice-vid-tablet.mp4',
+      '/videos/Gela-Vid-Laptop.mp4',
+      '/videos/Mks-Vid-Laptop.mp4',
+      '/videos/Mutabalis-Vid-Laptop.mp4',
+      // Add more URLs as needed
+    ];
+
+    resources.forEach((url) => {
+      if (url.endsWith('.jpg') || url.endsWith('.png')) {
+        const img = new Image();
+        img.src = url;
+      } else if (url.endsWith('.mp4')) {
+        const video = document.createElement('video');
+        video.src = url;
+      }
+    });
+  }, []);
+  
   const [rotation, setRotation] = useState(0);
   const controls1 = useAnimation();
   const controls2 = useAnimation();
@@ -624,44 +656,44 @@ useEffect(() => {
 <h2 className="Hex mb-12 text-center text-4xl font-extrabold text-gray-200 sm:text-5xl  strong-shadow" id='education'>Education & Career</h2>
 
 
-<div class="container mx-auto w-full h-full">
-  <div class="relative wrap overflow-hidden p-10 h-full">
-    <div class="hidden sm:block border-4-4 absolute border-opacity-20 border-gray-700 h-full border" style={{left: '50%', borderColor: '#1f2937bd;', marginTop:'90px', height:'75%'}}></div>
+<div className="container mx-auto w-full h-full">
+  <div className="relative wrap overflow-hidden p-10 h-full">
+    <div className="hidden sm:block border-4-4 absolute border-opacity-20 border-gray-700 h-full border" style={{left: '50%', borderColor: '#1f2937bd', marginTop:'90px', height:'75%'}}></div>
 
-    <div class="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
-      <div class="order-1 w-full sm:w-5/12"></div>
-      <div class="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
-        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
+    <div className="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
+      <div className="order-1 w-full sm:w-5/12"></div>
+      <div className="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
+        <h1 className="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
       </div>
-      <div class="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline text-center hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
-        <h3 class="mb-1 font-bold text-2xl text-white text-center">Bedford School</h3>
-        <p class="text-sm text-white text-opacity-50 text-left">2013 - 2017</p>
-        <p class="text-lg text-white text-opacity-100 text-left">A-Levels</p>
+      <div className="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline text-center hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
+        <h3 className="mb-1 font-bold text-2xl text-white text-center">Bedford School</h3>
+        <p className="text-sm text-white text-opacity-50 text-left">2013 - 2017</p>
+        <p className="text-lg text-white text-opacity-100 text-left">A-Levels</p>
       </div>
     </div>
 
 
-    <div class="mb-8 flex flex-col sm:flex-row-reverse justify-between  items-center w-full left-timeline">
-      <div class="order-1 w-full sm:w-5/12"></div>
-      <div class="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
-        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
+    <div className="mb-8 flex flex-col sm:flex-row-reverse justify-between  items-center w-full left-timeline">
+      <div className="order-1 w-full sm:w-5/12"></div>
+      <div className="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
+        <h1 className="mx-auto font-semibold text-lg text-white"><img src="/images/school.svg" className='p-3'/></h1>
       </div>
-      <div class="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
-        <h3 class="mb-1 font-bold text-2xl text-white">Brunel University London</h3>
-        <p class="text-sm text-white text-opacity-50 text-left">2013 - 2017</p>
-        <p class="text-lg text-white text-opacity-100 text-left">Business and Management <br></br> Bachelor of Science</p>
+      <div className="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
+        <h3 className="mb-1 font-bold text-2xl text-white">Brunel University London</h3>
+        <p className="text-sm text-white text-opacity-50 text-left">2013 - 2017</p>
+        <p className="text-lg text-white text-opacity-100 text-left">Business and Management <br></br> Bachelor of Science</p>
       </div>
     </div>
 
-    <div class="mb-8 flex  flex-col sm:flex-row justify-between items-center w-full right-timeline">
-      <div class="order-1 w-full sm:w-5/12"></div>
-      <div class="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
-        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
+    <div className="mb-8 flex  flex-col sm:flex-row justify-between items-center w-full right-timeline">
+      <div className="order-1 w-full sm:w-5/12"></div>
+      <div className="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
+        <h1 className="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
       </div>
-      <div class="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
-        <h3 class="mb-1 font-bold text-2xl text-white">PETROHOLOD</h3>
-        <p class="text-sm text-white text-opacity-50 text-left">WEB DEVELOPER | 2017-2019</p>
-        <p class="text-lg text-white text-opacity-100 text-left">
+      <div className="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
+        <h3 className="mb-1 font-bold text-2xl text-white">PETROHOLOD</h3>
+        <p className="text-sm text-white text-opacity-50 text-left">WEB DEVELOPER | 2017-2019</p>
+        <p className="text-lg text-white text-opacity-100 text-left">
         For Petroholod i used mainly my frontend skills to design
         websites for marketing purposes. I also used graphic design
         skills to crete posters, placards and other marketing
@@ -671,15 +703,15 @@ useEffect(() => {
     </div>
     
 
-    <div class="mb-8 flex flex-col sm:flex-row-reverse justify-between  items-center w-full left-timeline">
-      <div class="order-1 w-full sm:w-5/12"></div>
-      <div class="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
-        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
+    <div className="mb-8 flex flex-col sm:flex-row-reverse justify-between  items-center w-full left-timeline">
+      <div className="order-1 w-full sm:w-5/12"></div>
+      <div className="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
+        <h1 className="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
       </div>
-      <div class="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
-        <h3 class="mb-1 font-bold text-2xl text-white">ICEBERRY</h3>
-        <p class="text-sm text-white text-opacity-50 text-left">WEB DEVELOPER | 2019-2022</p>
-        <p class="text-lg text-white text-opacity-100 text-left">
+      <div className="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
+        <h3 className="mb-1 font-bold text-2xl text-white">ICEBERRY</h3>
+        <p className="text-sm text-white text-opacity-50 text-left">WEB DEVELOPER | 2019-2022</p>
+        <p className="text-lg text-white text-opacity-100 text-left">
         I had to utilise both frontend and backend skills when
         designing and implement an educational platform / web
         app for the merchandising department.
@@ -687,15 +719,15 @@ useEffect(() => {
       </div>
     </div>
 
-    <div class="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
-      <div class="order-1 w-full sm:w-5/12"></div>
-      <div class="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
-        <h1 class="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
+    <div className="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
+      <div className="order-1 w-full sm:w-5/12"></div>
+      <div className="z-20 flex items-center order-1 bg-grad-element border border-white border-opacity-10 w-14 h-14 rounded-full" style={{marginLeft:'8px'}}>
+        <h1 className="mx-auto font-semibold text-lg text-white"><img src="/images/work.svg" className='p-3'/></h1>
       </div>
-      <div class="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
-        <h3 class="mb-1 font-bold text-2xl text-white">MILNORT</h3>
-        <p class="text-sm text-white text-opacity-50 text-left">DATA ANALYST | 2022-2023</p>
-        <p class="text-lg text-white text-opacity-100 text-left">
+      <div className="order-1 flex flex-col w-full rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element w-full sm:w-5/12 px-6 py-4">
+        <h3 className="mb-1 font-bold text-2xl text-white">MILNORT</h3>
+        <p className="text-sm text-white text-opacity-50 text-left">DATA ANALYST | 2022-2023</p>
+        <p className="text-lg text-white text-opacity-100 text-left">
           At Milnort my primary responsibility was maintenance and
           update of the production cost optimisation models and
           data scraping and optimisation.
