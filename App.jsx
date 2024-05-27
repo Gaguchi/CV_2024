@@ -25,6 +25,9 @@ function App() {
       '/videos/Gela-Vid-Laptop.mp4',
       '/videos/Mks-Vid-Laptop.mp4',
       '/videos/Mutabalis-Vid-Laptop.mp4',
+      '/videos/3D-Vid-Laptop.mp4',
+      '/videos/3D-Vid-Tablet.mp4',
+      '/videos/3D-Vid-Phone.mp4',
       // Add more URLs as needed
     ];
 
@@ -210,12 +213,17 @@ case '3d':
      <div className="stacked-images">
             {window.innerWidth > 425 ? (
               <>
-          <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
-          <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
-          <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
+                <video className="laptop-modal-vid stacked-image"  src="/videos/3D-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal stacked-image" src="/images/laptop.png" alt="" />
+                <video className="phone-modal-vid stacked-image" src="/videos/3D-Vid-Phone.mp4" autoPlay loop muted playsInline style={{ top: '26%' }} />
+                <img className="phone-modal stacked-image" src="/images/phone.png" alt="" />
+                <video className="tablet-modal-vid stacked-image"  src="/videos/3D-Vid-Tablet.mp4" autoPlay loop muted playsInline />
+                <img className="tablet-modal stacked-image" src="/images/tablet.png" alt="" />
               </>
             ) : (
               <>
+                <video className="laptop-modal-vid-mob stacked-image"  src="/videos/3D-Vid-Laptop.mp4" autoPlay loop muted playsInline />
+                <img className="laptop-modal-mob stacked-image" src="/images/laptop.png" alt="" />
               </>
             )}
         </div>
@@ -316,7 +324,7 @@ const [isLoading, setIsLoading] = useState(true);
 useEffect(() => {
     const timer = setTimeout(() => {
         setIsLoading(false);
-    }, 3000); // Change this to the amount of time you want the preloader to show
+    }, 4000); // Change this to the amount of time you want the preloader to show
 
     return () => clearTimeout(timer); // This will clear the timeout if the component unmounts before the timeout finishes
 }, []);
@@ -802,8 +810,8 @@ useEffect(() => {
           </div>
           <img className="h-32 w-32" id="scanner" src="/images/scanner.svg" alt="Scanner"></img>
           <div className="flex flex-col justify-center items-center pt-6">
-            <h2>Your Header</h2>
-            <p>Your paragraph text goes here.</p>
+            <h2>IceBerry</h2>
+            <p>Corporate educational portal.</p>
           </div>
         </div>
 
@@ -839,6 +847,7 @@ useEffect(() => {
       onMouseEnter={() => setBookClicked(!isClicked)}
       onMouseLeave={() => setBookClicked(!isClicked)}
       onClick={modalClick} >
+                <img className="" src="/images/mutabalis.svg" alt="" style={{ width: '100px', position: 'absolute'}}/>
       <div className="wrap">
         <div className="perspective">
           <div className={`book-wrap ${isHovered ? 'rotate' : ''} ${isClicked ? 'flip' : ''}`}>
