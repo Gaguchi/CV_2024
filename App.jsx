@@ -88,6 +88,55 @@ function App() {
   };
   
 
+  function ContactForm() {
+    const [showOverlay, setShowOverlay] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const response = await fetch('sendEmail.php', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.text();
+        console.log(result);
+        if (result === 'Message sent successfully') {
+            setShowOverlay(true);
+        }
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className='contents'>
+            {
+          <><div className="w-1/2 p-2">
+            <div className="relative">
+              <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Name" />
+              <label htmlFor="name" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Name</label>
+            </div>
+          </div><div className="w-1/2 p-2">
+              <div className="relative">
+                <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Email" />
+                <label htmlFor="email" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Email</label>
+              </div>
+            </div><div className="mt-4 w-full p-2">
+              <div className="relative">
+                <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Message"></textarea>
+                <label htmlFor="message" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Message</label>
+              </div>
+            </div><div className="w-full p-2">
+              <button className="mx-auto flex rounded border bg-grey-600 border-gray-700 py-2 px-8 text-lg text-white  focus:outline-none">Contact</button>
+            </div></>
+      }
+            {showOverlay && (
+                <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+                    <p className="text-white text-lg">Message has been sent successfully</p>
+                </div>
+            )}
+        </form>
+    );
+}
+
+
   function modalClick(e) {
   const id = e.currentTarget.id;
   let content;
@@ -875,38 +924,7 @@ useEffect(() => {
   <div className="mx-auto md:w-2/3 lg:w-1/2">
     <div className="-m-2 flex flex-wrap">
 
-    <form onSubmit={async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const response = await fetch('sendEmail.php', {
-            method: 'POST',
-            body: formData
-        });
-        const result = await response.text();
-        console.log(result);
-    }} className='contents'>
-      <div className="w-1/2 p-2">
-        <div className="relative">
-          <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Name" />
-          <label htmlFor="name" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Name</label>
-        </div>
-      </div>
-      <div className="w-1/2 p-2">
-        <div className="relative">
-          <input type="email" id="email" name="email" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Email" />
-          <label htmlFor="email" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Email</label>
-        </div>
-      </div>
-      <div className="mt-4 w-full p-2">
-        <div className="relative">
-          <textarea id="message" name="message" className="peer h-32 w-full resize-none rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Message"></textarea>
-          <label htmlFor="message" className="absolute left-3 -top-6 bg-transparent text-sm leading-7  transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 -900 peer-placeholder-shown:text-base  peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm ">Message</label>
-        </div>
-      </div>
-      <div className="w-full p-2">
-        <button className="mx-auto flex rounded border bg-grey-600 border-gray-700 py-2 px-8 text-lg text-white  focus:outline-none">Contact</button>
-      </div>
-</form>
+    <ContactForm />
 
 
       <div className="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
