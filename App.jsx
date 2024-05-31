@@ -875,6 +875,16 @@ useEffect(() => {
   <div className="mx-auto md:w-2/3 lg:w-1/2">
     <div className="-m-2 flex flex-wrap">
 
+    <form onSubmit={async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const response = await fetch('sendEmail.php', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.text();
+        console.log(result);
+    }} className='contents'>
       <div className="w-1/2 p-2">
         <div className="relative">
           <input type="text" id="name" name="name" className="peer w-full rounded border border-gray-700 bg-darker bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-classs duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 " placeholder="Name" />
@@ -896,12 +906,12 @@ useEffect(() => {
       <div className="w-full p-2">
         <button className="mx-auto flex rounded border bg-grey-600 border-gray-700 py-2 px-8 text-lg text-white  focus:outline-none">Contact</button>
       </div>
-
+</form>
 
 
       <div className="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
-        <a className="text-indigo-400">example@email.com</a>
-        <p className="my-5 leading-normal">49 Smith St. <br />Saint Cloud, MN 56301</p>
+        <a className="text-indigo-400" href="mailto:Contact@BorisKaraia.com">Contact@BorisKaraia.com</a>
+        <p className="my-5 leading-normal">Tbilisi<br />Georgia</p>
         <span className="inline-flex">
           <a className="text-gray-500">
             <svg fill="currentclass" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-5 w-5" viewBox="0 0 24 24">
