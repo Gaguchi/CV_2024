@@ -683,8 +683,8 @@ useEffect(() => {
     <div
         className="gr mx-auto max-w-3xl items-stretch space-y-4 text-left sm:flex sm:space-y-0 sm:space-x-8 sm:text-center">
           <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6 duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
-            href="#" target="_blank">
-            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Framework7"></img>
+            href="#projects">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32 transform group-hover:-translate-y-1 group-hover:scale-90 transition-all ease-in-out" src="https://swiperjs.com/images/projects/framework7.svg" alt="Frontend"></img>
             <div>
               <div className="font-semibold text-white sm:mt-4 sm:mb-2 text-base group-hover:text-lg transition-all ease-in-out">Frontend Development</div>
               <div className="text-sm opacity-75">Proficient in HTML, CSS, and JavaScript. Experienced in using modern frameworks like React &amp; Vue.js.
@@ -692,16 +692,16 @@ useEffect(() => {
             </div>
           </a>
         <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
-            href="#" target="_blank">
-            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Atropos"></img>
+            href="#projects">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/atropos.svg" alt="Backend"></img>
             <div>
                 <div className="font-semibold text-white sm:mt-4 sm:mb-2">Backend Development</div>
                 <div className="text-sm opacity-75">Specialized in backend development using Django and Laravel, providing robust and efficient solutions.</div>
             </div>
         </a>
         <a className="flex w-full items-center rounded-xl border border-white border-opacity-10 px-4 py-6  duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg text-white hover:bg-white hover:bg-opacity-10 sm:flex-col sm:hover:shadow-2xl bg-grad-element"
-            href="#" target="_blank">
-            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/konsta.svg" alt="Konsta UI"></img>
+            href="#skills">
+            <img className="mr-4 w-12 sm:mr-0 sm:h-32 sm:w-32" src="https://swiperjs.com/images/projects/konsta.svg" alt="skills"></img>
             <div>
                 <div className="font-semibold text-white sm:mt-4 sm:mb-2">Diverse Skillset</div>
                 <div className="text-sm opacity-75">Leveraged a variety of programming languages like Python and Java, and tools such as Blender and Photoshop, to accomplish diverse tasks across multiple projects.</div>
