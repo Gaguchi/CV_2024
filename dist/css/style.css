@@ -1,20 +1,20 @@
 @import 'windi.css';
 @font-face {
   font-family: 'Hex';
-  src:  url('/assets/fonts/HexaframeCF-Bold.woff2') format('woff2'),
-        url('/assets/fonts/HexaframeCF-Bold.woff') format('woff');
+  src:  url('../assets/fonts/HexaframeCF-Bold.woff2') format('woff2'),
+        url('../assets/fonts/HexaframeCF-Bold.woff') format('woff');
 }
 
 @font-face{
   font-family: 'EU';
-  src:  url('/assets/fonts/EuroStyleNormal.woff2') format('woff2'),
-        url('/assets/fonts/EuroStyleNormal.woff') format('woff');
+  src:  url('../assets/fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('../assets/fonts/EuroStyleNormal.woff') format('woff');
 }
 
 @font-face{
   font-family: 'Futura';
-  src:  url('/assets/fonts/FuturaLT.woff') format('woff2'),
-        url('/assets/fonts/FuturaLT.woff') format('woff');
+  src:  url('../assets/fonts/FuturaLT.woff') format('woff2'),
+        url('../assets/fonts/FuturaLT.woff') format('woff');
 }
 
 body {
@@ -104,7 +104,7 @@ p{
 }
 
 #milnort{
-    background-image: url('/images/1c-1.png');
+    background-image: url('../images/1c-1.png');
     background-size: cover;
 }
 
@@ -123,7 +123,7 @@ p{
   height: 300%;
   top: -50%;
   left: -50%;
-  background: url('/images/argo.svg') 0 0 repeat;
+  background: url('../images/argo.svg') 0 0 repeat;
   opacity: 0.2;
   transform: rotate(20deg);
   background-size: 10%;
